@@ -12,11 +12,29 @@ export type NoteCategory = (typeof NOTE_CATEGORIES)[number];
 export const REPORT_STATUSES = ["draft", "review", "filed"] as const;
 export type ReportStatus = (typeof REPORT_STATUSES)[number];
 
+export interface InkPoint {
+  x: number;
+  y: number;
+}
+
+export type InkKind = "pen" | "highlighter" | "pencil" | "eraser" | "underline";
+
+export interface InkStroke {
+  id: string;
+  tool: Exclude<InkKind, "eraser">;
+  color: string;
+  size: number;
+  points: InkPoint[];
+}
+
 export interface NotePage {
   id: string;
   text: string;
   pinned: boolean;
   starred: boolean;
+  italic?: boolean;
+  underline?: boolean;
+  ink?: InkStroke[];
 }
 
 export interface Note {

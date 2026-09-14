@@ -1,5 +1,6 @@
 "use client";
 
+import { InkMarks } from "@/components/folio/InkMarks";
 import { ReportLetterhead } from "@/components/reports/ReportLetterhead";
 import { formatLongDate, formatShortDate } from "@/lib/folio";
 import { hydrateReportPages, NOTEBOOK_LINES } from "@/lib/notebook-pages";
@@ -138,7 +139,10 @@ export function LinedPrintLeaf({
         {header}
         <div className="notebook-pad">
           <NotebookRules />
-          <div className="notebook-hand">{page.text}</div>
+          <div className={`notebook-hand${page.italic ? " is-italic" : ""}${page.underline ? " is-underline" : ""}`}>
+            {page.text}
+          </div>
+          <InkMarks strokes={page.ink ?? []} />
         </div>
         <footer className="mt-3 flex items-end justify-between border-t border-ink/10 pt-2 font-mono text-[10px] uppercase tracking-[0.16em] text-ink-soft">
           <span>{title}</span>

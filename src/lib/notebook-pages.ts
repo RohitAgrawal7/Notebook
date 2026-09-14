@@ -78,6 +78,9 @@ export function blankPage(): NotePage {
     text: "",
     pinned: false,
     starred: false,
+    italic: false,
+    underline: false,
+    ink: [],
   };
 }
 
@@ -149,5 +152,8 @@ function toNotePage(item: string | NotePage, noteId: string | undefined, index: 
     text: item.text ?? "",
     pinned: Boolean(item.pinned),
     starred: Boolean(item.starred),
+    italic: Boolean(item.italic),
+    underline: Boolean(item.underline),
+    ink: Array.isArray(item.ink) ? item.ink : [],
   };
 }

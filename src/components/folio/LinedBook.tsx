@@ -1,9 +1,12 @@
 "use client";
 
+import { InkCanvas } from "@/components/folio/InkCanvas";
+import { InkToolbar } from "@/components/folio/InkToolbar";
 import { NotebookRules } from "@/components/folio/LinedLeaf";
 import { useFolio } from "@/lib/folio-context";
+import { useInk } from "@/lib/ink-context";
 import { blankPage, NOTEBOOK_LINES, pagePreview, splitOverflow } from "@/lib/notebook-pages";
-import type { NotePage, SectionId } from "@/lib/types";
+import type { InkStroke, NotePage, SectionId } from "@/lib/types";
 import { useEffect, useLayoutEffect, useRef, useState, type ReactNode } from "react";
 
 export function LinedBook({
@@ -63,8 +66,10 @@ export function LinedBook({
   const [direction, setDirection] = useState<"next" | "prev">("next");
   const [confirmLeaf, setConfirmLeaf] = useState<number | null>(null);
   const areaRef = useRef<HTMLTextAreaElement>(null);
+  const pageIndexRef = useRef(0);
   const bookPinned = isPinned(bookId);
   const bookStarred = isStarred(bookId);
+  const { setTool } = useInk();
 
   useEffect(() => {
     setPageIndex(0);
@@ -150,7 +155,7 @@ export function LinedBook({
     const current = [...pagesRef.current];
     current[pageIndex] = { ...current[pageIndex], text };
     if (current.length <= 1) {
-      current[0] = { ...current[0], text: "", pinned: false, starred: false };
+      current[0] = { ...current[0], text: "", pinned: false, starred: false, italic: false, underline: false, ink: [] };
       persist(current);
       setText("");
       setPageIndex(0);
@@ -167,6 +172,8 @@ export function LinedBook({
 
   const pageCount = Math.max(pagesRef.current.length, 1);
   const safeIndex = Math.min(pageIndex, pageCount - 1);
+  pageIndexRef.current = safeIndex;
+  const currentPage = pagesRef.current[safeIndex];
   const ruled = paper === "ruled";
   const letter = paper === "letter";
   const sheetClass = ruled ? "notebook-sheet" : letter ? "letter-sheet" : "diary-sheet";
@@ -357,18 +364,39 @@ export function LinedBook({
                   {NOTEBOOK_LINES} lines
                 </span>
               ) : null}
+              {section === "notebook" ? (
+                <InkToolbar
+                  tone="paper"
+                  italic={Boolean(currentPage?.italic)}
+                  onItalic={() => {
+                    patchPage(safeIndex, { italic: !currentPage?.italic });
+                    setTool("write");
+                    requestAnimationFrame(() => areaRef.current?.focus());
+                  }}
+                />
+              ) : null}
             </div>
 
             <div className={ruled ? "notebook-pad" : "prose-pad"}>
               {ruled ? <NotebookRules /> : null}
               <textarea
                 ref={areaRef}
-                className={handClass}
+                className={`${handClass}${currentPage?.italic ? " is-italic" : ""}${currentPage?.underline ? " is-underline" : ""}`}
                 rows={NOTEBOOK_LINES}
                 spellCheck
                 value={text}
                 onChange={(event) => write(event.target.value)}
                 onKeyDown={(event) => {
+                  if ((event.metaKey || event.ctrlKey) && event.key === "i") {
+                    event.preventDefault();
+                    patchPage(safeIndex, { italic: !currentPage?.italic });
+                    return;
+                  }
+                  if ((event.metaKey || event.ctrlKey) && event.key === "u") {
+                    event.preventDefault();
+                    patchPage(safeIndex, { underline: !currentPage?.underline });
+                    return;
+                  }
                   if ((event.metaKey || event.ctrlKey) && event.key === "Enter") {
                     event.preventDefault();
                     addPage();
@@ -376,6 +404,17 @@ export function LinedBook({
                 }}
                 aria-label={`${title} page ${safeIndex + 1}`}
               />
+              {section === "notebook" ? (
+                <InkCanvas
+                  strokes={currentPage?.ink ?? []}
+                  onChange={(next: InkStroke[]) => {
+                    const index = pageIndexRef.current;
+                    const current = [...pagesRef.current];
+                    current[index] = { ...current[index], ink: next };
+                    persist(current);
+                  }}
+                />
+              ) : null}
             </div>
 
             {closing}

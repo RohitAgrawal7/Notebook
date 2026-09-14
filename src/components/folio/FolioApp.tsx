@@ -3,6 +3,7 @@
 import { Composer, ConfirmDialog } from "@/components/folio/Composer";
 import { PdfPrintRoot, PdfStudio } from "@/components/folio/PdfStudio";
 import { FolioProvider } from "@/lib/folio-context";
+import { InkProvider } from "@/lib/ink-context";
 import { parseSection } from "@/lib/folio";
 import { hrefFor, type AppRoute } from "@/lib/routes";
 import { RouterProvider, useRouter } from "@/lib/router";
@@ -35,11 +36,13 @@ function RoutedFolio() {
 
   return (
     <FolioProvider initialSection="notebook" initialPage={1} navigate={go}>
-      <AppRoutes route={route} />
-      <Composer />
-      <ConfirmDialog />
-      <PdfStudio />
-      <PdfPrintRoot />
+      <InkProvider>
+        <AppRoutes route={route} />
+        <Composer />
+        <ConfirmDialog />
+        <PdfStudio />
+        <PdfPrintRoot />
+      </InkProvider>
     </FolioProvider>
   );
 }
