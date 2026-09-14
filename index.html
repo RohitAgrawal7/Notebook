@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>The Folio — Notebook, Diary, Report Files</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              desk: "#1d120d",
+              leather: "#2b1810",
+              spine: "#22140e",
+              paper: "#f4ead6",
+              "paper-deep": "#eadcc0",
+              ink: "#2a2118",
+              "ink-soft": "#5c4e3f",
+              "margin-red": "#b55242",
+              gold: "#c4a06a",
+              manila: "#e6c27a",
+              stamp: "#8a2e24",
+            },
+            fontFamily: {
+              serif: ['"Iowan Old Style"', '"Palatino Linotype"', "Palatino", "serif"],
+              mono: ["ui-monospace", "SF Mono", "Menlo", "monospace"],
+              sans: ["ui-sans-serif", "system-ui", "sans-serif"],
+            },
+          },
+        },
+      };
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
