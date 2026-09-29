@@ -1,4 +1,4 @@
-<!doctype html>
+export const folioPage = `<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -41,3 +41,4 @@
     <script type="module" src="/app.js"></script>
   </body>
 </html>
+`;

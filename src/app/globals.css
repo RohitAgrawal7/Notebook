@@ -69,7 +69,6 @@ a:focus-visible {
 .desk-grain {
   padding-left: env(safe-area-inset-left);
   padding-right: env(safe-area-inset-right);
-}
   background-color: var(--desk);
   background-image:
     radial-gradient(ellipse at 50% 0%, rgba(196, 160, 106, 0.16), transparent 46%),

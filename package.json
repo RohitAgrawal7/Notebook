@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "node scripts/dev.mjs",
     "dev:vite": "vite --host localhost --port 3000",
-    "build": "esbuild src/main.tsx --bundle --outfile=dist/app.js --format=esm --jsx=automatic --alias:@=./src",
+    "build": "node scripts/build.mjs",
     "preview": "node scripts/dev.mjs"
   },
   "dependencies": {
