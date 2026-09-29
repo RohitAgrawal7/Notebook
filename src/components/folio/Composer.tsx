@@ -296,7 +296,7 @@ function Field({ label, children }: { label: string; children: ReactNode }) {
 
 function Actions({ onCancel, submitLabel = "File this leaf" }: { onCancel: () => void; submitLabel?: string }) {
   return (
-    <div className="flex justify-end gap-2 pt-2">
+    <div className="flex flex-col-reverse gap-2 pt-2 sm:flex-row sm:justify-end">
       <button type="button" className="folio-ghost" onClick={onCancel}>
         Cancel
       </button>

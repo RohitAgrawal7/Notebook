@@ -1,4 +1,5 @@
 import type { DiaryEntry, NotePage, ReportFile } from "./types";
+import { htmlToPlain } from "./rich-text";
 
 export const NOTEBOOK_LINES = 40;
 
@@ -10,8 +11,10 @@ type PageSource = {
 };
 
 export function pagePreview(text: string) {
-  const line = text.replace(/\s+/g, " ").trim();
-  return line ? line.slice(0, 64) : "Blank leaf";
+  const line = htmlToPlain(text).replace(/\s+/g, " ").trim();
+  if (line) return line.slice(0, 64);
+  if (/<img/i.test(text)) return "Image on this leaf";
+  return "Blank leaf";
 }
 
 export function pageText(page: string | NotePage) {
@@ -32,7 +35,7 @@ export function writingFromNote(note: PageSource) {
 }
 
 export function writingFromPages(pages: NotePage[]) {
-  return pages.map((page) => page.text).filter((text) => text.trim()).join("\n\n");
+  return pages.map((page) => htmlToPlain(page.text)).filter((text) => text.trim()).join("\n\n");
 }
 
 export function paragraphsFromPages(pages: NotePage[], empty = "(empty leaf)") {

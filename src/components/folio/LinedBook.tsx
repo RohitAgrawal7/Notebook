@@ -1,11 +1,13 @@
 "use client";
 
+import { FolioEditor } from "@/components/folio/FolioEditor";
 import { InkCanvas } from "@/components/folio/InkCanvas";
 import { InkToolbar } from "@/components/folio/InkToolbar";
 import { NotebookRules } from "@/components/folio/LinedLeaf";
+import { TypeToolbar } from "@/components/folio/TypeToolbar";
 import { useFolio } from "@/lib/folio-context";
-import { useInk } from "@/lib/ink-context";
-import { blankPage, NOTEBOOK_LINES, pagePreview, splitOverflow } from "@/lib/notebook-pages";
+import { blankPage, NOTEBOOK_LINES, pagePreview } from "@/lib/notebook-pages";
+import { htmlToPlain, splitOverflowHtml } from "@/lib/rich-text";
 import type { InkStroke, NotePage, SectionId } from "@/lib/types";
 import { useEffect, useLayoutEffect, useRef, useState, type ReactNode } from "react";
 
@@ -65,11 +67,11 @@ export function LinedBook({
   const [text, setText] = useState(() => pages[0]?.text ?? "");
   const [direction, setDirection] = useState<"next" | "prev">("next");
   const [confirmLeaf, setConfirmLeaf] = useState<number | null>(null);
-  const areaRef = useRef<HTMLTextAreaElement>(null);
+  const [contentsOpen, setContentsOpen] = useState(false);
+  const areaRef = useRef<HTMLDivElement>(null);
   const pageIndexRef = useRef(0);
   const bookPinned = isPinned(bookId);
   const bookStarred = isStarred(bookId);
-  const { setTool } = useInk();
 
   useEffect(() => {
     setPageIndex(0);
@@ -82,14 +84,10 @@ export function LinedBook({
     return () => setActiveLeafId(null);
   }, [bookId, pageIndex, setActiveLeafId]);
 
-  function fits(value: string) {
+  function fits() {
     const area = areaRef.current;
     if (!area || area.clientHeight < 24) return true;
-    const previous = area.value;
-    area.value = value;
-    const ok = area.scrollHeight <= area.clientHeight + 2;
-    area.value = previous;
-    return ok;
+    return area.scrollHeight <= area.clientHeight + 2;
   }
 
   function persist(nextPages: NotePage[]) {
@@ -102,13 +100,14 @@ export function LinedBook({
   function write(value: string) {
     const current = [...pagesRef.current];
     while (current.length <= pageIndex) current.push(blankPage());
-    if (!areaRef.current || fits(value)) {
+    const area = areaRef.current;
+    if (!area || fits()) {
       current[pageIndex] = { ...current[pageIndex], text: value };
       setText(value);
       persist(current);
       return;
     }
-    const { keep, rest } = splitOverflow(value, fits);
+    const { keep, rest } = splitOverflowHtml(area);
     current[pageIndex] = { ...current[pageIndex], text: keep };
     current.splice(pageIndex + 1, 0, { ...blankPage(), text: rest });
     persist(current);
@@ -120,13 +119,17 @@ export function LinedBook({
   useLayoutEffect(() => {
     const area = areaRef.current;
     if (!area) return;
-    if (fits(text)) return;
-    write(text);
+    if (fits()) return;
+    write(area.innerHTML);
   }, [pageIndex, bookId]);
+
+  function editorHtml() {
+    return areaRef.current?.innerHTML ?? text;
+  }
 
   function addPage() {
     const current = [...pagesRef.current];
-    current[pageIndex] = { ...current[pageIndex], text };
+    current[pageIndex] = { ...current[pageIndex], text: editorHtml() };
     current.splice(pageIndex + 1, 0, blankPage());
     persist(current);
     setDirection("next");
@@ -137,11 +140,12 @@ export function LinedBook({
 
   function goPage(next: number) {
     const current = [...pagesRef.current];
-    current[pageIndex] = { ...current[pageIndex], text };
+    current[pageIndex] = { ...current[pageIndex], text: editorHtml() };
     persist(current);
     setDirection(next > pageIndex ? "next" : "prev");
     setPageIndex(next);
     setText(current[next]?.text ?? "");
+    setContentsOpen(false);
     requestAnimationFrame(() => areaRef.current?.focus());
   }
 
@@ -153,7 +157,7 @@ export function LinedBook({
 
   function deletePage(index: number) {
     const current = [...pagesRef.current];
-    current[pageIndex] = { ...current[pageIndex], text };
+    current[pageIndex] = { ...current[pageIndex], text: editorHtml() };
     if (current.length <= 1) {
       current[0] = { ...current[0], text: "", pinned: false, starred: false, italic: false, underline: false, ink: [] };
       persist(current);
@@ -183,13 +187,29 @@ export function LinedBook({
   return (
     <div className="notebook-spread">
       <div className="notebook-index-slot no-print">
-        <aside className="notebook-index">
+        <aside className={`notebook-index${contentsOpen ? " is-open" : ""}`}>
           <div className="notebook-index-head">
-            <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-gold/70">{indexKicker}</p>
-            <h2 className="mt-1 font-serif text-lg leading-snug text-[#f6ead4]">{title}</h2>
-            <p className="mt-1 font-mono text-[10px] uppercase tracking-[0.14em] text-gold/55">
-              {pageCount} {pageCount === 1 ? unitSingular : unitPlural}
-            </p>
+            <div className="flex items-start justify-between gap-2">
+              <div className="min-w-0">
+                <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-gold/70">{indexKicker}</p>
+                <h2 className="mt-1 font-serif text-lg leading-snug text-[#f6ead4]">{title}</h2>
+                <p className="mt-1 font-mono text-[10px] uppercase tracking-[0.14em] text-gold/55">
+                  {pageCount} {pageCount === 1 ? unitSingular : unitPlural}
+                  <span className="notebook-current-chip">
+                    {" "}
+                    · {pagePrefix} {safeIndex + 1}
+                  </span>
+                </p>
+              </div>
+              <button
+                type="button"
+                className="notebook-contents-toggle folio-desk-btn shrink-0"
+                aria-expanded={contentsOpen}
+                onClick={() => setContentsOpen((open) => !open)}
+              >
+                {contentsOpen ? "Hide" : "Contents"}
+              </button>
+            </div>
             <div className="mt-3 flex flex-wrap gap-1.5">
               <IconAction
                 label={bookStarred ? "Unstar book" : "Star book"}
@@ -214,9 +234,10 @@ export function LinedBook({
             </div>
           </div>
 
+          <div className="notebook-index-extra">
           <div className="notebook-pdf-bar">
             <p className="font-mono text-[10px] uppercase tracking-[0.18em] text-gold/80">PDF</p>
-            <p className="mt-1 font-serif text-[13px] leading-5 text-[#f6ead4]/80">{pdfHint}</p>
+            <p className="notebook-pdf-hint mt-1 font-serif text-[13px] leading-5 text-[#f6ead4]/80">{pdfHint}</p>
             <p className="mt-2 font-mono text-[10px] uppercase tracking-[0.14em] text-gold/55">
               {pagesRef.current.filter((page) => isSelected(page.id)).length} marked in this book
             </p>
@@ -242,7 +263,7 @@ export function LinedBook({
                 active={selectedLeaves.length > 0 || selected.size > 0}
                 onClick={() => {
                   const current = [...pagesRef.current];
-                  current[pageIndex] = { ...current[pageIndex], text };
+                  current[pageIndex] = { ...current[pageIndex], text: editorHtml() };
                   persist(current);
                   setPdfOpen(true);
                 }}
@@ -318,7 +339,7 @@ export function LinedBook({
                           label="Delete page"
                           danger
                           onClick={() => {
-                            if (!page.text.trim() && !(index === safeIndex && text.trim())) {
+                            if (!htmlToPlain(page.text).trim() && !(index === safeIndex && htmlToPlain(text).trim()) && !/<img/i.test(page.text) && !/<img/i.test(text)) {
                               deletePage(index);
                               return;
                             }
@@ -334,6 +355,7 @@ export function LinedBook({
               );
             })}
           </ul>
+          </div>
         </aside>
       </div>
 
@@ -355,54 +377,31 @@ export function LinedBook({
           <div className={innerClass}>
             {header(safeIndex + 1, pageCount)}
 
-            <div className="mb-3 flex flex-wrap items-center gap-2 no-print">
-              <button type="button" className="folio-tiny" onClick={addPage}>
-                {addLabel}
-              </button>
-              {ruled ? (
-                <span className="font-mono text-[10px] uppercase tracking-[0.14em] text-ink-soft">
-                  {NOTEBOOK_LINES} lines
-                </span>
-              ) : null}
-              {section === "notebook" ? (
-                <InkToolbar
-                  tone="paper"
-                  italic={Boolean(currentPage?.italic)}
-                  onItalic={() => {
-                    patchPage(safeIndex, { italic: !currentPage?.italic });
-                    setTool("write");
-                    requestAnimationFrame(() => areaRef.current?.focus());
-                  }}
-                />
-              ) : null}
+            <div className="mb-3 flex flex-col gap-2 no-print paper-tools">
+              <div className="flex flex-wrap items-center gap-2">
+                <button type="button" className="folio-tiny" onClick={addPage}>
+                  {addLabel}
+                </button>
+                {ruled ? (
+                  <span className="font-mono text-[10px] uppercase tracking-[0.14em] text-ink-soft">
+                    {NOTEBOOK_LINES} lines
+                  </span>
+                ) : null}
+              </div>
+              <TypeToolbar section={section} tone="paper" onApplied={() => write(editorHtml())} />
+              {section === "notebook" ? <InkToolbar tone="paper" /> : null}
             </div>
 
             <div className={ruled ? "notebook-pad" : "prose-pad"}>
               {ruled ? <NotebookRules /> : null}
-              <textarea
-                ref={areaRef}
-                className={`${handClass}${currentPage?.italic ? " is-italic" : ""}${currentPage?.underline ? " is-underline" : ""}`}
-                rows={NOTEBOOK_LINES}
-                spellCheck
-                value={text}
-                onChange={(event) => write(event.target.value)}
-                onKeyDown={(event) => {
-                  if ((event.metaKey || event.ctrlKey) && event.key === "i") {
-                    event.preventDefault();
-                    patchPage(safeIndex, { italic: !currentPage?.italic });
-                    return;
-                  }
-                  if ((event.metaKey || event.ctrlKey) && event.key === "u") {
-                    event.preventDefault();
-                    patchPage(safeIndex, { underline: !currentPage?.underline });
-                    return;
-                  }
-                  if ((event.metaKey || event.ctrlKey) && event.key === "Enter") {
-                    event.preventDefault();
-                    addPage();
-                  }
-                }}
-                aria-label={`${title} page ${safeIndex + 1}`}
+              <FolioEditor
+                key={currentPage?.id ?? bookId}
+                html={text}
+                editorRef={areaRef}
+                className={`${handClass} folio-editor`}
+                ariaLabel={`${title} page ${safeIndex + 1}`}
+                onChange={write}
+                onSubmitPage={addPage}
               />
               {section === "notebook" ? (
                 <InkCanvas
@@ -419,29 +418,29 @@ export function LinedBook({
 
             {closing}
 
-            <nav className="mt-4 flex items-center justify-between gap-3 font-mono text-[10px] uppercase tracking-[0.16em] text-ink-soft">
+            <nav className="mt-4 flex items-center justify-between gap-2 font-mono text-[10px] uppercase tracking-[0.16em] text-ink-soft sm:gap-3">
               <button
                 type="button"
-                className="folio-tiny"
+                className="folio-tiny min-h-10"
                 onClick={() => goPage(safeIndex - 1)}
                 disabled={safeIndex <= 0}
               >
-                ◀ Previous {unitSingular}
+                ◀ <span className="hidden sm:inline">Previous {unitSingular}</span>
               </button>
               <span>
                 {pagePrefix} {safeIndex + 1} / {pageCount}
               </span>
               <button
                 type="button"
-                className="folio-tiny"
+                className="folio-tiny min-h-10"
                 onClick={() => {
                   if (safeIndex >= pageCount - 1) addPage();
                   else goPage(safeIndex + 1);
                 }}
               >
                 {safeIndex >= pageCount - 1
-                  ? `Next ${unitSingular} · new`
-                  : `Next ${unitSingular} ▶`}
+                  ? <><span className="hidden sm:inline">Next {unitSingular} · </span>new</>
+                  : <>Next<span className="hidden sm:inline"> {unitSingular}</span> ▶</>}
               </button>
             </nav>
           </div>
@@ -473,7 +472,7 @@ function IconAction({
         event.stopPropagation();
         onClick();
       }}
-      className={`rounded-sm border px-1.5 py-0.5 font-mono text-[9px] uppercase tracking-[0.12em] ${
+      className={`icon-action rounded-sm border px-1.5 py-0.5 font-mono text-[9px] uppercase tracking-[0.12em] ${
         danger
           ? "border-stamp/40 text-[#e8b4a8] hover:border-stamp"
           : active

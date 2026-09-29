@@ -5,6 +5,7 @@ import { ReportLetterhead } from "@/components/reports/ReportLetterhead";
 import { formatLongDate, formatShortDate } from "@/lib/folio";
 import { hydrateReportPages, NOTEBOOK_LINES } from "@/lib/notebook-pages";
 import { collectReportHeadings, isReportHeading } from "@/lib/reports";
+import { looksLikeHtml, sanitizeHtml } from "@/lib/rich-text";
 import type { DiaryEntry, Note, NotePage, ReportFile } from "@/lib/types";
 import type { ReactNode } from "react";
 
@@ -139,9 +140,10 @@ export function LinedPrintLeaf({
         {header}
         <div className="notebook-pad">
           <NotebookRules />
-          <div className={`notebook-hand${page.italic ? " is-italic" : ""}${page.underline ? " is-underline" : ""}`}>
-            {page.text}
-          </div>
+          <div
+            className={`notebook-hand folio-editor${page.italic ? " is-italic" : ""}${page.underline ? " is-underline" : ""}`}
+            dangerouslySetInnerHTML={{ __html: sanitizeHtml(page.text) }}
+          />
           <InkMarks strokes={page.ink ?? []} />
         </div>
         <footer className="mt-3 flex items-end justify-between border-t border-ink/10 pt-2 font-mono text-[10px] uppercase tracking-[0.16em] text-ink-soft">
@@ -202,7 +204,7 @@ export function DiaryPrintLeaf({
         {entry.mood} · {entry.place}
       </p>
       <div className="mt-5 max-w-prose">
-        <ProseParagraphs text={page.text} dropCap={leafNumber === 1} className="font-serif text-[17.5px] leading-[1.85]" />
+        <RichCopy text={page.text} dropCap={leafNumber === 1} className="font-serif text-[17.5px] leading-[1.85]" />
       </div>
       <footer className="mt-10 flex items-end justify-between font-mono text-[10px] uppercase tracking-[0.16em] text-ink-soft">
         <span>
@@ -240,7 +242,11 @@ export function ReportPrintLeaf({
         headings={headings}
       />
       <div className="mt-6">
-        <ReportParagraphs text={page.text} />
+        {looksLikeHtml(page.text) ? (
+          <div className="folio-editor font-serif text-[16.5px] leading-[1.8]" dangerouslySetInnerHTML={{ __html: sanitizeHtml(page.text) }} />
+        ) : (
+          <ReportParagraphs text={page.text} />
+        )}
       </div>
       <footer className="mt-10 flex items-end justify-between font-mono text-[10px] uppercase tracking-[0.14em] text-ink-soft">
         <span>
@@ -252,6 +258,26 @@ export function ReportPrintLeaf({
       </footer>
     </article>
   );
+}
+
+function RichCopy({
+  text,
+  dropCap = false,
+  className,
+}: {
+  text: string;
+  dropCap?: boolean;
+  className: string;
+}) {
+  if (looksLikeHtml(text)) {
+    return (
+      <div
+        className={`folio-editor ${className} ${dropCap ? "drop-cap" : ""}`}
+        dangerouslySetInnerHTML={{ __html: sanitizeHtml(text) }}
+      />
+    );
+  }
+  return <ProseParagraphs text={text} dropCap={dropCap} className={className} />;
 }
 
 function ProseParagraphs({

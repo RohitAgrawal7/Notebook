@@ -1368,8 +1368,8 @@ var require_react_dom_development = __commonJS({
           );
         }
       };
-      exports.preconnect = function(href, options) {
-        "string" === typeof href && href ? null != options && "object" !== typeof options ? console.error(
+      exports.preconnect = function(href2, options) {
+        "string" === typeof href2 && href2 ? null != options && "object" !== typeof options ? console.error(
           "ReactDOM.preconnect(): Expected the `options` argument (second) to be an object but encountered %s instead. The only supported option at this time is `crossOrigin` which accepts a string.",
           getValueDescriptorExpectingEnumForWarning(options)
         ) : null != options && "string" !== typeof options.crossOrigin && console.error(
@@ -1377,15 +1377,15 @@ var require_react_dom_development = __commonJS({
           getValueDescriptorExpectingObjectForWarning(options.crossOrigin)
         ) : console.error(
           "ReactDOM.preconnect(): Expected the `href` argument (first) to be a non-empty string but encountered %s instead.",
-          getValueDescriptorExpectingObjectForWarning(href)
+          getValueDescriptorExpectingObjectForWarning(href2)
         );
-        "string" === typeof href && (options ? (options = options.crossOrigin, options = "string" === typeof options ? "use-credentials" === options ? options : "" : void 0) : options = null, Internals.d.C(href, options));
+        "string" === typeof href2 && (options ? (options = options.crossOrigin, options = "string" === typeof options ? "use-credentials" === options ? options : "" : void 0) : options = null, Internals.d.C(href2, options));
       };
-      exports.prefetchDNS = function(href) {
-        if ("string" !== typeof href || !href)
+      exports.prefetchDNS = function(href2) {
+        if ("string" !== typeof href2 || !href2)
           console.error(
             "ReactDOM.prefetchDNS(): Expected the `href` argument (first) to be a non-empty string but encountered %s instead.",
-            getValueDescriptorExpectingObjectForWarning(href)
+            getValueDescriptorExpectingObjectForWarning(href2)
           );
         else if (1 < arguments.length) {
           var options = arguments[1];
@@ -1397,10 +1397,10 @@ var require_react_dom_development = __commonJS({
             getValueDescriptorExpectingEnumForWarning(options)
           );
         }
-        "string" === typeof href && Internals.d.D(href);
+        "string" === typeof href2 && Internals.d.D(href2);
       };
-      exports.preinit = function(href, options) {
-        "string" === typeof href && href ? null == options || "object" !== typeof options ? console.error(
+      exports.preinit = function(href2, options) {
+        "string" === typeof href2 && href2 ? null == options || "object" !== typeof options ? console.error(
           "ReactDOM.preinit(): Expected the `options` argument (second) to be an object with an `as` property describing the type of resource to be preinitialized but encountered %s instead.",
           getValueDescriptorExpectingEnumForWarning(options)
         ) : "style" !== options.as && "script" !== options.as && console.error(
@@ -1408,19 +1408,19 @@ var require_react_dom_development = __commonJS({
           getValueDescriptorExpectingEnumForWarning(options.as)
         ) : console.error(
           "ReactDOM.preinit(): Expected the `href` argument (first) to be a non-empty string but encountered %s instead.",
-          getValueDescriptorExpectingObjectForWarning(href)
+          getValueDescriptorExpectingObjectForWarning(href2)
         );
-        if ("string" === typeof href && options && "string" === typeof options.as) {
+        if ("string" === typeof href2 && options && "string" === typeof options.as) {
           var as = options.as, crossOrigin = getCrossOriginStringAs(as, options.crossOrigin), integrity = "string" === typeof options.integrity ? options.integrity : void 0, fetchPriority = "string" === typeof options.fetchPriority ? options.fetchPriority : void 0;
           "style" === as ? Internals.d.S(
-            href,
+            href2,
             "string" === typeof options.precedence ? options.precedence : void 0,
             {
               crossOrigin,
               integrity,
               fetchPriority
             }
-          ) : "script" === as && Internals.d.X(href, {
+          ) : "script" === as && Internals.d.X(href2, {
             crossOrigin,
             integrity,
             fetchPriority,
@@ -1428,9 +1428,9 @@ var require_react_dom_development = __commonJS({
           });
         }
       };
-      exports.preinitModule = function(href, options) {
+      exports.preinitModule = function(href2, options) {
         var encountered = "";
-        "string" === typeof href && href || (encountered += " The `href` argument encountered was " + getValueDescriptorExpectingObjectForWarning(href) + ".");
+        "string" === typeof href2 && href2 || (encountered += " The `href` argument encountered was " + getValueDescriptorExpectingObjectForWarning(href2) + ".");
         void 0 !== options && "object" !== typeof options ? encountered += " The `options` argument encountered was " + getValueDescriptorExpectingObjectForWarning(options) + "." : options && "as" in options && "script" !== options.as && (encountered += " The `as` option encountered was " + getValueDescriptorExpectingEnumForWarning(options.as) + ".");
         if (encountered)
           console.error(
@@ -1445,37 +1445,37 @@ var require_react_dom_development = __commonJS({
               encountered = getValueDescriptorExpectingEnumForWarning(encountered), console.error(
                 'ReactDOM.preinitModule(): Currently the only supported "as" type for this function is "script" but received "%s" instead. This warning was generated for `href` "%s". In the future other module types will be supported, aligning with the import-attributes proposal. Learn more here: (https://github.com/tc39/proposal-import-attributes)',
                 encountered,
-                href
+                href2
               );
           }
-        if ("string" === typeof href)
+        if ("string" === typeof href2)
           if ("object" === typeof options && null !== options) {
             if (null == options.as || "script" === options.as)
               encountered = getCrossOriginStringAs(
                 options.as,
                 options.crossOrigin
-              ), Internals.d.M(href, {
+              ), Internals.d.M(href2, {
                 crossOrigin: encountered,
                 integrity: "string" === typeof options.integrity ? options.integrity : void 0,
                 nonce: "string" === typeof options.nonce ? options.nonce : void 0
               });
-          } else null == options && Internals.d.M(href);
+          } else null == options && Internals.d.M(href2);
       };
-      exports.preload = function(href, options) {
+      exports.preload = function(href2, options) {
         var encountered = "";
-        "string" === typeof href && href || (encountered += " The `href` argument encountered was " + getValueDescriptorExpectingObjectForWarning(href) + ".");
+        "string" === typeof href2 && href2 || (encountered += " The `href` argument encountered was " + getValueDescriptorExpectingObjectForWarning(href2) + ".");
         null == options || "object" !== typeof options ? encountered += " The `options` argument encountered was " + getValueDescriptorExpectingObjectForWarning(options) + "." : "string" === typeof options.as && options.as || (encountered += " The `as` option encountered was " + getValueDescriptorExpectingObjectForWarning(options.as) + ".");
         encountered && console.error(
           'ReactDOM.preload(): Expected two arguments, a non-empty `href` string and an `options` object with an `as` property valid for a `<link rel="preload" as="..." />` tag.%s',
           encountered
         );
-        if ("string" === typeof href && "object" === typeof options && null !== options && "string" === typeof options.as) {
+        if ("string" === typeof href2 && "object" === typeof options && null !== options && "string" === typeof options.as) {
           encountered = options.as;
           var crossOrigin = getCrossOriginStringAs(
             encountered,
             options.crossOrigin
           );
-          Internals.d.L(href, encountered, {
+          Internals.d.L(href2, encountered, {
             crossOrigin,
             integrity: "string" === typeof options.integrity ? options.integrity : void 0,
             nonce: "string" === typeof options.nonce ? options.nonce : void 0,
@@ -1488,22 +1488,22 @@ var require_react_dom_development = __commonJS({
           });
         }
       };
-      exports.preloadModule = function(href, options) {
+      exports.preloadModule = function(href2, options) {
         var encountered = "";
-        "string" === typeof href && href || (encountered += " The `href` argument encountered was " + getValueDescriptorExpectingObjectForWarning(href) + ".");
+        "string" === typeof href2 && href2 || (encountered += " The `href` argument encountered was " + getValueDescriptorExpectingObjectForWarning(href2) + ".");
         void 0 !== options && "object" !== typeof options ? encountered += " The `options` argument encountered was " + getValueDescriptorExpectingObjectForWarning(options) + "." : options && "as" in options && "string" !== typeof options.as && (encountered += " The `as` option encountered was " + getValueDescriptorExpectingObjectForWarning(options.as) + ".");
         encountered && console.error(
           'ReactDOM.preloadModule(): Expected two arguments, a non-empty `href` string and, optionally, an `options` object with an `as` property valid for a `<link rel="modulepreload" as="..." />` tag.%s',
           encountered
         );
-        "string" === typeof href && (options ? (encountered = getCrossOriginStringAs(
+        "string" === typeof href2 && (options ? (encountered = getCrossOriginStringAs(
           options.as,
           options.crossOrigin
-        ), Internals.d.m(href, {
+        ), Internals.d.m(href2, {
           as: "string" === typeof options.as && "script" !== options.as ? options.as : void 0,
           crossOrigin: encountered,
           integrity: "string" === typeof options.integrity ? options.integrity : void 0
-        })) : Internals.d.m(href));
+        })) : Internals.d.m(href2));
       };
       exports.requestFormReset = function(form) {
         Internals.d.r(form);
@@ -17481,13 +17481,13 @@ var require_react_dom_client_development = __commonJS({
       function getHoistableRoot(container) {
         return "function" === typeof container.getRootNode ? container.getRootNode() : 9 === container.nodeType ? container : container.ownerDocument;
       }
-      function preconnectAs(rel, href, crossOrigin) {
+      function preconnectAs(rel, href2, crossOrigin) {
         var ownerDocument = globalDocument;
-        if (ownerDocument && "string" === typeof href && href) {
-          var limitedEscapedHref = escapeSelectorAttributeValueInsideDoubleQuotes(href);
+        if (ownerDocument && "string" === typeof href2 && href2) {
+          var limitedEscapedHref = escapeSelectorAttributeValueInsideDoubleQuotes(href2);
           limitedEscapedHref = 'link[rel="' + rel + '"][href="' + limitedEscapedHref + '"]';
           "string" === typeof crossOrigin && (limitedEscapedHref += '[crossorigin="' + crossOrigin + '"]');
-          preconnectsSet.has(limitedEscapedHref) || (preconnectsSet.add(limitedEscapedHref), rel = { rel, crossOrigin, href }, null === ownerDocument.querySelector(limitedEscapedHref) && (href = ownerDocument.createElement("link"), setInitialProperties(href, "link", rel), markNodeAsHoistable(href), ownerDocument.head.appendChild(href)));
+          preconnectsSet.has(limitedEscapedHref) || (preconnectsSet.add(limitedEscapedHref), rel = { rel, crossOrigin, href: href2 }, null === ownerDocument.querySelector(limitedEscapedHref) && (href2 = ownerDocument.createElement("link"), setInitialProperties(href2, "link", rel), markNodeAsHoistable(href2), ownerDocument.head.appendChild(href2)));
         }
       }
       function getResource(type, currentProps, pendingProps, currentResource) {
@@ -17569,8 +17569,8 @@ var require_react_dom_client_development = __commonJS({
         Object.getOwnPropertyNames(props).length > describedProps && (description += " ...");
         return description + " />";
       }
-      function getStyleKey(href) {
-        return 'href="' + escapeSelectorAttributeValueInsideDoubleQuotes(href) + '"';
+      function getStyleKey(href2) {
+        return 'href="' + escapeSelectorAttributeValueInsideDoubleQuotes(href2) + '"';
       }
       function getStylesheetSelectorFromKey(key) {
         return 'link[rel="stylesheet"][' + key + "]";
@@ -21055,49 +21055,49 @@ var require_react_dom_client_development = __commonJS({
           var formInst = getInstanceFromNode(form);
           null !== formInst && 5 === formInst.tag && "form" === formInst.type ? requestFormReset$1(formInst) : previousDispatcher.r(form);
         },
-        D: function(href) {
-          previousDispatcher.D(href);
-          preconnectAs("dns-prefetch", href, null);
+        D: function(href2) {
+          previousDispatcher.D(href2);
+          preconnectAs("dns-prefetch", href2, null);
         },
-        C: function(href, crossOrigin) {
-          previousDispatcher.C(href, crossOrigin);
-          preconnectAs("preconnect", href, crossOrigin);
+        C: function(href2, crossOrigin) {
+          previousDispatcher.C(href2, crossOrigin);
+          preconnectAs("preconnect", href2, crossOrigin);
         },
-        L: function(href, as, options) {
-          previousDispatcher.L(href, as, options);
+        L: function(href2, as, options) {
+          previousDispatcher.L(href2, as, options);
           var ownerDocument = globalDocument;
-          if (ownerDocument && href && as) {
+          if (ownerDocument && href2 && as) {
             var preloadSelector = 'link[rel="preload"][as="' + escapeSelectorAttributeValueInsideDoubleQuotes(as) + '"]';
             "image" === as ? options && options.imageSrcSet ? (preloadSelector += '[imagesrcset="' + escapeSelectorAttributeValueInsideDoubleQuotes(
               options.imageSrcSet
             ) + '"]', "string" === typeof options.imageSizes && (preloadSelector += '[imagesizes="' + escapeSelectorAttributeValueInsideDoubleQuotes(
               options.imageSizes
-            ) + '"]')) : preloadSelector += '[href="' + escapeSelectorAttributeValueInsideDoubleQuotes(href) + '"]' : preloadSelector += '[href="' + escapeSelectorAttributeValueInsideDoubleQuotes(href) + '"]';
+            ) + '"]')) : preloadSelector += '[href="' + escapeSelectorAttributeValueInsideDoubleQuotes(href2) + '"]' : preloadSelector += '[href="' + escapeSelectorAttributeValueInsideDoubleQuotes(href2) + '"]';
             var key = preloadSelector;
             switch (as) {
               case "style":
-                key = getStyleKey(href);
+                key = getStyleKey(href2);
                 break;
               case "script":
-                key = getScriptKey(href);
+                key = getScriptKey(href2);
             }
-            preloadPropsMap.has(key) || (href = assign(
+            preloadPropsMap.has(key) || (href2 = assign(
               {
                 rel: "preload",
-                href: "image" === as && options && options.imageSrcSet ? void 0 : href,
+                href: "image" === as && options && options.imageSrcSet ? void 0 : href2,
                 as
               },
               options
-            ), preloadPropsMap.set(key, href), null !== ownerDocument.querySelector(preloadSelector) || "style" === as && ownerDocument.querySelector(
+            ), preloadPropsMap.set(key, href2), null !== ownerDocument.querySelector(preloadSelector) || "style" === as && ownerDocument.querySelector(
               getStylesheetSelectorFromKey(key)
-            ) || "script" === as && ownerDocument.querySelector(getScriptSelectorFromKey(key)) || (as = ownerDocument.createElement("link"), setInitialProperties(as, "link", href), markNodeAsHoistable(as), ownerDocument.head.appendChild(as)));
+            ) || "script" === as && ownerDocument.querySelector(getScriptSelectorFromKey(key)) || (as = ownerDocument.createElement("link"), setInitialProperties(as, "link", href2), markNodeAsHoistable(as), ownerDocument.head.appendChild(as)));
           }
         },
-        m: function(href, options) {
-          previousDispatcher.m(href, options);
+        m: function(href2, options) {
+          previousDispatcher.m(href2, options);
           var ownerDocument = globalDocument;
-          if (ownerDocument && href) {
-            var as = options && "string" === typeof options.as ? options.as : "script", preloadSelector = 'link[rel="modulepreload"][as="' + escapeSelectorAttributeValueInsideDoubleQuotes(as) + '"][href="' + escapeSelectorAttributeValueInsideDoubleQuotes(href) + '"]', key = preloadSelector;
+          if (ownerDocument && href2) {
+            var as = options && "string" === typeof options.as ? options.as : "script", preloadSelector = 'link[rel="modulepreload"][as="' + escapeSelectorAttributeValueInsideDoubleQuotes(as) + '"][href="' + escapeSelectorAttributeValueInsideDoubleQuotes(href2) + '"]', key = preloadSelector;
             switch (as) {
               case "audioworklet":
               case "paintworklet":
@@ -21105,9 +21105,9 @@ var require_react_dom_client_development = __commonJS({
               case "sharedworker":
               case "worker":
               case "script":
-                key = getScriptKey(href);
+                key = getScriptKey(href2);
             }
-            if (!preloadPropsMap.has(key) && (href = assign({ rel: "modulepreload", href }, options), preloadPropsMap.set(key, href), null === ownerDocument.querySelector(preloadSelector))) {
+            if (!preloadPropsMap.has(key) && (href2 = assign({ rel: "modulepreload", href: href2 }, options), preloadPropsMap.set(key, href2), null === ownerDocument.querySelector(preloadSelector))) {
               switch (as) {
                 case "audioworklet":
                 case "paintworklet":
@@ -21119,7 +21119,7 @@ var require_react_dom_client_development = __commonJS({
                     return;
               }
               as = ownerDocument.createElement("link");
-              setInitialProperties(as, "link", href);
+              setInitialProperties(as, "link", href2);
               markNodeAsHoistable(as);
               ownerDocument.head.appendChild(as);
             }
@@ -21140,11 +21140,11 @@ var require_react_dom_client_development = __commonJS({
             }, scripts.set(key, resource));
           }
         },
-        S: function(href, precedence, options) {
-          previousDispatcher.S(href, precedence, options);
+        S: function(href2, precedence, options) {
+          previousDispatcher.S(href2, precedence, options);
           var ownerDocument = globalDocument;
-          if (ownerDocument && href) {
-            var styles = getResourcesFromRoot(ownerDocument).hoistableStyles, key = getStyleKey(href);
+          if (ownerDocument && href2) {
+            var styles = getResourcesFromRoot(ownerDocument).hoistableStyles, key = getStyleKey(href2);
             precedence = precedence || "default";
             var resource = styles.get(key);
             if (!resource) {
@@ -21154,18 +21154,18 @@ var require_react_dom_client_development = __commonJS({
               ))
                 state.loading = Loaded | Inserted;
               else {
-                href = assign(
+                href2 = assign(
                   {
                     rel: "stylesheet",
-                    href,
+                    href: href2,
                     "data-precedence": precedence
                   },
                   options
                 );
-                (options = preloadPropsMap.get(key)) && adoptPreloadPropsForStylesheet(href, options);
+                (options = preloadPropsMap.get(key)) && adoptPreloadPropsForStylesheet(href2, options);
                 var link = resource = ownerDocument.createElement("link");
                 markNodeAsHoistable(link);
-                setInitialProperties(link, "link", href);
+                setInitialProperties(link, "link", href2);
                 link._p = new Promise(function(resolve, reject) {
                   link.onload = resolve;
                   link.onerror = reject;
@@ -21718,7 +21718,7 @@ var require_jsx_runtime = __commonJS({
 });
 
 // src/main.tsx
-var import_react5 = __toESM(require_react(), 1);
+var import_react17 = __toESM(require_react(), 1);
 var import_client = __toESM(require_client(), 1);
 
 // src/lib/folio-context.tsx
@@ -22031,11 +22031,6 @@ function parseSection(value) {
   const raw = Array.isArray(value) ? value[0] : value;
   return isSectionId(raw) ? raw : "notebook";
 }
-function parsePage(value) {
-  const raw = Array.isArray(value) ? value[0] : value;
-  const page = Number.parseInt(raw ?? "1", 10);
-  return Number.isFinite(page) && page > 0 ? page : 1;
-}
 function formatLongDate(isoDate) {
   return new Intl.DateTimeFormat("en-GB", {
     day: "numeric",
@@ -22057,6 +22052,470 @@ function formatDeskNow() {
     month: "long",
     year: "numeric"
   }).format(/* @__PURE__ */ new Date());
+}
+
+// src/lib/rich-text.ts
+var TEXT_COLORS = [
+  { id: "ink", label: "Ink", value: "#2a2118" },
+  { id: "red", label: "Red", value: "#c43c2c" },
+  { id: "green", label: "Green", value: "#2d6a45" },
+  { id: "navy", label: "Navy", value: "#1e4d8c" },
+  { id: "gold", label: "Gold", value: "#8a6a32" }
+];
+var HIGHLIGHT_TINTS = [
+  { id: "yellow", label: "Yellow", value: "#f5d76e" },
+  { id: "green", label: "Green", value: "#9ee6b0" },
+  { id: "pink", label: "Pink", value: "#f4a6c8" },
+  { id: "blue", label: "Blue", value: "#9ec9f0" },
+  { id: "amber", label: "Amber", value: "#f3c77a" }
+];
+var PAGE_FONTS = [
+  { id: "leaf", label: "Leaf", section: "notebook", stack: '"Palatino Linotype", Palatino, "Iowan Old Style", "Book Antiqua", serif' },
+  { id: "ruled", label: "Ruled", section: "notebook", stack: '"Iowan Old Style", Palatino, Georgia, serif' },
+  { id: "field", label: "Field", section: "notebook", stack: '"American Typewriter", "Courier New", ui-monospace, monospace' },
+  { id: "margin", label: "Margin", section: "notebook", stack: 'Menlo, Monaco, Consolas, "Courier New", monospace' },
+  { id: "sketch", label: "Sketch", section: "notebook", stack: 'Noteworthy, "Segoe Script", "Comic Sans MS", cursive' },
+  { id: "journal", label: "Journal", section: "diary", stack: 'Georgia, "Iowan Old Style", serif' },
+  { id: "letter", label: "Letter", section: "diary", stack: '"Hoefler Text", Palatino, Georgia, serif' },
+  { id: "quiet", label: "Quiet", section: "diary", stack: 'Baskerville, "Times New Roman", serif' },
+  { id: "day", label: "Day", section: "diary", stack: 'Garamond, "Palatino Linotype", Palatino, serif' },
+  { id: "hand", label: "Hand", section: "diary", stack: '"Snell Roundhand", "Segoe Script", "Apple Chancery", cursive' },
+  { id: "record", label: "Record", section: "reports", stack: '"Times New Roman", Times, serif' },
+  { id: "filing", label: "Filing", section: "reports", stack: 'Cambria, Georgia, "Times New Roman", serif' },
+  { id: "brief", label: "Brief", section: "reports", stack: '"Helvetica Neue", Helvetica, Arial, sans-serif' },
+  { id: "office", label: "Office", section: "reports", stack: "Calibri, Candara, Arial, sans-serif" },
+  { id: "statement", label: "Statement", section: "reports", stack: 'Didot, "Bodoni MT", "Times New Roman", serif' }
+];
+var SECTION_FONT_LABEL = {
+  notebook: "Notebook",
+  diary: "Diary",
+  reports: "Report"
+};
+function fontGroups(section) {
+  const order = section ? [section, ...["notebook", "diary", "reports"].filter((item) => item !== section)] : ["notebook", "diary", "reports"];
+  return order.map((id) => ({
+    id,
+    label: SECTION_FONT_LABEL[id],
+    fonts: PAGE_FONTS.filter((font) => font.section === id)
+  }));
+}
+function fontById(id) {
+  return PAGE_FONTS.find((font) => font.id === id);
+}
+var savedRange = null;
+function htmlToPlain(source) {
+  if (!source) return "";
+  if (!looksLikeHtml(source)) return source;
+  return source.replace(/<br\s*\/?>/gi, "\n").replace(/<\/(div|p)>/gi, "\n").replace(/<img[^>]*>/gi, " [image] ").replace(/<[^>]+>/g, "").replace(/&nbsp;/g, " ").replace(/&amp;/g, "&").replace(/&lt;/g, "<").replace(/&gt;/g, ">").replace(/\s+\n/g, "\n").trim();
+}
+function looksLikeHtml(source) {
+  return /<\/?[a-z][\s\S]*>/i.test(source);
+}
+function folioEditor() {
+  const active = document.activeElement;
+  if (active instanceof HTMLElement && active.isContentEditable && active.classList.contains("folio-editor")) {
+    return active;
+  }
+  const node = document.querySelector(".folio-editor[contenteditable]");
+  return node instanceof HTMLElement ? node : null;
+}
+function rememberSelection() {
+  const selection = document.getSelection();
+  if (!selection || selection.rangeCount === 0) return;
+  const range = selection.getRangeAt(0);
+  const editor = folioEditor();
+  if (editor && editor.contains(range.commonAncestorContainer)) {
+    savedRange = range.cloneRange();
+  }
+}
+function restoreSelection() {
+  const editor = folioEditor();
+  const selection = document.getSelection();
+  const live = Boolean(editor) && document.activeElement === editor && Boolean(selection && selection.rangeCount > 0 && editor?.contains(selection.anchorNode));
+  if (live) return;
+  editor?.focus();
+  if (!savedRange || !selection) return;
+  selection.removeAllRanges();
+  try {
+    selection.addRange(savedRange);
+  } catch {
+    savedRange = null;
+  }
+}
+function applyRich(command, value) {
+  restoreSelection();
+  const editor = folioEditor();
+  if (!editor) return false;
+  editor.focus();
+  document.execCommand("styleWithCSS", false, "true");
+  const ok = document.execCommand(command, false, value ?? "");
+  pingEditor(editor);
+  rememberSelection();
+  return ok;
+}
+function applyColor(color) {
+  const ok = applyRich("foreColor", color);
+  if (!ok) wrapSelection({ color });
+  return true;
+}
+function applyHighlight(color) {
+  restoreSelection();
+  const editor = folioEditor();
+  if (!editor) return false;
+  editor.focus();
+  document.execCommand("styleWithCSS", false, "true");
+  const painted = document.execCommand("hiliteColor", false, color) || document.execCommand("backColor", false, color);
+  if (!painted) wrapSelection({ backgroundColor: color });
+  pingEditor(editor);
+  rememberSelection();
+  return true;
+}
+function applyFont(family, stack) {
+  restoreSelection();
+  const editor = folioEditor();
+  if (!editor) return false;
+  editor.focus();
+  wrapSelection({ fontFamily: stack || family });
+  pingEditor(editor);
+  rememberSelection();
+  return true;
+}
+function insertHtml(html) {
+  restoreSelection();
+  const editor = folioEditor();
+  if (!editor) return;
+  editor.focus();
+  document.execCommand("styleWithCSS", false, "true");
+  const ok = document.execCommand("insertHTML", false, html);
+  if (!ok) {
+    const selection = document.getSelection();
+    if (selection && selection.rangeCount > 0) {
+      const range = selection.getRangeAt(0);
+      range.deleteContents();
+      const holder = document.createElement("div");
+      holder.innerHTML = html;
+      const fragment = document.createDocumentFragment();
+      while (holder.firstChild) fragment.appendChild(holder.firstChild);
+      range.insertNode(fragment);
+    } else {
+      editor.insertAdjacentHTML("beforeend", html);
+    }
+  }
+  pingEditor(editor);
+  rememberSelection();
+}
+function sanitizeHtml(dirty) {
+  if (!dirty) return "";
+  if (!looksLikeHtml(dirty)) return escapeText(dirty).replace(/\n/g, "<br>");
+  const root = document.createElement("div");
+  root.innerHTML = dirty;
+  cleanNode(root);
+  return root.innerHTML;
+}
+function escapeText(value) {
+  return value.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+}
+async function imageToDataUrl(file) {
+  const bitmap = await blobToImage(file);
+  const max = 720;
+  const scale = Math.min(1, max / Math.max(bitmap.width, bitmap.height, 1));
+  const canvas = document.createElement("canvas");
+  canvas.width = Math.max(1, Math.round(bitmap.width * scale));
+  canvas.height = Math.max(1, Math.round(bitmap.height * scale));
+  const ctx = canvas.getContext("2d");
+  if (!ctx) return "";
+  ctx.drawImage(bitmap, 0, 0, canvas.width, canvas.height);
+  return canvas.toDataURL("image/jpeg", 0.72);
+}
+function splitOverflowHtml(el) {
+  if (el.scrollHeight <= el.clientHeight + 2) {
+    return { keep: el.innerHTML, rest: "" };
+  }
+  const original = el.innerHTML;
+  const rest = [];
+  while (el.scrollHeight > el.clientHeight + 2 && el.lastChild) {
+    rest.unshift(takeLast(el));
+  }
+  const keep = el.innerHTML;
+  el.innerHTML = original;
+  return { keep, rest: rest.join("") };
+}
+function pingEditor(editor) {
+  editor.dispatchEvent(new Event("input", { bubbles: true }));
+}
+function wrapSelection(style) {
+  const selection = document.getSelection();
+  if (!selection || selection.rangeCount === 0) return;
+  const range = selection.getRangeAt(0);
+  const span = document.createElement("span");
+  if (style.color) span.style.color = style.color;
+  if (style.backgroundColor) span.style.backgroundColor = style.backgroundColor;
+  if (style.fontFamily) span.style.fontFamily = style.fontFamily;
+  if (range.collapsed) {
+    span.appendChild(document.createTextNode("\u200B"));
+    range.insertNode(span);
+    const next2 = document.createRange();
+    next2.selectNodeContents(span);
+    next2.collapse(false);
+    selection.removeAllRanges();
+    selection.addRange(next2);
+    pingEditor(folioEditor() ?? span);
+    return;
+  }
+  try {
+    range.surroundContents(span);
+  } catch {
+    const contents = range.extractContents();
+    span.appendChild(contents);
+    range.insertNode(span);
+  }
+  const next = document.createRange();
+  next.selectNodeContents(span);
+  selection.removeAllRanges();
+  selection.addRange(next);
+  pingEditor(folioEditor() ?? span);
+}
+function takeLast(el) {
+  const last = el.lastChild;
+  if (!last) return "";
+  if (last.nodeType === Node.TEXT_NODE) {
+    const value = last.textContent ?? "";
+    if (value.length > 40) {
+      const cut = Math.max(1, Math.round(value.length * 0.55));
+      const next = value.slice(cut);
+      last.textContent = value.slice(0, cut);
+      if (el.scrollHeight <= el.clientHeight + 2) return escapeText(next);
+      last.textContent = value;
+    }
+    el.removeChild(last);
+    return escapeText(value);
+  }
+  const html = last instanceof HTMLElement ? last.outerHTML : last.textContent ?? "";
+  el.removeChild(last);
+  return html;
+}
+function blobToImage(file) {
+  return new Promise((resolve, reject) => {
+    const image = new Image();
+    const url = URL.createObjectURL(file);
+    image.onload = () => {
+      URL.revokeObjectURL(url);
+      resolve(image);
+    };
+    image.onerror = () => {
+      URL.revokeObjectURL(url);
+      reject(new Error("Could not read image"));
+    };
+    image.src = url;
+  });
+}
+function cleanNode(node) {
+  const children = Array.from(node.childNodes);
+  for (const child of children) {
+    if (child.nodeType === Node.COMMENT_NODE) {
+      child.remove();
+      continue;
+    }
+    if (child.nodeType === Node.ELEMENT_NODE) {
+      const el = child;
+      const tag = el.tagName;
+      if (tag === "SCRIPT" || tag === "STYLE" || tag === "IFRAME") {
+        el.remove();
+        continue;
+      }
+      if (tag === "IMG") {
+        const src = el.getAttribute("src") ?? "";
+        if (!src.startsWith("data:image/")) {
+          el.remove();
+          continue;
+        }
+        for (const name of Array.from(el.attributes)) {
+          if (name.name !== "src" && name.name !== "alt") el.removeAttribute(name.name);
+        }
+        el.setAttribute("alt", el.getAttribute("alt") || "Pasted image");
+        continue;
+      }
+      if (!ALLOWED.has(tag)) {
+        const parent = el.parentNode;
+        while (el.firstChild) parent?.insertBefore(el.firstChild, el);
+        el.remove();
+        continue;
+      }
+      stripAttrs(el);
+      cleanNode(el);
+    }
+  }
+}
+var ALLOWED = /* @__PURE__ */ new Set(["B", "I", "U", "STRONG", "EM", "SPAN", "BR", "DIV", "P", "IMG", "FONT", "MARK"]);
+function stripAttrs(el) {
+  for (const attr of Array.from(el.attributes)) {
+    const name = attr.name.toLowerCase();
+    if (name === "style") {
+      el.setAttribute("style", safeStyle(attr.value));
+      continue;
+    }
+    if (name === "face" && el.tagName === "FONT") continue;
+    if (name === "color" && el.tagName === "FONT") continue;
+    if (name.startsWith("on") || name === "src" || name === "href") el.removeAttribute(attr.name);
+    else if (name !== "alt") el.removeAttribute(attr.name);
+  }
+}
+function safeStyle(value) {
+  const allowed = [
+    "color",
+    "background",
+    "background-color",
+    "font-family",
+    "font-style",
+    "font-weight",
+    "text-decoration",
+    "text-decoration-line",
+    "text-decoration-color",
+    "text-decoration-style",
+    "text-decoration-thickness"
+  ];
+  return value.split(";").map((part) => part.trim()).filter((part) => {
+    const key = part.split(":")[0]?.trim().toLowerCase();
+    return Boolean(key && allowed.includes(key) && !/expression|url\(/i.test(part));
+  }).join("; ");
+}
+
+// src/lib/notebook-pages.ts
+var NOTEBOOK_LINES = 40;
+function pagePreview(text) {
+  const line = htmlToPlain(text).replace(/\s+/g, " ").trim();
+  if (line) return line.slice(0, 64);
+  if (/<img/i.test(text)) return "Image on this leaf";
+  return "Blank leaf";
+}
+function hydratePages(note) {
+  if (note.pages && note.pages.length > 0) {
+    return note.pages.map((item, index) => toNotePage(item, note.id, index));
+  }
+  return paginateWriting([note.summary, note.body].filter(Boolean).join("\n\n")).map(
+    (text, index) => toNotePage(text, note.id, index)
+  );
+}
+function writingFromPages(pages) {
+  return pages.map((page) => htmlToPlain(page.text)).filter((text) => text.trim()).join("\n\n");
+}
+function paragraphsFromPages(pages, empty = "(empty leaf)") {
+  const parts = writingFromPages(pages).split(/\n{2,}/).map((part) => part.trim()).filter(Boolean);
+  return parts.length ? parts : [empty];
+}
+function hydrateDiaryPages(entry) {
+  return hydratePages({
+    id: entry.id,
+    body: entry.body.filter(Boolean).join("\n\n"),
+    pages: entry.pages
+  });
+}
+function hydrateReportPages(file) {
+  const pages = hydratePages({
+    id: file.id,
+    body: file.sections.flatMap((section) => [section.heading, ...section.paragraphs]).filter(Boolean).join("\n\n"),
+    pages: file.pages
+  });
+  const summary = file.summary?.trim();
+  if (!summary || !pages[0]) return pages;
+  const text = pages[0].text.trimStart();
+  if (!text.startsWith(summary)) return pages;
+  const rest = text.slice(summary.length).replace(/^\s+/, "");
+  const next = [{ ...pages[0], text: rest }, ...pages.slice(1)];
+  if (!next[0].text.trim() && next.length > 1) return next.slice(1);
+  return next;
+}
+function blankPage() {
+  return {
+    id: `leaf-${Math.random().toString(36).slice(2, 8)}-${Date.now().toString(36)}`,
+    text: "",
+    pinned: false,
+    starred: false,
+    italic: false,
+    underline: false,
+    ink: []
+  };
+}
+function paginateWriting(source, columns = 68) {
+  const lines = wrapWriting(source, columns);
+  if (lines.length === 0) return [""];
+  const pages = [];
+  for (let index = 0; index < lines.length; index += NOTEBOOK_LINES) {
+    pages.push(lines.slice(index, index + NOTEBOOK_LINES).join("\n"));
+  }
+  return pages;
+}
+function wrapWriting(source, columns = 68) {
+  const lines = [];
+  const paragraphs = source.replace(/\r\n/g, "\n").split("\n");
+  for (const paragraph of paragraphs) {
+    if (paragraph.trim() === "") {
+      lines.push("");
+      continue;
+    }
+    let rest = paragraph.trim();
+    while (rest.length > columns) {
+      let split = rest.lastIndexOf(" ", columns);
+      if (split < columns * 0.45) split = columns;
+      lines.push(rest.slice(0, split).trimEnd());
+      rest = rest.slice(split).trimStart();
+    }
+    if (rest) lines.push(rest);
+  }
+  while (lines.length > 1 && lines[lines.length - 1] === "") lines.pop();
+  return lines;
+}
+function toNotePage(item, noteId, index) {
+  if (typeof item === "string") {
+    return {
+      id: `${noteId ?? "note"}-leaf-${index + 1}`,
+      text: item,
+      pinned: false,
+      starred: false
+    };
+  }
+  return {
+    id: item.id || `${noteId ?? "note"}-leaf-${index + 1}`,
+    text: item.text ?? "",
+    pinned: Boolean(item.pinned),
+    starred: Boolean(item.starred),
+    italic: Boolean(item.italic),
+    underline: Boolean(item.underline),
+    ink: Array.isArray(item.ink) ? item.ink : []
+  };
+}
+
+// src/lib/routes.ts
+var href = {
+  home: "/",
+  notebooks: "/notebook",
+  notebook: (id) => `/notebook/${encodeURIComponent(id)}`,
+  diaries: "/diary",
+  diary: (id) => `/diary/${encodeURIComponent(id)}`,
+  reports: "/reports",
+  report: (id) => `/reports/${encodeURIComponent(id)}`
+};
+function parsePath(pathname) {
+  const parts = pathname.replace(/\/+$/, "").split("/").filter(Boolean);
+  if (parts.length === 0) return { name: "home" };
+  if (parts[0] === "notebook" && parts[1]) {
+    return { name: "notebook-read", id: decodeURIComponent(parts[1]) };
+  }
+  if (parts[0] === "notebook") return { name: "notebook-index" };
+  if (parts[0] === "diary" && parts[1]) {
+    return { name: "diary-read", id: decodeURIComponent(parts[1]) };
+  }
+  if (parts[0] === "diary") return { name: "diary-index" };
+  if (parts[0] === "reports" && parts[1]) {
+    return { name: "report-read", id: decodeURIComponent(parts[1]) };
+  }
+  if (parts[0] === "reports") return { name: "reports-index" };
+  return { name: "home" };
+}
+function hrefFor(section, id) {
+  if (section === "notebook") return id ? href.notebook(id) : href.notebooks;
+  if (section === "diary") return id ? href.diary(id) : href.diaries;
+  return id ? href.report(id) : href.reports;
 }
 
 // src/lib/pagination.ts
@@ -22100,15 +22559,18 @@ function readJson(key, fallback) {
 }
 function loadNotes() {
   const stored = readJson(KEYS.notes, notes);
-  return stored.length ? stored : notes;
+  const list = stored.length ? stored : notes;
+  return list.map((note) => ({ ...note, pages: hydratePages(note) }));
 }
 function loadDiary() {
   const stored = readJson(KEYS.diary, diaryEntries);
-  return stored.length ? stored : diaryEntries;
+  const list = stored.length ? stored : diaryEntries;
+  return list.map((entry) => ({ ...entry, pages: hydrateDiaryPages(entry) }));
 }
 function loadReports() {
   const stored = readJson(KEYS.reports, reports);
-  return stored.length ? stored : reports;
+  const list = stored.length ? stored : reports;
+  return list.map((file) => ({ ...file, pages: hydrateReportPages(file) }));
 }
 function saveNotes(notes2) {
   window.localStorage.setItem(KEYS.notes, JSON.stringify(notes2));
@@ -22176,7 +22638,8 @@ function locateReportPage(list, id) {
 function FolioProvider({
   children,
   initialSection,
-  initialPage
+  initialPage,
+  navigate
 }) {
   const [section, setSectionState] = (0, import_react.useState)(initialSection);
   const [pageBySection, setPageBySection] = (0, import_react.useState)({
@@ -22185,9 +22648,15 @@ function FolioProvider({
     reports: initialSection === "reports" ? initialPage : 1
   });
   const [category, setCategoryState] = (0, import_react.useState)("All");
-  const [notes2, setNotes] = (0, import_react.useState)(notes);
-  const [diaryEntries2, setDiaryEntries] = (0, import_react.useState)(diaryEntries);
-  const [reports2, setReports] = (0, import_react.useState)(reports);
+  const [notes2, setNotes] = (0, import_react.useState)(
+    () => notes.map((note) => ({ ...note, pages: hydratePages(note) }))
+  );
+  const [diaryEntries2, setDiaryEntries] = (0, import_react.useState)(
+    () => diaryEntries.map((entry) => ({ ...entry, pages: hydrateDiaryPages(entry) }))
+  );
+  const [reports2, setReports] = (0, import_react.useState)(
+    () => reports.map((file) => ({ ...file, pages: hydrateReportPages(file) }))
+  );
   const [pins, setPins] = (0, import_react.useState)(() => defaultPins(notes, diaryEntries, reports));
   const [direction, setDirection] = (0, import_react.useState)("next");
   const [ready, setReady] = (0, import_react.useState)(false);
@@ -22196,14 +22665,8 @@ function FolioProvider({
   const [selected, setSelected] = (0, import_react.useState)(/* @__PURE__ */ new Set());
   const [pdfOpen, setPdfOpen] = (0, import_react.useState)(false);
   const [pendingOpen, setPendingOpen] = (0, import_react.useState)(null);
+  const [activeLeafId, setActiveLeafId] = (0, import_react.useState)(null);
   (0, import_react.useEffect)(() => {
-    function applyLocation() {
-      const params = new URLSearchParams(window.location.search);
-      const fromUrl = parseSection(params.get("section") ?? void 0);
-      const pageFromUrl = parsePage(params.get("page") ?? void 0);
-      setSectionState(fromUrl);
-      setPageBySection((current) => ({ ...current, [fromUrl]: pageFromUrl }));
-    }
     const nextNotes = loadNotes();
     const nextDiary = loadDiary();
     const nextReports = loadReports();
@@ -22211,10 +22674,7 @@ function FolioProvider({
     setDiaryEntries(nextDiary);
     setReports(nextReports);
     setPins(readStoredPins(nextNotes, nextDiary, nextReports));
-    applyLocation();
     setReady(true);
-    window.addEventListener("popstate", applyLocation);
-    return () => window.removeEventListener("popstate", applyLocation);
   }, []);
   (0, import_react.useEffect)(() => {
     if (!ready) return;
@@ -22259,11 +22719,7 @@ function FolioProvider({
   const pageCount = Math.max(leaves.length, 1);
   const page = clampPage(pageBySection[section], pageCount);
   const leaf = leaves[page - 1] ?? leaves[0];
-  const syncUrl = (0, import_react.useCallback)((nextSection, nextPage) => {
-    const params = new URLSearchParams();
-    params.set("section", nextSection);
-    params.set("page", String(nextPage));
-    window.history.replaceState(null, "", `/?${params.toString()}`);
+  const syncUrl = (0, import_react.useCallback)((_nextSection, _nextPage) => {
   }, []);
   const goToPage = (0, import_react.useCallback)(
     (nextPage) => {
@@ -22311,6 +22767,26 @@ function FolioProvider({
     });
   }, []);
   const isPinned = (0, import_react.useCallback)((id) => pins.has(id), [pins]);
+  const toggleStar = (0, import_react.useCallback)((id) => {
+    setNotes((current) => {
+      if (!current.some((item) => item.id === id)) return current;
+      return current.map((item) => item.id === id ? { ...item, starred: !item.starred } : item);
+    });
+    setDiaryEntries((current) => {
+      if (!current.some((item) => item.id === id)) return current;
+      return current.map((item) => item.id === id ? { ...item, starred: !item.starred } : item);
+    });
+    setReports((current) => {
+      if (!current.some((item) => item.id === id)) return current;
+      return current.map((item) => item.id === id ? { ...item, starred: !item.starred } : item);
+    });
+  }, []);
+  const isStarred = (0, import_react.useCallback)(
+    (id) => Boolean(
+      notes2.find((item) => item.id === id)?.starred ?? diaryEntries2.find((item) => item.id === id)?.starred ?? reports2.find((item) => item.id === id)?.starred
+    ),
+    [diaryEntries2, notes2, reports2]
+  );
   const pinRefs = (0, import_react.useMemo)(() => {
     const refs = [];
     for (const note of notes2) {
@@ -22367,25 +22843,69 @@ function FolioProvider({
     },
     [diaryEntries2, notes2, pins, reports2, syncUrl]
   );
+  const updateNotePages = (0, import_react.useCallback)((id, pages) => {
+    const nextPages = pages.length ? pages : [blankPage()];
+    setNotes(
+      (current) => current.map(
+        (item) => item.id === id ? {
+          ...item,
+          pages: nextPages,
+          body: writingFromPages(nextPages)
+        } : item
+      )
+    );
+  }, []);
+  const updateDiaryPages = (0, import_react.useCallback)((id, pages) => {
+    const nextPages = pages.length ? pages : [blankPage()];
+    setDiaryEntries(
+      (current) => current.map(
+        (item) => item.id === id ? {
+          ...item,
+          pages: nextPages,
+          body: paragraphsFromPages(nextPages)
+        } : item
+      )
+    );
+  }, []);
+  const updateReportPages = (0, import_react.useCallback)((id, pages) => {
+    const nextPages = pages.length ? pages : [blankPage()];
+    setReports(
+      (current) => current.map(
+        (item) => item.id === id ? {
+          ...item,
+          pages: nextPages,
+          sections: [
+            {
+              heading: item.sections[0]?.heading || "1. Note",
+              paragraphs: paragraphsFromPages(nextPages, "(empty filing)")
+            }
+          ]
+        } : item
+      )
+    );
+  }, []);
   const openComposer = (0, import_react.useCallback)(
     (target, mode, id) => {
-      setSection(target);
+      setSectionState(target);
       setComposer({ open: true, section: target, mode, id });
     },
-    [setSection]
+    []
   );
   const closeComposer = (0, import_react.useCallback)(() => setComposer({ open: false }), []);
   const saveNote = (0, import_react.useCallback)(
     (input, id) => {
+      const existing = id ? notes2.find((item) => item.id === id) : void 0;
       const record = {
         id: id ?? newId("note"),
         title: (input.title ?? "").trim() || "Untitled note",
         summary: (input.summary ?? "").trim(),
         body: (input.body ?? "").trim(),
+        pages: id && existing?.pages && existing.pages.length > 0 ? hydratePages(existing) : hydratePages({ summary: input.summary, body: input.body }),
         category: input.category,
         date: input.date || todayIso(),
         tags: (input.tags ?? "").split(",").map((tag) => tag.trim()).filter(Boolean),
-        pinned: id ? pins.has(id) : false
+        pinned: id ? pins.has(id) : false,
+        starred: existing?.starred
       };
       setNotes((current) => {
         if (!id) return [record, ...current];
@@ -22396,22 +22916,29 @@ function FolioProvider({
       closeComposer();
       setPendingOpen({ section: "notebook", id: record.id });
     },
-    [closeComposer, pins]
+    [closeComposer, notes2, pins]
   );
   const saveDiary2 = (0, import_react.useCallback)(
     (input, id) => {
+      const existing = id ? diaryEntries2.find((item) => item.id === id) : void 0;
       const date = input.date || todayIso();
+      const recordId = id ?? newId("diary");
+      const body = (input.body ?? "").split(/\n{2,}/).map((part) => part.trim()).filter(Boolean);
       const record = {
-        id: id ?? newId("diary"),
+        id: recordId,
         date,
         weekday: weekdayFromDate(date),
         place: (input.place ?? "").trim() || "Studio",
         title: (input.title ?? "").trim() || "Untitled day",
         mood: (input.mood ?? "").trim() || "Steady",
-        body: (input.body ?? "").split(/\n{2,}/).map((part) => part.trim()).filter(Boolean),
-        pinned: id ? pins.has(id) : false
+        body: body.length ? body : ["(empty leaf)"],
+        pages: id && existing?.pages && existing.pages.length > 0 ? hydrateDiaryPages(existing) : hydrateDiaryPages({
+          id: recordId,
+          body: body.length ? body : ["(empty leaf)"]
+        }),
+        pinned: id ? pins.has(id) : false,
+        starred: existing?.starred
       };
-      if (record.body.length === 0) record.body = ["(empty leaf)"];
       setDiaryEntries((current) => {
         if (!id) return [...current, record];
         return current.map((item) => item.id === id ? record : item);
@@ -22420,7 +22947,7 @@ function FolioProvider({
       closeComposer();
       setPendingOpen({ section: "diary", id: record.id });
     },
-    [closeComposer, pins]
+    [closeComposer, diaryEntries2, pins]
   );
   const saveReport = (0, import_react.useCallback)(
     (input, id) => {
@@ -22435,16 +22962,21 @@ function FolioProvider({
         recipient: (input.recipient ?? "").trim() || "Studio review",
         date: input.date || todayIso(),
         summary: (input.summary ?? "").trim(),
-        sections: [
+        sections: id && existing?.sections && existing.sections.length > 0 ? existing.sections : [
           {
             heading: (input.heading ?? "").trim() || "1. Note",
             paragraphs: (input.body ?? "").split(/\n{2,}/).map((part) => part.trim()).filter(Boolean)
           }
         ],
-        pinned: id ? pins.has(id) : false
+        pages: id && existing?.pages && existing.pages.length > 0 ? hydrateReportPages(existing) : void 0,
+        pinned: id ? pins.has(id) : false,
+        starred: existing?.starred
       };
-      if (record.sections[0].paragraphs.length === 0) {
+      if (record.sections[0] && record.sections[0].paragraphs.length === 0) {
         record.sections[0].paragraphs = ["(empty filing)"];
+      }
+      if (!record.pages) {
+        record.pages = hydrateReportPages(record);
       }
       setReports((current) => {
         if (!id) return [record, ...current];
@@ -22463,9 +22995,22 @@ function FolioProvider({
   const confirmDelete = (0, import_react.useCallback)(() => {
     if (!confirm.open) return;
     const { id, section: target } = confirm;
-    if (target === "notebook") setNotes((current) => current.filter((item) => item.id !== id));
-    if (target === "diary") setDiaryEntries((current) => current.filter((item) => item.id !== id));
-    if (target === "reports") setReports((current) => current.filter((item) => item.id !== id));
+    const leafIds = [id];
+    if (target === "notebook") {
+      const note = notes2.find((item) => item.id === id);
+      if (note) leafIds.push(...hydratePages(note).map((page2) => page2.id));
+      setNotes((current) => current.filter((item) => item.id !== id));
+    }
+    if (target === "diary") {
+      const entry = diaryEntries2.find((item) => item.id === id);
+      if (entry) leafIds.push(...hydrateDiaryPages(entry).map((page2) => page2.id));
+      setDiaryEntries((current) => current.filter((item) => item.id !== id));
+    }
+    if (target === "reports") {
+      const file = reports2.find((item) => item.id === id);
+      if (file) leafIds.push(...hydrateReportPages(file).map((page2) => page2.id));
+      setReports((current) => current.filter((item) => item.id !== id));
+    }
     setPins((current) => {
       const next = new Set(current);
       next.delete(id);
@@ -22473,16 +23018,27 @@ function FolioProvider({
     });
     setSelected((current) => {
       const next = new Set(current);
-      next.delete(id);
+      leafIds.forEach((leafId) => next.delete(leafId));
       return next;
     });
     setConfirm({ open: false });
-  }, [confirm]);
+    navigate?.(hrefFor(target));
+  }, [confirm, diaryEntries2, navigate, notes2, reports2]);
   const toggleSelect = (0, import_react.useCallback)((id) => {
     setSelected((current) => {
       const next = new Set(current);
       if (next.has(id)) next.delete(id);
       else next.add(id);
+      return next;
+    });
+  }, []);
+  const selectOnly = (0, import_react.useCallback)((id) => {
+    setSelected(/* @__PURE__ */ new Set([id]));
+  }, []);
+  const selectMany = (0, import_react.useCallback)((ids) => {
+    setSelected((current) => {
+      const next = new Set(current);
+      ids.forEach((id) => next.add(id));
       return next;
     });
   }, []);
@@ -22496,6 +23052,40 @@ function FolioProvider({
     });
   }, [leaf]);
   const clearSelection = (0, import_react.useCallback)(() => setSelected(/* @__PURE__ */ new Set()), []);
+  const selectedLeaves = (0, import_react.useMemo)(() => {
+    const leaves2 = [];
+    for (const note of notes2) {
+      const pages = hydratePages(note);
+      pages.forEach((page2, index) => {
+        if (selected.has(page2.id)) {
+          leaves2.push({ kind: "notebook", note, page: page2, index, pageCount: pages.length });
+        }
+      });
+    }
+    for (const entry of diaryEntries2) {
+      const pages = hydrateDiaryPages(entry);
+      pages.forEach((page2, index) => {
+        if (selected.has(page2.id)) {
+          leaves2.push({ kind: "diary", entry, page: page2, index, pageCount: pages.length });
+        }
+      });
+    }
+    for (const file of reports2) {
+      const pages = hydrateReportPages(file);
+      pages.forEach((page2, index) => {
+        if (selected.has(page2.id)) {
+          leaves2.push({ kind: "reports", file, page: page2, index, pageCount: pages.length });
+        }
+      });
+    }
+    return leaves2.sort((a, b) => {
+      const titleA = a.kind === "notebook" ? a.note.title : a.kind === "diary" ? a.entry.title : a.file.title;
+      const titleB = b.kind === "notebook" ? b.note.title : b.kind === "diary" ? b.entry.title : b.file.title;
+      if (a.kind !== b.kind) return a.kind.localeCompare(b.kind);
+      if (titleA !== titleB) return titleA.localeCompare(titleB);
+      return a.index - b.index;
+    });
+  }, [diaryEntries2, notes2, reports2, selected]);
   const selectedBundle = (0, import_react.useMemo)(
     () => ({
       notes: notes2.filter((item) => selected.has(item.id)),
@@ -22507,8 +23097,9 @@ function FolioProvider({
   (0, import_react.useEffect)(() => {
     if (!pendingOpen) return;
     openItem(pendingOpen.section, pendingOpen.id);
+    navigate?.(hrefFor(pendingOpen.section, pendingOpen.id));
     setPendingOpen(null);
-  }, [diaryEntries2, notes2, openItem, pendingOpen, reports2]);
+  }, [diaryEntries2, navigate, notes2, openItem, pendingOpen, reports2]);
   (0, import_react.useEffect)(() => {
     function onKey(event) {
       const target = event.target;
@@ -22520,15 +23111,13 @@ function FolioProvider({
         setPdfOpen(false);
         cancelDelete();
       }
-      if (event.key === "ArrowRight") goNext();
-      if (event.key === "ArrowLeft") goPrev();
-      if (event.key === "1") setSection("notebook");
-      if (event.key === "2") setSection("diary");
-      if (event.key === "3") setSection("reports");
+      if (event.key === "1") navigate?.(href.notebooks);
+      if (event.key === "2") navigate?.(href.diaries);
+      if (event.key === "3") navigate?.(href.reports);
     }
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
-  }, [cancelDelete, closeComposer, goNext, goPrev, setSection]);
+  }, [cancelDelete, closeComposer, navigate]);
   const value = (0, import_react.useMemo)(
     () => ({
       section,
@@ -22542,11 +23131,16 @@ function FolioProvider({
       pinRefs,
       isPinned,
       togglePin,
+      toggleStar,
+      isStarred,
       setSection,
       goToPage,
       goNext,
       goPrev,
       openItem,
+      updateNotePages,
+      updateDiaryPages,
+      updateReportPages,
       notes: notes2,
       diaryEntries: diaryEntries2,
       reports: reports2,
@@ -22563,12 +23157,17 @@ function FolioProvider({
       confirmDelete,
       selected,
       toggleSelect,
+      selectOnly,
       isSelected,
       selectCurrentLeaf,
+      selectMany,
       clearSelection,
       pdfOpen,
       setPdfOpen,
-      selectedBundle
+      selectedBundle,
+      selectedLeaves,
+      activeLeafId,
+      setActiveLeafId
     }),
     [
       askDelete,
@@ -22586,6 +23185,7 @@ function FolioProvider({
       goPrev,
       goToPage,
       isPinned,
+      isStarred,
       isSelected,
       leaf,
       notes2,
@@ -22602,12 +23202,20 @@ function FolioProvider({
       saveReport,
       section,
       selectCurrentLeaf,
+      selectMany,
       selected,
       selectedBundle,
+      selectedLeaves,
+      activeLeafId,
       setCategory,
       setSection,
       togglePin,
-      toggleSelect
+      toggleStar,
+      toggleSelect,
+      selectOnly,
+      updateNotePages,
+      updateDiaryPages,
+      updateReportPages
     ]
   );
   return /* @__PURE__ */ (0, import_jsx_runtime.jsx)(FolioContext.Provider, { value, children });
@@ -22621,7 +23229,8 @@ function emptyDiary() {
     title: "The diary is empty",
     body: ["Add a new page to begin the register."],
     mood: "Quiet",
-    pinned: false
+    pinned: false,
+    pages: [blankPage()]
   };
 }
 function SECTIONS_ORDER(section) {
@@ -22639,691 +23248,22 @@ function useSectionMeta() {
   return SECTION_META[section];
 }
 
-// src/components/folio/LeafTools.tsx
-var import_jsx_runtime2 = __toESM(require_jsx_runtime(), 1);
-function LeafTools({
-  section,
-  id,
-  title
-}) {
-  const { isSelected, toggleSelect, openComposer, askDelete } = useFolio();
-  if (id.startsWith("empty-")) return null;
-  const selected = isSelected(id);
-  return /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("div", { className: "no-print mt-3 flex flex-wrap items-center gap-2", children: [
-    /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("label", { className: "inline-flex items-center gap-1.5 font-mono text-[10px] uppercase tracking-[0.14em] text-ink-soft", children: [
-      /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(
-        "input",
-        {
-          type: "checkbox",
-          checked: selected,
-          onChange: () => toggleSelect(id)
-        }
-      ),
-      "PDF"
-    ] }),
-    /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("button", { type: "button", className: "folio-tiny", onClick: () => openComposer(section, "edit", id), children: "Edit" }),
-    /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("button", { type: "button", className: "folio-tiny", onClick: () => askDelete(section, id, title), children: "Delete" })
-  ] });
-}
-
-// src/components/folio/PaperSheet.tsx
-var import_react2 = __toESM(require_react(), 1);
-var import_jsx_runtime3 = __toESM(require_jsx_runtime(), 1);
-function PaperSheet({ children, eyebrow, title, folio }) {
-  const { page, pageCount, direction, section } = useFolio();
-  const meta = useSectionMeta();
-  const paper = meta.paper;
-  (0, import_react2.useEffect)(() => {
-    document.getElementById("folio-leaf")?.scrollTo({ top: 0, behavior: "smooth" });
-  }, [section, page]);
-  return /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("div", { className: "relative mx-auto w-full max-w-[760px]", style: { perspective: "1400px" }, children: [
-    /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("div", { className: "stack-leaf pointer-events-none absolute inset-0 rounded-[2px]" }),
-    /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)(
-      "article",
-      {
-        className: `paper-grain paper-shadow relative min-h-[720px] overflow-hidden rounded-[2px] text-ink sm:min-h-[840px] ${direction === "next" ? "turn-next" : "turn-prev"}`,
-        children: [
-          /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(BindingHoles, {}),
-          paper !== "letter" ? /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(MarginRule, {}) : null,
-          /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)(
-            "div",
-            {
-              className: `relative flex min-h-[720px] flex-col sm:min-h-[840px] ${paper === "letter" ? "px-7 py-7 sm:px-14 sm:py-10" : "pl-14 pr-6 py-7 sm:pl-[5.5rem] sm:pr-12 sm:py-10"}`,
-              children: [
-                /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)(
-                  "header",
-                  {
-                    className: `mb-6 flex items-start justify-between gap-4 pb-4 ${paper === "letter" ? "letterhead" : "border-b border-ink/10"}`,
-                    children: [
-                      /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("div", { children: [
-                        /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("p", { className: "font-mono text-[10px] uppercase tracking-[0.22em] text-ink-soft", children: eyebrow ?? `The Folio \xB7 ${meta.latin}` }),
-                        title ? /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("h1", { className: "mt-1 font-serif text-2xl leading-tight tracking-tight text-ink sm:text-[1.85rem]", children: title }) : null
-                      ] }),
-                      /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("p", { className: "shrink-0 pt-1 text-right font-mono text-[10px] uppercase tracking-[0.16em] text-ink-soft", children: folio ?? "Vol. I \xB7 2026" })
-                    ]
-                  }
-                ),
-                /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(
-                  "div",
-                  {
-                    id: "folio-leaf",
-                    className: `folio-scroll flex-1 ${paper === "ruled" ? "paper-ruled -mx-1 rounded-sm px-1" : ""}`,
-                    children
-                  }
-                ),
-                /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("footer", { className: "mt-8 flex items-end justify-between border-t border-ink/10 pt-3 font-mono text-[10px] uppercase tracking-[0.16em] text-ink-soft", children: [
-                  /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("span", { children: meta.label }),
-                  /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("span", { children: formatPageLabel(page, pageCount) })
-                ] })
-              ]
-            }
-          )
-        ]
-      },
-      `${section}-${page}`
-    )
-  ] });
-}
-function BindingHoles() {
-  return /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(
-    "div",
-    {
-      "aria-hidden": true,
-      className: "absolute top-0 bottom-0 left-0 hidden w-10 flex-col justify-evenly py-16 sm:flex",
-      children: [0, 1, 2].map((hole) => /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(
-        "span",
-        {
-          className: "mx-auto block h-3.5 w-3.5 rounded-full bg-[radial-gradient(circle_at_35%_30%,#6a5340,#1a120e_70%)] shadow-[inset_0_1px_1px_rgba(255,255,255,0.15),0_0_0_3px_rgba(42,33,24,0.08)]"
-        },
-        hole
-      ))
-    }
-  );
-}
-function MarginRule() {
-  return /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(
-    "div",
-    {
-      "aria-hidden": true,
-      className: "pointer-events-none absolute top-0 bottom-0 left-10 hidden w-px bg-margin-red/70 sm:block sm:left-[4.4rem]"
-    }
-  );
-}
-
-// src/components/ui/PinToggle.tsx
-var import_jsx_runtime4 = __toESM(require_jsx_runtime(), 1);
-function PinToggle({ pressed, onToggle, label, compact = false }) {
-  return /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)(
-    "button",
-    {
-      type: "button",
-      onClick: onToggle,
-      "aria-pressed": pressed,
-      "aria-label": label,
-      title: pressed ? "Unpin" : "Pin to the spine",
-      className: `inline-flex items-center gap-1.5 rounded-full border transition ${pressed ? "border-stamp/40 bg-stamp/10 text-stamp" : "border-ink/15 bg-paper/60 text-ink-soft hover:border-ink/30 hover:text-ink"} ${compact ? "px-2 py-1 text-[10px]" : "px-2.5 py-1 text-[11px]"} font-mono tracking-[0.14em] uppercase`,
-      children: [
-        /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("span", { "aria-hidden": true, className: pressed ? "text-stamp" : "text-gold", children: pressed ? "\u25C6" : "\u25C7" }),
-        pressed ? "Pinned" : "Pin"
-      ]
-    }
-  );
-}
-
-// src/components/diary/DiaryView.tsx
-var import_jsx_runtime5 = __toESM(require_jsx_runtime(), 1);
-function DiaryView() {
-  const { leaf, isPinned, togglePin, page, pageCount } = useFolio();
-  if (leaf.kind !== "entry") return null;
-  const { entry } = leaf;
-  const pinned = isPinned(entry.id);
-  return /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)(
-    PaperSheet,
-    {
-      eyebrow: `${entry.weekday} \xB7 ${entry.place}`,
-      title: formatLongDate(entry.date),
-      folio: "Diarium",
-      children: [
-        /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)("div", { className: "mb-6 flex flex-wrap items-center justify-between gap-3", children: [
-          /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)("div", { children: [
-            /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("p", { className: "font-mono text-[10px] uppercase tracking-[0.2em] text-margin-red", children: entry.mood }),
-            /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("h2", { className: "mt-1 font-serif text-3xl tracking-tight text-ink", children: entry.title })
-          ] }),
-          entry.id.startsWith("empty-") ? null : /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(
-            PinToggle,
-            {
-              pressed: pinned,
-              onToggle: () => togglePin(entry.id),
-              label: `${pinned ? "Unpin" : "Pin"} diary entry ${entry.title}`
-            }
-          )
-        ] }),
-        /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("div", { className: "max-w-prose space-y-5", children: entry.body.map((paragraph, index) => /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(
-          "p",
-          {
-            className: `font-serif text-[17.5px] leading-[1.85] text-ink ${index === 0 ? "drop-cap" : ""}`,
-            children: paragraph
-          },
-          paragraph
-        )) }),
-        /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(LeafTools, { section: "diary", id: entry.id, title: entry.title }),
-        /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)("div", { className: "mt-12 flex items-center justify-between font-mono text-[10px] uppercase tracking-[0.16em] text-ink-soft", children: [
-          /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)("span", { children: [
-            "Day ",
-            page,
-            " of ",
-            pageCount
-          ] }),
-          /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("span", { children: page < pageCount ? "The next morning \u2192" : "The diary is current." })
-        ] })
-      ]
-    }
-  );
-}
-
-// src/components/folio/PageControls.tsx
-var import_jsx_runtime6 = __toESM(require_jsx_runtime(), 1);
-function PageControls() {
-  const { page, pageCount, goNext, goPrev, goToPage } = useFolio();
-  const meta = useSectionMeta();
-  return /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)(
-    "nav",
-    {
-      "aria-label": "Page turn",
-      className: "mt-6 flex items-center justify-between gap-3 text-[#f3e6cf]",
-      children: [
-        /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(
-          "button",
-          {
-            type: "button",
-            onClick: goPrev,
-            disabled: page <= 1,
-            className: "rounded-sm border border-gold/25 bg-leather/80 px-3 py-2 font-mono text-[11px] uppercase tracking-[0.16em] transition enabled:hover:border-gold/55 enabled:hover:bg-leather disabled:opacity-35",
-            children: "\u25C0 Previous"
-          }
-        ),
-        /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("div", { className: "flex min-w-0 flex-col items-center gap-2", children: [
-          /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("p", { className: "font-mono text-[10px] uppercase tracking-[0.16em] text-gold/70", children: [
-            meta.label,
-            " \xB7 ",
-            page,
-            " / ",
-            pageCount
-          ] }),
-          /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("div", { className: "hidden items-center gap-1.5 sm:flex", children: Array.from({ length: pageCount }, (_, index) => {
-            const leaf = index + 1;
-            const active = leaf === page;
-            return /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(
-              "button",
-              {
-                type: "button",
-                onClick: () => goToPage(leaf),
-                "aria-label": `${meta.label} leaf ${leaf}`,
-                "aria-current": active ? "page" : void 0,
-                className: `h-2.5 rounded-full transition ${active ? "w-6 bg-gold" : "w-2.5 bg-gold/30 hover:bg-gold/55"}`
-              },
-              leaf
-            );
-          }) })
-        ] }),
-        /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(
-          "button",
-          {
-            type: "button",
-            onClick: goNext,
-            disabled: page >= pageCount,
-            className: "rounded-sm border border-gold/25 bg-leather/80 px-3 py-2 font-mono text-[11px] uppercase tracking-[0.16em] transition enabled:hover:border-gold/55 enabled:hover:bg-leather disabled:opacity-35",
-            children: "Next \u25B6"
-          }
-        )
-      ]
-    }
-  );
-}
-
-// src/components/folio/PinnedRail.tsx
-var import_jsx_runtime7 = __toESM(require_jsx_runtime(), 1);
-function PinnedRail() {
-  const { pinRefs, openItem, section, page } = useFolio();
-  return /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)("aside", { className: "hidden w-[210px] shrink-0 flex-col lg:flex", children: [
-    /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("p", { className: "px-1 font-mono text-[10px] uppercase tracking-[0.22em] text-gold/80", children: "Spine pins" }),
-    /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("p", { className: "mt-1 px-1 text-[12px] leading-5 text-gold/65", children: "A pin is a temporary claim. Pull one to turn to that leaf." }),
-    /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("ul", { className: "mt-5 flex flex-col gap-3", children: pinRefs.length === 0 ? /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("li", { className: "rounded-sm border border-dashed border-gold/25 px-3 py-4 text-[13px] leading-5 text-gold/60", children: "Nothing is pinned. Use the margin tack on a leaf to keep it in reach." }) : pinRefs.map((pin, index) => /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("li", { children: /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)(
-      "button",
-      {
-        type: "button",
-        onClick: () => openItem(pin.section, pin.id),
-        className: "group relative w-full rounded-r-sm border border-l-4 border-gold/35 border-l-stamp bg-[#3a2418] px-3 py-2.5 text-left shadow-[4px_6px_14px_rgba(0,0,0,0.28)] transition hover:-translate-y-0.5 hover:border-gold/60",
-        children: [
-          /* @__PURE__ */ (0, import_jsx_runtime7.jsx)(
-            "span",
-            {
-              "aria-hidden": true,
-              className: "absolute -left-2 top-3 h-2 w-2 rounded-full bg-gold shadow-[0_0_0_3px_rgba(196,160,106,0.2)]"
-            }
-          ),
-          /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)("span", { className: "block font-mono text-[9px] uppercase tracking-[0.18em] text-gold/70", children: [
-            SECTION_META[pin.section].label,
-            " \xB7 ",
-            pin.eyebrow
-          ] }),
-          /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("span", { className: "mt-1 block font-serif text-[15px] leading-5 text-[#f6ead4] group-hover:text-white", children: pin.title }),
-          /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)("span", { className: "mt-2 block font-mono text-[9px] uppercase tracking-[0.16em] text-gold/50", children: [
-            "Ribbon ",
-            String(index + 1).padStart(2, "0")
-          ] })
-        ]
-      }
-    ) }, pin.id)) }),
-    /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)("p", { className: "mt-auto pt-8 font-mono text-[10px] leading-5 text-gold/45", children: [
-      "Open register ",
-      SECTION_META[section].label.toLowerCase(),
-      ", leaf ",
-      page,
-      ". Keys 1\u20133 change tabs. Arrows turn the page."
-    ] })
-  ] });
-}
-function PinnedStrip() {
-  const { pinRefs, openItem } = useFolio();
-  if (pinRefs.length === 0) return null;
-  return /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("div", { className: "flex gap-2 overflow-x-auto px-1 pb-2 lg:hidden", children: pinRefs.map((pin) => /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)(
-    "button",
-    {
-      type: "button",
-      onClick: () => openItem(pin.section, pin.id),
-      className: "shrink-0 rounded-sm border border-gold/30 bg-[#3a2418] px-3 py-2 text-left",
-      children: [
-        /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("span", { className: "block font-mono text-[9px] uppercase tracking-[0.16em] text-gold/65", children: SECTION_META[pin.section].label }),
-        /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("span", { className: "block max-w-[160px] truncate font-serif text-sm text-[#f6ead4]", children: pin.title })
-      ]
-    },
-    pin.id
-  )) });
-}
-
-// src/components/folio/RegisterBar.tsx
-var import_jsx_runtime8 = __toESM(require_jsx_runtime(), 1);
-function RegisterBar() {
-  const {
-    section,
-    openComposer,
-    selectCurrentLeaf,
-    clearSelection,
-    selected,
-    setPdfOpen
-  } = useFolio();
-  const count = selected.size;
-  return /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)("div", { className: "no-print mb-4 flex flex-wrap items-center gap-2", children: [
-    /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("button", { type: "button", className: "folio-desk-btn", onClick: () => openComposer("notebook", "create"), children: "+ Notebook" }),
-    /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("button", { type: "button", className: "folio-desk-btn", onClick: () => openComposer("diary", "create"), children: "+ Diary" }),
-    /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("button", { type: "button", className: "folio-desk-btn", onClick: () => openComposer("reports", "create"), children: "+ Report" }),
-    /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("span", { className: "hidden h-4 w-px bg-gold/25 sm:block" }),
-    /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(
-      "button",
-      {
-        type: "button",
-        className: "folio-desk-btn",
-        onClick: () => openComposer(section, "create"),
-        children: "+ New page"
-      }
-    ),
-    /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("button", { type: "button", className: "folio-desk-btn", onClick: selectCurrentLeaf, children: "Select this leaf" }),
-    /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("button", { type: "button", className: "folio-desk-btn", onClick: clearSelection, disabled: count === 0, children: "Clear" }),
-    /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)(
-      "button",
-      {
-        type: "button",
-        className: "folio-desk-btn folio-desk-btn-gold",
-        onClick: () => setPdfOpen(true),
-        disabled: count === 0,
-        children: [
-          "Preview PDF \xB7 ",
-          count
-        ]
-      }
-    )
-  ] });
-}
-
-// src/components/folio/SectionTabs.tsx
-var import_jsx_runtime9 = __toESM(require_jsx_runtime(), 1);
-var TAB_TINT = {
-  notebook: "bg-[#efe2c6]",
-  diary: "bg-[#f3d9c4]",
-  reports: "bg-manila"
-};
-function SectionTabs() {
-  const { section, setSection, page, pageCount } = useFolio();
-  return /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("div", { className: "flex items-end gap-1 px-2 sm:px-5", role: "tablist", "aria-label": "Folio sections", children: SECTIONS.map((id) => {
-    const active = section === id;
-    const meta = SECTION_META[id];
-    return /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)(
-      "button",
-      {
-        type: "button",
-        role: "tab",
-        "aria-selected": active,
-        onClick: () => setSection(id),
-        className: `relative min-w-0 rounded-t-[14px] border border-b-0 px-3 py-2 text-left shadow-[0_-6px_16px_rgba(0,0,0,0.14)] transition sm:px-5 ${TAB_TINT[id]} ${active ? "z-20 -mb-px border-ink/15 pb-3 text-ink" : "z-10 translate-y-1.5 border-ink/10 text-ink-soft hover:translate-y-0.5"}`,
-        children: [
-          /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("span", { className: "block font-mono text-[9px] uppercase tracking-[0.22em] text-ink-soft", children: meta.latin }),
-          /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("span", { className: "block truncate font-serif text-base sm:text-lg", children: meta.label }),
-          active ? /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)("span", { className: "mt-0.5 block font-mono text-[9px] uppercase tracking-[0.14em] text-ink-soft", children: [
-            "Leaf ",
-            page,
-            " of ",
-            pageCount
-          ] }) : null
-        ]
-      },
-      id
-    );
-  }) });
-}
-
-// src/components/folio/FolioShell.tsx
-var import_jsx_runtime10 = __toESM(require_jsx_runtime(), 1);
-function FolioShell({ children }) {
-  return /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("div", { className: "desk-grain app-chrome min-h-full", children: /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)("div", { className: "mx-auto flex min-h-screen max-w-[1280px] flex-col px-3 py-4 sm:px-6 sm:py-7 lg:px-8 lg:py-8", children: [
-    /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)("header", { className: "mb-6 flex flex-wrap items-end justify-between gap-4 px-1 text-[#f3e6cf]", children: [
-      /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)("div", { children: [
-        /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("p", { className: "font-mono text-[10px] uppercase tracking-[0.28em] text-gold", children: "Personal register \xB7 Vol. I" }),
-        /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("h1", { className: "mt-1 font-serif text-3xl tracking-tight sm:text-[2.5rem]", children: "The Folio" })
-      ] }),
-      /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)("div", { className: "max-w-sm text-right", children: [
-        /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("p", { className: "font-mono text-[10px] uppercase tracking-[0.18em] text-gold/70", children: formatDeskNow() }),
-        /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("p", { className: "mt-2 font-serif text-sm leading-6 text-gold/75", children: "Notebook, diary, and report files on one spine. Turn the leaf. File the finished thought." })
-      ] })
-    ] }),
-    /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)("div", { className: "flex flex-1 flex-col gap-6 lg:flex-row", children: [
-      /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(Spine, {}),
-      /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(PinnedRail, {}),
-      /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)("div", { className: "min-w-0 flex-1", children: [
-        /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(RegisterBar, {}),
-        /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(PinnedStrip, {}),
-        /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(SectionTabs, {}),
-        /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)("div", { className: "relative rounded-b-[6px] rounded-tr-[6px] border border-[#c4a06a]/15 bg-[#2a1810]/50 p-3 shadow-[0_28px_70px_rgba(0,0,0,0.4)] sm:p-6", children: [
-          children,
-          /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(PageControls, {})
-        ] })
-      ] })
-    ] })
-  ] }) });
-}
-function Spine() {
-  return /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)("div", { className: "spine-leather relative hidden w-16 shrink-0 overflow-hidden rounded-sm border border-black/40 shadow-[8px_0_22px_rgba(0,0,0,0.4)] xl:block", children: [
-    /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("div", { className: "absolute inset-y-0 left-0 w-1 bg-gradient-to-r from-black/50 to-transparent" }),
-    /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)("div", { className: "flex h-full flex-col items-center justify-between py-8", children: [
-      /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("span", { className: "font-mono text-[10px] uppercase tracking-[0.28em] text-gold/70 [writing-mode:vertical-rl] rotate-180", children: "Folio 2026" }),
-      /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("div", { className: "flex flex-col gap-10", children: [0, 1, 2].map((ring) => /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(
-        "span",
-        {
-          className: "block h-5 w-5 rounded-full border border-[#c4a06a]/45 bg-[radial-gradient(circle_at_30%_30%,#d9b57a,#5a3d20_62%,#1a100a)] shadow-[0_2px_4px_rgba(0,0,0,0.45)]"
-        },
-        ring
-      )) }),
-      /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("span", { className: "font-mono text-[10px] uppercase tracking-[0.28em] text-gold/50 [writing-mode:vertical-rl] rotate-180", children: "Vol. I" })
-    ] })
-  ] });
-}
-
-// src/components/ui/CategoryChip.tsx
-var import_jsx_runtime11 = __toESM(require_jsx_runtime(), 1);
-function CategoryChip({
-  label,
-  active = false,
-  onClick,
-  as = "button"
-}) {
-  const className = `inline-flex items-center rounded-sm border px-2 py-0.5 font-mono text-[10px] uppercase tracking-[0.16em] ${active ? "border-margin-red/50 bg-margin-red/10 text-margin-red" : "border-ink/15 bg-paper/70 text-ink-soft"}`;
-  if (as === "span") {
-    return /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("span", { className, children: label });
-  }
-  return /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("button", { type: "button", onClick, className: `${className} transition hover:border-ink/35`, children: label });
-}
-
-// src/components/notebook/NotebookView.tsx
-var import_jsx_runtime12 = __toESM(require_jsx_runtime(), 1);
-function NotebookView() {
-  const { leaf, category, setCategory, filteredNotes, page, pageCount } = useFolio();
-  if (leaf.kind !== "notes") return null;
-  const rangeStart = filteredNotes.length === 0 ? 0 : (page - 1) * 2 + 1;
-  const rangeEnd = Math.min(page * 2, filteredNotes.length);
-  return /* @__PURE__ */ (0, import_jsx_runtime12.jsxs)(
-    PaperSheet,
-    {
-      eyebrow: "Notebook \xB7 Adversaria",
-      title: "Working leaves",
-      folio: `${filteredNotes.length} notes`,
-      children: [
-        /* @__PURE__ */ (0, import_jsx_runtime12.jsxs)("div", { className: "mb-5 flex flex-wrap items-center gap-2", children: [
-          /* @__PURE__ */ (0, import_jsx_runtime12.jsx)(
-            CategoryChip,
-            {
-              label: "All",
-              active: category === "All",
-              onClick: () => setCategory("All")
-            }
-          ),
-          NOTE_CATEGORIES.map((item) => /* @__PURE__ */ (0, import_jsx_runtime12.jsx)(
-            CategoryChip,
-            {
-              label: item,
-              active: category === item,
-              onClick: () => setCategory(item)
-            },
-            item
-          )),
-          /* @__PURE__ */ (0, import_jsx_runtime12.jsxs)("span", { className: "ml-auto font-mono text-[10px] uppercase tracking-[0.16em] text-ink-soft", children: [
-            "Showing ",
-            rangeStart,
-            "\u2013",
-            rangeEnd
-          ] })
-        ] }),
-        leaf.notes.length === 0 ? /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("p", { className: "py-16 font-serif text-lg text-ink-soft", children: "No notes in this drawer. Choose another category stamp." }) : /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("div", { className: "flex flex-col divide-y divide-ink/10", children: leaf.notes.map((note) => /* @__PURE__ */ (0, import_jsx_runtime12.jsx)(NoteBlock, { note }, note.id)) }),
-        /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("p", { className: "mt-8 font-serif text-sm italic text-ink-soft", children: page < pageCount ? "Continue on the next leaf \u2192" : "End of the notebook register." })
-      ]
-    }
-  );
-}
-function NoteBlock({ note }) {
-  const { isPinned, togglePin } = useFolio();
-  const pinned = isPinned(note.id);
-  return /* @__PURE__ */ (0, import_jsx_runtime12.jsxs)("section", { className: "relative grid gap-3 py-6 sm:grid-cols-[4.5rem_1fr] sm:gap-6", children: [
-    /* @__PURE__ */ (0, import_jsx_runtime12.jsxs)("aside", { className: "flex items-start justify-between gap-3 sm:block", children: [
-      /* @__PURE__ */ (0, import_jsx_runtime12.jsx)(
-        "time",
-        {
-          dateTime: note.date,
-          className: "block font-mono text-[11px] uppercase leading-5 tracking-[0.12em] text-margin-red",
-          children: formatShortDate(note.date)
-        }
-      ),
-      /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("div", { className: "sm:mt-3", children: /* @__PURE__ */ (0, import_jsx_runtime12.jsx)(
-        PinToggle,
-        {
-          compact: true,
-          pressed: pinned,
-          onToggle: () => togglePin(note.id),
-          label: `${pinned ? "Unpin" : "Pin"} ${note.title}`
-        }
-      ) })
-    ] }),
-    /* @__PURE__ */ (0, import_jsx_runtime12.jsxs)("div", { children: [
-      /* @__PURE__ */ (0, import_jsx_runtime12.jsxs)("div", { className: "flex flex-wrap items-start justify-between gap-3", children: [
-        /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("h2", { className: "font-serif text-[1.65rem] leading-tight tracking-tight text-ink", children: note.title }),
-        /* @__PURE__ */ (0, import_jsx_runtime12.jsx)(CategoryChip, { as: "span", label: note.category })
-      ] }),
-      /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("p", { className: "mt-2 max-w-prose font-serif text-[17px] leading-7 text-ink/90", children: note.summary }),
-      /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("p", { className: "mt-3 max-w-prose font-serif text-[16.5px] leading-[1.75] text-ink-soft", children: note.body }),
-      /* @__PURE__ */ (0, import_jsx_runtime12.jsxs)("ul", { className: "mt-4 flex flex-wrap gap-x-3 gap-y-1 font-mono text-[10px] uppercase tracking-[0.14em] text-ink-soft", children: [
-        /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("li", { children: formatLongDate(note.date) }),
-        note.tags.map((tag) => /* @__PURE__ */ (0, import_jsx_runtime12.jsxs)("li", { children: [
-          "#",
-          tag
-        ] }, tag))
-      ] }),
-      /* @__PURE__ */ (0, import_jsx_runtime12.jsx)(LeafTools, { section: "notebook", id: note.id, title: note.title })
-    ] })
-  ] });
-}
-
-// src/components/reports/ReportView.tsx
-var import_jsx_runtime13 = __toESM(require_jsx_runtime(), 1);
-var STATUS_LABEL = {
-  draft: "Draft",
-  review: "In review",
-  filed: "Filed"
-};
-function ReportView() {
-  const { leaf } = useFolio();
-  if (leaf.kind === "index") {
-    return /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(ReportIndex, { files: leaf.files, folders: leaf.folders });
-  }
-  if (leaf.kind === "document") {
-    return /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(ReportDocument, { file: leaf.file });
-  }
-  return null;
-}
-function ReportIndex({
-  files,
-  folders
-}) {
-  const { openItem, isPinned } = useFolio();
-  return /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)(PaperSheet, { eyebrow: "Report Files \xB7 Acta", title: "Filing index", folio: "Register", children: [
-    /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("p", { className: "max-w-prose font-serif text-[17px] leading-7 text-ink-soft", children: "Drawer, folder, leaf. Open a file to place it on the desk. Status stamps follow the clerk\u2019s order: draft, review, then filed." }),
-    /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("div", { className: "mt-8 space-y-7", children: folders.map((folder) => {
-      const contents = files.filter((file) => file.folder === folder);
-      return /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("section", { children: [
-        /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("div", { className: "mb-3 flex items-end gap-3", children: [
-          /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("span", { className: "inline-block rounded-t-md border border-b-0 border-ink/15 bg-manila px-3 py-1 font-mono text-[10px] uppercase tracking-[0.18em] text-ink", children: folder }),
-          /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("span", { className: "mb-1 font-mono text-[10px] uppercase tracking-[0.14em] text-ink-soft", children: [
-            contents.length,
-            " ",
-            contents.length === 1 ? "file" : "files"
-          ] })
-        ] }),
-        /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("ul", { className: "divide-y divide-ink/10 border border-ink/10 bg-[#f7edd8]", children: contents.map((file) => /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("li", { children: [
-          /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)(
-            "button",
-            {
-              type: "button",
-              onClick: () => openItem("reports", file.id),
-              className: "grid w-full grid-cols-1 gap-1 px-4 py-3 text-left transition hover:bg-[#efe2c4] sm:grid-cols-[6.5rem_1fr_auto] sm:items-center sm:gap-4",
-              children: [
-                /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("span", { className: "font-mono text-[11px] text-ink-soft", children: file.code }),
-                /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("span", { children: [
-                  /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("span", { className: "block font-serif text-lg leading-6 text-ink", children: file.title }),
-                  /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("span", { className: "mt-1 block font-serif text-sm text-ink-soft", children: [
-                    file.author,
-                    " \xB7 ",
-                    formatLongDate(file.date),
-                    isPinned(file.id) ? " \xB7 pinned" : ""
-                  ] })
-                ] }),
-                /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(StatusStamp, { status: file.status })
-              ]
-            }
-          ),
-          /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("div", { className: "px-4 pb-3", children: /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(LeafTools, { section: "reports", id: file.id, title: file.title }) })
-        ] }, file.id)) })
-      ] }, folder);
-    }) })
-  ] });
-}
-function ReportDocument({ file }) {
-  const { isPinned, togglePin } = useFolio();
-  const pinned = isPinned(file.id);
-  return /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)(PaperSheet, { eyebrow: `${file.folder} \xB7 ${file.code}`, folio: file.code, children: [
-    /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("div", { className: "flex flex-wrap items-start justify-between gap-4", children: [
-      /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("div", { children: [
-        /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("p", { className: "font-mono text-[10px] uppercase tracking-[0.2em] text-ink-soft", children: "The Folio records office" }),
-        /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("p", { className: "mt-3 font-mono text-[10px] uppercase tracking-[0.2em] text-ink-soft", children: [
-          "From ",
-          file.author
-        ] }),
-        /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("h2", { className: "mt-2 max-w-xl font-serif text-[1.85rem] leading-tight tracking-tight", children: file.title }),
-        /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("p", { className: "mt-3 font-serif text-sm leading-6 text-ink-soft", children: [
-          "To ",
-          file.recipient,
-          /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("br", {}),
-          formatLongDate(file.date)
-        ] })
-      ] }),
-      /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("div", { className: "flex flex-col items-end gap-3", children: [
-        /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(StatusStamp, { status: file.status, large: true }),
-        /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(
-          PinToggle,
-          {
-            pressed: pinned,
-            onToggle: () => togglePin(file.id),
-            label: `${pinned ? "Unpin" : "Pin"} ${file.title}`
-          }
-        )
-      ] })
-    ] }),
-    /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("p", { className: "mt-6 max-w-prose border-l-2 border-ink/20 pl-4 font-serif text-[17px] leading-7 text-ink", children: file.summary }),
-    /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("div", { className: "mt-8 space-y-7", children: file.sections.map((section) => /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("section", { children: [
-      /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("h3", { className: "font-serif text-xl text-ink", children: section.heading }),
-      section.paragraphs.map((paragraph) => /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(
-        "p",
-        {
-          className: "mt-2 max-w-prose font-serif text-[16.5px] leading-[1.8] text-ink/90",
-          children: paragraph
-        },
-        paragraph
-      ))
-    ] }, section.heading)) }),
-    /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(LeafTools, { section: "reports", id: file.id, title: file.title }),
-    /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("div", { className: "mt-10 flex flex-wrap items-center justify-between gap-3 border-t border-ink/10 pt-4", children: [
-      /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(ReportIndexLink, {}),
-      /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("p", { className: "font-mono text-[10px] uppercase tracking-[0.14em] text-ink-soft", children: "Suitable for submission" })
-    ] })
-  ] });
-}
-function ReportIndexLink() {
-  const { goToPage } = useFolio();
-  return /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(
-    "button",
-    {
-      type: "button",
-      onClick: () => goToPage(1),
-      className: "font-mono text-[11px] uppercase tracking-[0.16em] text-ink-soft underline decoration-ink/25 underline-offset-4 hover:text-ink",
-      children: "Return to filing index"
-    }
-  );
-}
-function StatusStamp({
-  status,
-  large = false
-}) {
-  return /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(
-    "span",
-    {
-      className: `inline-flex rotate-[-6deg] rounded-sm border-2 border-stamp/80 px-2 py-0.5 font-mono font-semibold uppercase tracking-[0.18em] text-stamp ${large ? "text-xs" : "text-[10px]"}`,
-      children: STATUS_LABEL[status]
-    }
-  );
-}
-
 // src/components/folio/Composer.tsx
-var import_react3 = __toESM(require_react(), 1);
-var import_jsx_runtime14 = __toESM(require_jsx_runtime(), 1);
+var import_react2 = __toESM(require_react(), 1);
+var import_jsx_runtime2 = __toESM(require_jsx_runtime(), 1);
 function Composer() {
   const { composer, closeComposer, notes: notes2, diaryEntries: diaryEntries2, reports: reports2, saveNote, saveDiary: saveDiary2, saveReport } = useFolio();
   if (!composer.open) return null;
   const editing = composer.mode === "edit" && composer.id ? composer.section === "notebook" ? notes2.find((item) => item.id === composer.id) : composer.section === "diary" ? diaryEntries2.find((item) => item.id === composer.id) : reports2.find((item) => item.id === composer.id) : void 0;
-  return /* @__PURE__ */ (0, import_jsx_runtime14.jsx)("div", { className: "folio-modal no-print", role: "dialog", "aria-modal": "true", "aria-labelledby": "composer-title", children: /* @__PURE__ */ (0, import_jsx_runtime14.jsxs)("div", { className: "folio-modal-sheet paper-grain", children: [
-    /* @__PURE__ */ (0, import_jsx_runtime14.jsxs)("header", { className: "mb-5 flex items-start justify-between gap-4 border-b border-ink/10 pb-3", children: [
-      /* @__PURE__ */ (0, import_jsx_runtime14.jsxs)("div", { children: [
-        /* @__PURE__ */ (0, import_jsx_runtime14.jsx)("p", { className: "font-mono text-[10px] uppercase tracking-[0.2em] text-ink-soft", children: composer.mode === "create" ? "New leaf" : "Revise leaf" }),
-        /* @__PURE__ */ (0, import_jsx_runtime14.jsx)("h2", { id: "composer-title", className: "font-serif text-2xl text-ink", children: composer.section === "notebook" ? "Notebook page" : composer.section === "diary" ? "Diary page" : "Report file" })
+  return /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("div", { className: "folio-modal no-print", role: "dialog", "aria-modal": "true", "aria-labelledby": "composer-title", children: /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("div", { className: "folio-modal-sheet paper-grain", children: [
+    /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("header", { className: "mb-5 flex items-start justify-between gap-4 border-b border-ink/10 pb-3", children: [
+      /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("div", { children: [
+        /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("p", { className: "font-mono text-[10px] uppercase tracking-[0.2em] text-ink-soft", children: composer.mode === "create" ? "New leaf" : "Revise leaf" }),
+        /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("h2", { id: "composer-title", className: "font-serif text-2xl text-ink", children: composer.section === "notebook" ? "Notebook" : composer.section === "diary" ? "Diary volume" : "Report filing" })
       ] }),
-      /* @__PURE__ */ (0, import_jsx_runtime14.jsx)("button", { type: "button", className: "folio-ghost", onClick: closeComposer, children: "Close" })
+      /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("button", { type: "button", className: "folio-ghost", onClick: closeComposer, children: "Close" })
     ] }),
-    composer.section === "notebook" ? /* @__PURE__ */ (0, import_jsx_runtime14.jsx)(
+    composer.section === "notebook" ? /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(
       NoteForm,
       {
         initial: editing && "category" in editing ? editing : void 0,
@@ -23332,7 +23272,7 @@ function Composer() {
       },
       composer.id ?? "new-note"
     ) : null,
-    composer.section === "diary" ? /* @__PURE__ */ (0, import_jsx_runtime14.jsx)(
+    composer.section === "diary" ? /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(
       DiaryForm,
       {
         initial: editing && "mood" in editing ? editing : void 0,
@@ -23341,10 +23281,11 @@ function Composer() {
       },
       composer.id ?? "new-diary"
     ) : null,
-    composer.section === "reports" ? /* @__PURE__ */ (0, import_jsx_runtime14.jsx)(
+    composer.section === "reports" ? /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(
       ReportForm,
       {
         initial: editing && "code" in editing ? editing : void 0,
+        folders: reports2.map((file) => file.folder),
         onCancel: closeComposer,
         onSave: (draft) => saveReport(draft, composer.mode === "edit" ? composer.id : void 0)
       },
@@ -23357,13 +23298,13 @@ function NoteForm({
   onSave,
   onCancel
 }) {
-  const [title, setTitle] = (0, import_react3.useState)(initial?.title ?? "");
-  const [summary, setSummary] = (0, import_react3.useState)(initial?.summary ?? "");
-  const [body, setBody] = (0, import_react3.useState)(initial?.body ?? "");
-  const [category, setCategory] = (0, import_react3.useState)(initial?.category ?? NOTE_CATEGORIES[0]);
-  const [date, setDate] = (0, import_react3.useState)(initial?.date ?? todayIso());
-  const [tags, setTags] = (0, import_react3.useState)(initial?.tags.join(", ") ?? "");
-  return /* @__PURE__ */ (0, import_jsx_runtime14.jsxs)(
+  const [title, setTitle] = (0, import_react2.useState)(initial?.title ?? "");
+  const [summary, setSummary] = (0, import_react2.useState)(initial?.summary ?? "");
+  const [body, setBody] = (0, import_react2.useState)(initial?.body ?? "");
+  const [category, setCategory] = (0, import_react2.useState)(initial?.category ?? NOTE_CATEGORIES[0]);
+  const [date, setDate] = (0, import_react2.useState)(initial?.date ?? todayIso());
+  const [tags, setTags] = (0, import_react2.useState)(initial?.tags.join(", ") ?? "");
+  return /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)(
     "form",
     {
       className: "space-y-3",
@@ -23372,15 +23313,15 @@ function NoteForm({
         onSave({ title, summary, body, category, date, tags });
       },
       children: [
-        /* @__PURE__ */ (0, import_jsx_runtime14.jsx)(Field, { label: "Title", children: /* @__PURE__ */ (0, import_jsx_runtime14.jsx)("input", { className: "folio-field", value: title, onChange: (e) => setTitle(e.target.value), required: true }) }),
-        /* @__PURE__ */ (0, import_jsx_runtime14.jsxs)("div", { className: "grid gap-3 sm:grid-cols-2", children: [
-          /* @__PURE__ */ (0, import_jsx_runtime14.jsx)(Field, { label: "Date", children: /* @__PURE__ */ (0, import_jsx_runtime14.jsx)("input", { className: "folio-field", type: "date", value: date, onChange: (e) => setDate(e.target.value) }) }),
-          /* @__PURE__ */ (0, import_jsx_runtime14.jsx)(Field, { label: "Category", children: /* @__PURE__ */ (0, import_jsx_runtime14.jsx)("select", { className: "folio-field", value: category, onChange: (e) => setCategory(e.target.value), children: NOTE_CATEGORIES.map((item) => /* @__PURE__ */ (0, import_jsx_runtime14.jsx)("option", { children: item }, item)) }) })
+        /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(Field, { label: "Title", children: /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("input", { className: "folio-field", value: title, onChange: (e) => setTitle(e.target.value), required: true }) }),
+        /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("div", { className: "grid gap-3 sm:grid-cols-2", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(Field, { label: "Date", children: /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("input", { className: "folio-field", type: "date", value: date, onChange: (e) => setDate(e.target.value) }) }),
+          /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(Field, { label: "Category", children: /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("select", { className: "folio-field", value: category, onChange: (e) => setCategory(e.target.value), children: NOTE_CATEGORIES.map((item) => /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("option", { children: item }, item)) }) })
         ] }),
-        /* @__PURE__ */ (0, import_jsx_runtime14.jsx)(Field, { label: "Summary", children: /* @__PURE__ */ (0, import_jsx_runtime14.jsx)("textarea", { className: "folio-field min-h-16", value: summary, onChange: (e) => setSummary(e.target.value) }) }),
-        /* @__PURE__ */ (0, import_jsx_runtime14.jsx)(Field, { label: "Body", children: /* @__PURE__ */ (0, import_jsx_runtime14.jsx)("textarea", { className: "folio-field min-h-32", value: body, onChange: (e) => setBody(e.target.value) }) }),
-        /* @__PURE__ */ (0, import_jsx_runtime14.jsx)(Field, { label: "Tags, comma separated", children: /* @__PURE__ */ (0, import_jsx_runtime14.jsx)("input", { className: "folio-field", value: tags, onChange: (e) => setTags(e.target.value) }) }),
-        /* @__PURE__ */ (0, import_jsx_runtime14.jsx)(Actions, { onCancel })
+        /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(Field, { label: "Summary", children: /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("textarea", { className: "folio-field min-h-16", value: summary, onChange: (e) => setSummary(e.target.value) }) }),
+        /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(Field, { label: "Body", children: /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("textarea", { className: "folio-field min-h-32", value: body, onChange: (e) => setBody(e.target.value) }) }),
+        /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(Field, { label: "Tags, comma separated", children: /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("input", { className: "folio-field", value: tags, onChange: (e) => setTags(e.target.value) }) }),
+        /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(Actions, { onCancel })
       ]
     }
   );
@@ -23390,12 +23331,12 @@ function DiaryForm({
   onSave,
   onCancel
 }) {
-  const [title, setTitle] = (0, import_react3.useState)(initial?.title ?? "");
-  const [place, setPlace] = (0, import_react3.useState)(initial?.place ?? "");
-  const [mood, setMood] = (0, import_react3.useState)(initial?.mood ?? "Steady");
-  const [date, setDate] = (0, import_react3.useState)(initial?.date ?? todayIso());
-  const [body, setBody] = (0, import_react3.useState)(initial?.body.join("\n\n") ?? "");
-  return /* @__PURE__ */ (0, import_jsx_runtime14.jsxs)(
+  const [title, setTitle] = (0, import_react2.useState)(initial?.title ?? "");
+  const [place, setPlace] = (0, import_react2.useState)(initial?.place ?? "");
+  const [mood, setMood] = (0, import_react2.useState)(initial?.mood ?? "Steady");
+  const [date, setDate] = (0, import_react2.useState)(initial?.date ?? todayIso());
+  const [body, setBody] = (0, import_react2.useState)(initial?.body.join("\n\n") ?? "");
+  return /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)(
     "form",
     {
       className: "space-y-3",
@@ -23404,34 +23345,36 @@ function DiaryForm({
         onSave({ title, place, mood, date, body });
       },
       children: [
-        /* @__PURE__ */ (0, import_jsx_runtime14.jsx)(Field, { label: "Title", children: /* @__PURE__ */ (0, import_jsx_runtime14.jsx)("input", { className: "folio-field", value: title, onChange: (e) => setTitle(e.target.value), required: true }) }),
-        /* @__PURE__ */ (0, import_jsx_runtime14.jsxs)("div", { className: "grid gap-3 sm:grid-cols-3", children: [
-          /* @__PURE__ */ (0, import_jsx_runtime14.jsx)(Field, { label: "Date", children: /* @__PURE__ */ (0, import_jsx_runtime14.jsx)("input", { className: "folio-field", type: "date", value: date, onChange: (e) => setDate(e.target.value) }) }),
-          /* @__PURE__ */ (0, import_jsx_runtime14.jsx)(Field, { label: "Place", children: /* @__PURE__ */ (0, import_jsx_runtime14.jsx)("input", { className: "folio-field", value: place, onChange: (e) => setPlace(e.target.value) }) }),
-          /* @__PURE__ */ (0, import_jsx_runtime14.jsx)(Field, { label: "Mood", children: /* @__PURE__ */ (0, import_jsx_runtime14.jsx)("input", { className: "folio-field", value: mood, onChange: (e) => setMood(e.target.value) }) })
+        /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(Field, { label: "Title", children: /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("input", { className: "folio-field", value: title, onChange: (e) => setTitle(e.target.value), required: true }) }),
+        /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("div", { className: "grid gap-3 sm:grid-cols-3", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(Field, { label: "Date", children: /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("input", { className: "folio-field", type: "date", value: date, onChange: (e) => setDate(e.target.value) }) }),
+          /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(Field, { label: "Place", children: /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("input", { className: "folio-field", value: place, onChange: (e) => setPlace(e.target.value) }) }),
+          /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(Field, { label: "Mood", children: /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("input", { className: "folio-field", value: mood, onChange: (e) => setMood(e.target.value) }) })
         ] }),
-        /* @__PURE__ */ (0, import_jsx_runtime14.jsx)(Field, { label: "Entry \u2014 blank line starts a new paragraph", children: /* @__PURE__ */ (0, import_jsx_runtime14.jsx)("textarea", { className: "folio-field min-h-40", value: body, onChange: (e) => setBody(e.target.value) }) }),
-        /* @__PURE__ */ (0, import_jsx_runtime14.jsx)(Actions, { onCancel })
+        /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(Field, { label: "Entry \u2014 blank line starts a new paragraph", children: /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("textarea", { className: "folio-field min-h-40", value: body, onChange: (e) => setBody(e.target.value) }) }),
+        /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(Actions, { onCancel })
       ]
     }
   );
 }
 function ReportForm({
   initial,
+  folders,
   onSave,
   onCancel
 }) {
   const first = initial?.sections[0];
-  const [title, setTitle] = (0, import_react3.useState)(initial?.title ?? "");
-  const [folder, setFolder] = (0, import_react3.useState)(initial?.folder ?? "Studies");
-  const [status, setStatus] = (0, import_react3.useState)(initial?.status ?? "draft");
-  const [author, setAuthor] = (0, import_react3.useState)(initial?.author ?? "");
-  const [recipient, setRecipient] = (0, import_react3.useState)(initial?.recipient ?? "");
-  const [date, setDate] = (0, import_react3.useState)(initial?.date ?? todayIso());
-  const [summary, setSummary] = (0, import_react3.useState)(initial?.summary ?? "");
-  const [heading, setHeading] = (0, import_react3.useState)(first?.heading ?? "1. Purpose");
-  const [body, setBody] = (0, import_react3.useState)(first?.paragraphs.join("\n\n") ?? "");
-  return /* @__PURE__ */ (0, import_jsx_runtime14.jsxs)(
+  const [title, setTitle] = (0, import_react2.useState)(initial?.title ?? "");
+  const [folder, setFolder] = (0, import_react2.useState)(initial?.folder ?? "Studies");
+  const [status, setStatus] = (0, import_react2.useState)(initial?.status ?? "draft");
+  const [author, setAuthor] = (0, import_react2.useState)(initial?.author ?? "A. Sen");
+  const [recipient, setRecipient] = (0, import_react2.useState)(initial?.recipient ?? "Studio review");
+  const [date, setDate] = (0, import_react2.useState)(initial?.date ?? todayIso());
+  const [summary, setSummary] = (0, import_react2.useState)(initial?.summary ?? "");
+  const [heading, setHeading] = (0, import_react2.useState)(first?.heading ?? "1. Purpose");
+  const [body, setBody] = (0, import_react2.useState)(first?.paragraphs.join("\n\n") ?? "");
+  const folderChoices = [...new Set(folders.filter(Boolean))];
+  return /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)(
     "form",
     {
       className: "space-y-3",
@@ -23440,199 +23383,2480 @@ function ReportForm({
         onSave({ title, folder, status, author, recipient, date, summary, heading, body });
       },
       children: [
-        /* @__PURE__ */ (0, import_jsx_runtime14.jsx)(Field, { label: "Title", children: /* @__PURE__ */ (0, import_jsx_runtime14.jsx)("input", { className: "folio-field", value: title, onChange: (e) => setTitle(e.target.value), required: true }) }),
-        /* @__PURE__ */ (0, import_jsx_runtime14.jsxs)("div", { className: "grid gap-3 sm:grid-cols-3", children: [
-          /* @__PURE__ */ (0, import_jsx_runtime14.jsx)(Field, { label: "Folder", children: /* @__PURE__ */ (0, import_jsx_runtime14.jsx)("input", { className: "folio-field", value: folder, onChange: (e) => setFolder(e.target.value) }) }),
-          /* @__PURE__ */ (0, import_jsx_runtime14.jsx)(Field, { label: "Status", children: /* @__PURE__ */ (0, import_jsx_runtime14.jsx)("select", { className: "folio-field", value: status, onChange: (e) => setStatus(e.target.value), children: REPORT_STATUSES.map((item) => /* @__PURE__ */ (0, import_jsx_runtime14.jsx)("option", { value: item, children: item }, item)) }) }),
-          /* @__PURE__ */ (0, import_jsx_runtime14.jsx)(Field, { label: "Date", children: /* @__PURE__ */ (0, import_jsx_runtime14.jsx)("input", { className: "folio-field", type: "date", value: date, onChange: (e) => setDate(e.target.value) }) })
+        initial?.code ? /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("p", { className: "font-mono text-[10px] uppercase tracking-[0.18em] text-ink-soft", children: [
+          "Ref \xB7 ",
+          initial.code
+        ] }) : null,
+        /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(Field, { label: "Title", children: /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("input", { className: "folio-field", value: title, onChange: (e) => setTitle(e.target.value), required: true }) }),
+        /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("div", { className: "grid gap-3 sm:grid-cols-3", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)(Field, { label: "Folder", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(
+              "input",
+              {
+                className: "folio-field",
+                list: "report-folders",
+                value: folder,
+                onChange: (e) => setFolder(e.target.value)
+              }
+            ),
+            /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("datalist", { id: "report-folders", children: folderChoices.map((item) => /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("option", { value: item }, item)) })
+          ] }),
+          /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(Field, { label: "Status", children: /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("select", { className: "folio-field", value: status, onChange: (e) => setStatus(e.target.value), children: REPORT_STATUSES.map((item) => /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("option", { value: item, children: item === "draft" ? "Draft" : item === "review" ? "In review" : "Filed" }, item)) }) }),
+          /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(Field, { label: "Date of filing", children: /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("input", { className: "folio-field", type: "date", value: date, onChange: (e) => setDate(e.target.value) }) })
         ] }),
-        /* @__PURE__ */ (0, import_jsx_runtime14.jsxs)("div", { className: "grid gap-3 sm:grid-cols-2", children: [
-          /* @__PURE__ */ (0, import_jsx_runtime14.jsx)(Field, { label: "Author", children: /* @__PURE__ */ (0, import_jsx_runtime14.jsx)("input", { className: "folio-field", value: author, onChange: (e) => setAuthor(e.target.value) }) }),
-          /* @__PURE__ */ (0, import_jsx_runtime14.jsx)(Field, { label: "Recipient", children: /* @__PURE__ */ (0, import_jsx_runtime14.jsx)("input", { className: "folio-field", value: recipient, onChange: (e) => setRecipient(e.target.value) }) })
+        /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("div", { className: "grid gap-3 sm:grid-cols-2", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(Field, { label: "From", children: /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("input", { className: "folio-field", value: author, onChange: (e) => setAuthor(e.target.value) }) }),
+          /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(Field, { label: "Distribution / To", children: /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("input", { className: "folio-field", value: recipient, onChange: (e) => setRecipient(e.target.value) }) })
         ] }),
-        /* @__PURE__ */ (0, import_jsx_runtime14.jsx)(Field, { label: "Summary", children: /* @__PURE__ */ (0, import_jsx_runtime14.jsx)("textarea", { className: "folio-field min-h-16", value: summary, onChange: (e) => setSummary(e.target.value) }) }),
-        /* @__PURE__ */ (0, import_jsx_runtime14.jsx)(Field, { label: "Section heading", children: /* @__PURE__ */ (0, import_jsx_runtime14.jsx)("input", { className: "folio-field", value: heading, onChange: (e) => setHeading(e.target.value) }) }),
-        /* @__PURE__ */ (0, import_jsx_runtime14.jsx)(Field, { label: "Section text", children: /* @__PURE__ */ (0, import_jsx_runtime14.jsx)("textarea", { className: "folio-field min-h-32", value: body, onChange: (e) => setBody(e.target.value) }) }),
-        /* @__PURE__ */ (0, import_jsx_runtime14.jsx)(Actions, { onCancel })
+        /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(Field, { label: "Abstract", children: /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("textarea", { className: "folio-field min-h-16", value: summary, onChange: (e) => setSummary(e.target.value) }) }),
+        !initial ? /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)(import_jsx_runtime2.Fragment, { children: [
+          /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(Field, { label: "Opening section", children: /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("input", { className: "folio-field", value: heading, onChange: (e) => setHeading(e.target.value) }) }),
+          /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(Field, { label: "Opening text", children: /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("textarea", { className: "folio-field min-h-32", value: body, onChange: (e) => setBody(e.target.value) }) })
+        ] }) : /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("p", { className: "font-serif text-sm text-ink-soft", children: "Body text is revised on the letter itself. This form updates the filing header." }),
+        /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(Actions, { onCancel, submitLabel: "File this report" })
       ]
     }
   );
 }
 function Field({ label, children }) {
-  return /* @__PURE__ */ (0, import_jsx_runtime14.jsxs)("label", { className: "block", children: [
-    /* @__PURE__ */ (0, import_jsx_runtime14.jsx)("span", { className: "mb-1 block font-mono text-[10px] uppercase tracking-[0.16em] text-ink-soft", children: label }),
+  return /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("label", { className: "block", children: [
+    /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("span", { className: "mb-1 block font-mono text-[10px] uppercase tracking-[0.16em] text-ink-soft", children: label }),
     children
   ] });
 }
-function Actions({ onCancel }) {
-  return /* @__PURE__ */ (0, import_jsx_runtime14.jsxs)("div", { className: "flex justify-end gap-2 pt-2", children: [
-    /* @__PURE__ */ (0, import_jsx_runtime14.jsx)("button", { type: "button", className: "folio-ghost", onClick: onCancel, children: "Cancel" }),
-    /* @__PURE__ */ (0, import_jsx_runtime14.jsx)("button", { type: "submit", className: "folio-solid", children: "File this leaf" })
+function Actions({ onCancel, submitLabel = "File this leaf" }) {
+  return /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("div", { className: "flex flex-col-reverse gap-2 pt-2 sm:flex-row sm:justify-end", children: [
+    /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("button", { type: "button", className: "folio-ghost", onClick: onCancel, children: "Cancel" }),
+    /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("button", { type: "submit", className: "folio-solid", children: submitLabel })
   ] });
 }
 function ConfirmDialog() {
   const { confirm, cancelDelete, confirmDelete } = useFolio();
   if (!confirm.open) return null;
-  return /* @__PURE__ */ (0, import_jsx_runtime14.jsx)("div", { className: "folio-modal no-print", role: "alertdialog", "aria-modal": "true", children: /* @__PURE__ */ (0, import_jsx_runtime14.jsxs)("div", { className: "folio-modal-sheet paper-grain max-w-md", children: [
-    /* @__PURE__ */ (0, import_jsx_runtime14.jsx)("p", { className: "font-mono text-[10px] uppercase tracking-[0.2em] text-stamp", children: "Remove leaf" }),
-    /* @__PURE__ */ (0, import_jsx_runtime14.jsxs)("h2", { className: "mt-2 font-serif text-2xl", children: [
+  return /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("div", { className: "folio-modal no-print", role: "alertdialog", "aria-modal": "true", children: /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("div", { className: "folio-modal-sheet paper-grain max-w-md", children: [
+    /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("p", { className: "font-mono text-[10px] uppercase tracking-[0.2em] text-stamp", children: "Remove leaf" }),
+    /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("h2", { className: "mt-2 font-serif text-2xl", children: [
       "Delete \u201C",
       confirm.title,
       "\u201D?"
     ] }),
-    /* @__PURE__ */ (0, import_jsx_runtime14.jsx)("p", { className: "mt-3 font-serif text-ink-soft", children: "The page leaves the register. Pins and PDF selections for it are cleared." }),
-    /* @__PURE__ */ (0, import_jsx_runtime14.jsxs)("div", { className: "mt-6 flex justify-end gap-2", children: [
-      /* @__PURE__ */ (0, import_jsx_runtime14.jsx)("button", { type: "button", className: "folio-ghost", onClick: cancelDelete, children: "Keep" }),
-      /* @__PURE__ */ (0, import_jsx_runtime14.jsx)("button", { type: "button", className: "folio-solid", onClick: confirmDelete, children: "Delete" })
+    /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("p", { className: "mt-3 font-serif text-ink-soft", children: "The page leaves the register. Pins and PDF selections for it are cleared." }),
+    /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("div", { className: "mt-6 flex justify-end gap-2", children: [
+      /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("button", { type: "button", className: "folio-ghost", onClick: cancelDelete, children: "Keep" }),
+      /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("button", { type: "button", className: "folio-solid", onClick: confirmDelete, children: "Delete" })
     ] })
   ] }) });
 }
 
-// src/components/folio/PdfStudio.tsx
-var import_jsx_runtime15 = __toESM(require_jsx_runtime(), 1);
-function PdfStudio() {
-  const { pdfOpen, setPdfOpen, selectedBundle, selected, clearSelection } = useFolio();
-  if (!pdfOpen) return null;
-  const total = selectedBundle.notes.length + selectedBundle.diary.length + selectedBundle.reports.length;
-  function printFolio() {
-    window.print();
+// src/lib/ink.ts
+var PEN_COLORS = ["#2a2118", "#b55242", "#1e4d8c", "#2f4a3a", "#6b3fa0"];
+var HIGHLIGHT_COLORS = ["#f5d76e", "#f4a6c8", "#9ee6b0", "#9ec9f0"];
+function defaultColor(tool) {
+  if (tool === "highlighter") return HIGHLIGHT_COLORS[0];
+  if (tool === "pencil") return "#6a6258";
+  if (tool === "underline") return "#b55242";
+  return PEN_COLORS[0];
+}
+function strokeSize(tool) {
+  if (tool === "highlighter") return 18;
+  if (tool === "pencil") return 1.6;
+  if (tool === "underline") return 2.2;
+  if (tool === "eraser") return 22;
+  return 2.4;
+}
+function newStrokeId() {
+  return `ink-${Math.random().toString(36).slice(2, 8)}-${Date.now().toString(36)}`;
+}
+function pointsToPath(points) {
+  if (points.length === 0) return "";
+  const [first, ...rest] = points;
+  return `M ${first.x} ${first.y}` + rest.map((point) => ` L ${point.x} ${point.y}`).join("");
+}
+function eraseStrokes(strokes, point, radius) {
+  const r2 = radius * radius;
+  return strokes.filter((stroke) => !stroke.points.some((item) => {
+    const dx = item.x - point.x;
+    const dy = item.y - point.y;
+    return dx * dx + dy * dy <= r2;
+  }));
+}
+function snapUnderline(points) {
+  if (points.length < 2) return points;
+  const start = points[0];
+  const end = points[points.length - 1];
+  return [start, { x: end.x, y: start.y }];
+}
+
+// src/components/folio/InkMarks.tsx
+var import_jsx_runtime3 = __toESM(require_jsx_runtime(), 1);
+function InkMarks({ strokes }) {
+  if (!strokes.length) return null;
+  return /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("svg", { className: "ink-marks", viewBox: "0 0 1 1", preserveAspectRatio: "none", "aria-hidden": true, children: strokes.map((stroke) => /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(
+    "path",
+    {
+      d: pointsToPath(stroke.points),
+      className: `ink-stroke ink-stroke-${stroke.tool}`,
+      stroke: stroke.color,
+      strokeWidth: stroke.size / 220,
+      fill: "none",
+      strokeLinecap: stroke.tool === "underline" ? "butt" : "round",
+      strokeLinejoin: "round"
+    },
+    stroke.id
+  )) });
+}
+
+// src/lib/reports.ts
+var REPORT_STATUS_LABEL = {
+  draft: "Draft",
+  review: "In review",
+  filed: "Filed"
+};
+function isReportHeading(part) {
+  const line = part.trim();
+  return /^\d+\.\s+\S/.test(line) && !line.includes("\n") && line.length < 80;
+}
+function collectReportHeadings(pages) {
+  const headings = [];
+  for (const page of pages) {
+    for (const part of htmlToPlain(page.text).split(/\n{2,}/)) {
+      if (isReportHeading(part)) headings.push(part.trim());
+    }
   }
-  return /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("div", { className: "folio-modal no-print", role: "dialog", "aria-modal": "true", "aria-labelledby": "pdf-title", children: /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)("div", { className: "folio-modal-sheet paper-grain max-w-3xl", children: [
-    /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)("header", { className: "mb-5 flex flex-wrap items-start justify-between gap-3 border-b border-ink/10 pb-3", children: [
-      /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)("div", { children: [
-        /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("p", { className: "font-mono text-[10px] uppercase tracking-[0.2em] text-ink-soft", children: "Selected leaves" }),
-        /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)("h2", { id: "pdf-title", className: "font-serif text-2xl", children: [
-          "PDF preview \xB7 ",
-          total,
-          " ",
-          total === 1 ? "page" : "pages"
-        ] })
+  return headings;
+}
+
+// src/components/reports/StatusStamp.tsx
+var import_jsx_runtime4 = __toESM(require_jsx_runtime(), 1);
+function StatusStamp({
+  status,
+  large = false
+}) {
+  return /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(
+    "span",
+    {
+      className: `report-stamp report-stamp-${status} inline-flex rotate-[-7deg] rounded-sm border-2 px-2 py-0.5 font-mono font-semibold uppercase tracking-[0.18em] ${large ? "text-xs" : "text-[10px]"}`,
+      children: REPORT_STATUS_LABEL[status]
+    }
+  );
+}
+
+// src/components/reports/ReportLetterhead.tsx
+var import_jsx_runtime5 = __toESM(require_jsx_runtime(), 1);
+function ReportLetterhead({
+  file,
+  leafNumber,
+  pageCount,
+  headings = []
+}) {
+  if (leafNumber > 1) {
+    return /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)("header", { className: "report-runhead", children: [
+      /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)("div", { className: "min-w-0", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)("p", { className: "font-mono text-[10px] uppercase tracking-[0.18em] text-ink-soft", children: [
+          file.code,
+          " \xB7 ",
+          file.folder
+        ] }),
+        /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("p", { className: "mt-1 truncate font-serif text-sm text-ink", children: file.title })
       ] }),
-      /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)("div", { className: "flex flex-wrap gap-2", children: [
-        /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("button", { type: "button", className: "folio-ghost", onClick: clearSelection, children: "Clear" }),
-        /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("button", { type: "button", className: "folio-ghost", onClick: () => setPdfOpen(false), children: "Close" }),
-        /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("button", { type: "button", className: "folio-solid", onClick: printFolio, children: "Download / Print PDF" })
+      /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)("div", { className: "flex shrink-0 flex-col items-end gap-2", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(StatusStamp, { status: file.status }),
+        /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)("span", { className: "font-mono text-[10px] uppercase tracking-[0.14em] text-ink-soft", children: [
+          "Sheet ",
+          leafNumber,
+          " of ",
+          pageCount
+        ] })
+      ] })
+    ] });
+  }
+  return /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)(import_jsx_runtime5.Fragment, { children: [
+    /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)("header", { className: "report-masthead", children: [
+      /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)("div", { className: "flex items-start justify-between gap-4", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)("div", { children: [
+          /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("p", { className: "font-mono text-[10px] uppercase tracking-[0.28em] text-ink-soft", children: "The Folio records office" }),
+          /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("p", { className: "mt-1 font-serif text-xl tracking-tight text-ink", children: "Acta \xB7 Internal filing" })
+        ] }),
+        /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(StatusStamp, { status: file.status, large: true })
+      ] }),
+      /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)("dl", { className: "report-meta", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(Meta, { label: "Ref", value: file.code }),
+        /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(Meta, { label: "Folder", value: file.folder }),
+        /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(Meta, { label: "Date", value: formatLongDate(file.date) }),
+        /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(Meta, { label: "Status", value: REPORT_STATUS_LABEL[file.status] }),
+        /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(Meta, { label: "From", value: file.author, wide: true }),
+        /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(Meta, { label: "To", value: file.recipient, wide: true })
       ] })
     ] }),
-    /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("p", { className: "mb-4 font-serif text-sm text-ink-soft", children: "The print dialog will keep this paper look. Choose \u201CSave as PDF\u201D to download." }),
-    /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("div", { className: "folio-scroll max-h-[60vh] space-y-6 pr-1", children: selected.size === 0 ? /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("p", { className: "font-serif text-ink-soft", children: "Select pages with the PDF box on a leaf." }) : /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(PdfPages, {}) })
-  ] }) });
-}
-function PdfPrintRoot() {
-  const { selected, selectedBundle } = useFolio();
-  if (selected.size === 0) return null;
-  return /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)("div", { className: "pdf-print-root", children: [
-    /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(PdfPages, {}),
-    /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("p", { className: "hidden", children: selectedBundle.notes.length + selectedBundle.diary.length + selectedBundle.reports.length })
+    /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("h1", { className: "mt-6 font-serif text-[1.85rem] leading-tight tracking-tight text-ink", children: file.title }),
+    file.summary ? /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)("section", { className: "report-abstract", children: [
+      /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("p", { className: "font-mono text-[10px] uppercase tracking-[0.18em] text-ink-soft", children: "Abstract" }),
+      /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("p", { className: "mt-2 font-serif text-[17px] leading-7 text-ink", children: file.summary })
+    ] }) : null,
+    headings.length > 1 ? /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)("section", { className: "report-toc", children: [
+      /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("p", { className: "font-mono text-[10px] uppercase tracking-[0.18em] text-ink-soft", children: "Contents of this file" }),
+      /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("ol", { className: "mt-2 space-y-1", children: headings.map((heading) => /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("li", { className: "font-serif text-sm leading-6 text-ink-soft", children: heading }, heading)) })
+    ] }) : null
   ] });
 }
-function PdfPages() {
-  const { selectedBundle } = useFolio();
-  return /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)("div", { className: "pdf-pages", children: [
-    selectedBundle.notes.map((note) => /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)("article", { className: "pdf-page paper-grain", children: [
-      /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)("p", { className: "font-mono text-[10px] uppercase tracking-[0.18em] text-ink-soft", children: [
-        "Notebook \xB7 ",
-        note.category,
-        " \xB7 ",
-        formatLongDate(note.date)
-      ] }),
-      /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("h3", { className: "mt-2 font-serif text-2xl", children: note.title }),
-      /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("p", { className: "mt-3 font-serif leading-7", children: note.summary }),
-      /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("p", { className: "mt-3 font-serif leading-7 text-ink-soft", children: note.body })
-    ] }, note.id)),
-    selectedBundle.diary.map((entry) => /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)("article", { className: "pdf-page paper-grain", children: [
-      /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)("p", { className: "font-mono text-[10px] uppercase tracking-[0.18em] text-ink-soft", children: [
-        "Diary \xB7 ",
-        entry.weekday,
-        " \xB7 ",
-        formatLongDate(entry.date)
-      ] }),
-      /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("h3", { className: "mt-2 font-serif text-2xl", children: entry.title }),
-      /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)("p", { className: "mt-1 font-mono text-[10px] uppercase tracking-[0.16em] text-margin-red", children: [
-        entry.mood,
-        " \xB7 ",
-        entry.place
-      ] }),
-      entry.body.map((paragraph) => /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("p", { className: "mt-3 font-serif leading-7", children: paragraph }, paragraph))
-    ] }, entry.id)),
-    selectedBundle.reports.map((file) => /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)("article", { className: "pdf-page paper-grain", children: [
-      /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)("p", { className: "font-mono text-[10px] uppercase tracking-[0.18em] text-ink-soft", children: [
-        "Report \xB7 ",
-        file.code,
-        " \xB7 ",
-        file.folder,
-        " \xB7 ",
-        file.status
-      ] }),
-      /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("h3", { className: "mt-2 font-serif text-2xl", children: file.title }),
-      /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)("p", { className: "mt-2 font-serif text-sm text-ink-soft", children: [
-        "From ",
-        file.author,
-        " \xB7 To ",
-        file.recipient,
-        " \xB7 ",
-        formatLongDate(file.date)
-      ] }),
-      /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("p", { className: "mt-3 font-serif leading-7", children: file.summary }),
-      file.sections.map((section) => /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)("section", { className: "mt-4", children: [
-        /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("h4", { className: "font-serif text-xl", children: section.heading }),
-        section.paragraphs.map((paragraph) => /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("p", { className: "mt-2 font-serif leading-7", children: paragraph }, paragraph))
-      ] }, section.heading))
-    ] }, file.id))
+function Meta({ label, value, wide = false }) {
+  return /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)("div", { className: wide ? "report-meta-wide" : void 0, children: [
+    /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("dt", { children: label }),
+    /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("dd", { children: value })
   ] });
 }
 
-// src/components/folio/FolioApp.tsx
-var import_react4 = __toESM(require_react(), 1);
-var import_jsx_runtime16 = __toESM(require_jsx_runtime(), 1);
-function FolioApp() {
-  return /* @__PURE__ */ (0, import_jsx_runtime16.jsxs)(FolioProvider, { initialSection: "notebook", initialPage: 1, children: [
-    /* @__PURE__ */ (0, import_jsx_runtime16.jsx)(FolioShell, { children: /* @__PURE__ */ (0, import_jsx_runtime16.jsx)(SwipeLeaf, { children: /* @__PURE__ */ (0, import_jsx_runtime16.jsx)(Register, {}) }) }),
-    /* @__PURE__ */ (0, import_jsx_runtime16.jsx)(Composer, {}),
-    /* @__PURE__ */ (0, import_jsx_runtime16.jsx)(ConfirmDialog, {}),
-    /* @__PURE__ */ (0, import_jsx_runtime16.jsx)(PdfStudio, {}),
-    /* @__PURE__ */ (0, import_jsx_runtime16.jsx)(PdfPrintRoot, {})
+// src/components/folio/LinedLeaf.tsx
+var import_jsx_runtime6 = __toESM(require_jsx_runtime(), 1);
+function NotebookRules() {
+  return /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("div", { className: "notebook-rules", "aria-hidden": true, children: Array.from({ length: NOTEBOOK_LINES }, (_, line) => /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("span", {}, line)) });
+}
+function NotebookChrome({ children }) {
+  return /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)(import_jsx_runtime6.Fragment, { children: [
+    /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("div", { className: "notebook-holes", "aria-hidden": true, children: [0, 1, 2].map((hole) => /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("span", {}, hole)) }),
+    /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("div", { className: "notebook-margin", "aria-hidden": true }),
+    /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("div", { className: "notebook-inner", children })
   ] });
 }
-function Register() {
-  const { section } = useFolio();
-  if (section === "diary") return /* @__PURE__ */ (0, import_jsx_runtime16.jsx)(DiaryView, {});
-  if (section === "reports") return /* @__PURE__ */ (0, import_jsx_runtime16.jsx)(ReportView, {});
-  return /* @__PURE__ */ (0, import_jsx_runtime16.jsx)(NotebookView, {});
+function NotebookLeafHeader({
+  note,
+  leafNumber,
+  pageCount
+}) {
+  return /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("header", { className: "mb-3 flex items-start justify-between gap-3 border-b border-ink/10 pb-3", children: [
+    /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("div", { children: [
+      /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("p", { className: "font-mono text-[10px] uppercase tracking-[0.2em] text-ink-soft", children: [
+        note.category,
+        " \xB7 ",
+        formatShortDate(note.date)
+      ] }),
+      /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("h1", { className: "mt-1 font-serif text-2xl leading-tight tracking-tight", children: note.title }),
+      /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("p", { className: "mt-1 font-mono text-[10px] uppercase tracking-[0.14em] text-margin-red", children: [
+        "Subject \xB7 ",
+        note.category
+      ] })
+    ] }),
+    /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(LeafNumber, { leafNumber, pageCount })
+  ] });
 }
-function SwipeLeaf({ children }) {
-  const { goNext, goPrev } = useFolio();
-  const startX = (0, import_react4.useRef)(null);
-  const startY = (0, import_react4.useRef)(null);
-  return /* @__PURE__ */ (0, import_jsx_runtime16.jsx)(
+function DiaryLeafHeader({
+  entry,
+  leafNumber,
+  pageCount
+}) {
+  return /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)(import_jsx_runtime6.Fragment, { children: [
+    /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("header", { className: "mb-6 flex items-start justify-between gap-4 border-b border-ink/10 pb-4", children: [
+      /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("div", { children: [
+        /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("p", { className: "font-mono text-[10px] uppercase tracking-[0.22em] text-ink-soft", children: [
+          entry.weekday,
+          " \xB7 ",
+          entry.place
+        ] }),
+        /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("h1", { className: "mt-1 font-serif text-2xl leading-tight tracking-tight sm:text-[1.85rem]", children: formatLongDate(entry.date) }),
+        /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("p", { className: "mt-2 font-mono text-[10px] uppercase tracking-[0.16em] text-ink-soft", children: [
+          "Subject \xB7 ",
+          entry.place
+        ] })
+      ] }),
+      /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("p", { className: "shrink-0 pt-1 text-right font-mono text-[10px] uppercase tracking-[0.16em] text-ink-soft", children: [
+        "Diarium",
+        /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("br", {}),
+        "Page ",
+        leafNumber,
+        " / ",
+        pageCount
+      ] })
+    ] }),
+    /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("div", { className: "mb-6", children: [
+      /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("p", { className: "font-mono text-[10px] uppercase tracking-[0.2em] text-margin-red", children: entry.mood }),
+      /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("h2", { className: "mt-1 font-serif text-3xl tracking-tight text-ink", children: entry.title })
+    ] })
+  ] });
+}
+function ReportLeafHeader({
+  file,
+  leafNumber,
+  pageCount,
+  headings = []
+}) {
+  return /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(
+    ReportLetterhead,
+    {
+      file,
+      leafNumber,
+      pageCount,
+      headings
+    }
+  );
+}
+function LinedPrintLeaf({
+  title,
+  kindLabel,
+  page,
+  leafNumber,
+  pageCount,
+  header
+}) {
+  return /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("article", { className: "paper-grain paper-shadow notebook-sheet pdf-notebook-leaf relative overflow-hidden text-ink", children: [
+    /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("p", { className: "pdf-leaf-kicker no-print", children: [
+      kindLabel,
+      " page ",
+      leafNumber,
+      " of ",
+      pageCount,
+      " \xB7 complete leaf \xB7 ",
+      NOTEBOOK_LINES,
+      " lines"
+    ] }),
+    /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)(NotebookChrome, { children: [
+      header,
+      /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("div", { className: "notebook-pad", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(NotebookRules, {}),
+        /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(
+          "div",
+          {
+            className: `notebook-hand folio-editor${page.italic ? " is-italic" : ""}${page.underline ? " is-underline" : ""}`,
+            dangerouslySetInnerHTML: { __html: sanitizeHtml(page.text) }
+          }
+        ),
+        /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(InkMarks, { strokes: page.ink ?? [] })
+      ] }),
+      /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("footer", { className: "mt-3 flex items-end justify-between border-t border-ink/10 pt-2 font-mono text-[10px] uppercase tracking-[0.16em] text-ink-soft", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("span", { children: title }),
+        /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("span", { children: [
+          "Page ",
+          leafNumber,
+          " of ",
+          pageCount
+        ] })
+      ] })
+    ] })
+  ] });
+}
+function NotebookPrintLeaf({
+  note,
+  page,
+  leafNumber,
+  pageCount
+}) {
+  return /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(
+    LinedPrintLeaf,
+    {
+      title: note.title,
+      kindLabel: "Notebook",
+      page,
+      leafNumber,
+      pageCount,
+      header: /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(NotebookLeafHeader, { note, leafNumber, pageCount })
+    }
+  );
+}
+function DiaryPrintLeaf({
+  entry,
+  page,
+  leafNumber,
+  pageCount
+}) {
+  return /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("article", { className: "paper-grain pdf-page pdf-prose-leaf relative text-ink", children: [
+    /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("p", { className: "pdf-leaf-kicker no-print", children: [
+      "Diary page ",
+      leafNumber,
+      " of ",
+      pageCount
+    ] }),
+    /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("p", { className: "font-mono text-[10px] uppercase tracking-[0.18em] text-ink-soft", children: [
+      "Diary \xB7 ",
+      entry.weekday,
+      " \xB7 ",
+      formatLongDate(entry.date)
+    ] }),
+    /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("h3", { className: "mt-2 font-serif text-2xl", children: entry.title }),
+    /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("p", { className: "mt-1 font-mono text-[10px] uppercase tracking-[0.16em] text-margin-red", children: [
+      entry.mood,
+      " \xB7 ",
+      entry.place
+    ] }),
+    /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("div", { className: "mt-5 max-w-prose", children: /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(RichCopy, { text: page.text, dropCap: leafNumber === 1, className: "font-serif text-[17.5px] leading-[1.85]" }) }),
+    /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("footer", { className: "mt-10 flex items-end justify-between font-mono text-[10px] uppercase tracking-[0.16em] text-ink-soft", children: [
+      /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("span", { children: [
+        formatLongDate(entry.date),
+        " \xB7 ",
+        entry.place
+      ] }),
+      /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("span", { children: [
+        "Page ",
+        leafNumber,
+        " of ",
+        pageCount
+      ] })
+    ] })
+  ] });
+}
+function ReportPrintLeaf({
+  file,
+  page,
+  leafNumber,
+  pageCount
+}) {
+  const headings = collectReportHeadings(hydrateReportPages(file));
+  return /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("article", { className: "paper-grain pdf-page pdf-prose-leaf relative text-ink", children: [
+    /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("p", { className: "pdf-leaf-kicker no-print", children: [
+      "Report sheet ",
+      leafNumber,
+      " of ",
+      pageCount
+    ] }),
+    /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(
+      ReportLetterhead,
+      {
+        file,
+        leafNumber,
+        pageCount,
+        headings
+      }
+    ),
+    /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("div", { className: "mt-6", children: looksLikeHtml(page.text) ? /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("div", { className: "folio-editor font-serif text-[16.5px] leading-[1.8]", dangerouslySetInnerHTML: { __html: sanitizeHtml(page.text) } }) : /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(ReportParagraphs, { text: page.text }) }),
+    /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("footer", { className: "mt-10 flex items-end justify-between font-mono text-[10px] uppercase tracking-[0.14em] text-ink-soft", children: [
+      /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("span", { children: [
+        "Filed for the record \xB7 ",
+        file.folder,
+        " \xB7 ",
+        file.code
+      ] }),
+      /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("span", { children: [
+        "Sheet ",
+        leafNumber,
+        " of ",
+        pageCount
+      ] })
+    ] })
+  ] });
+}
+function RichCopy({
+  text,
+  dropCap = false,
+  className
+}) {
+  if (looksLikeHtml(text)) {
+    return /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(
+      "div",
+      {
+        className: `folio-editor ${className} ${dropCap ? "drop-cap" : ""}`,
+        dangerouslySetInnerHTML: { __html: sanitizeHtml(text) }
+      }
+    );
+  }
+  return /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(ProseParagraphs, { text, dropCap, className });
+}
+function ProseParagraphs({
+  text,
+  dropCap = false,
+  className
+}) {
+  const parts = text.split(/\n{2,}/).map((part) => part.trim()).filter(Boolean);
+  if (parts.length === 0) {
+    return text ? /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("p", { className, children: text }) : null;
+  }
+  return /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(import_jsx_runtime6.Fragment, { children: parts.map((part, index) => /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(
+    "p",
+    {
+      className: `${className} ${dropCap && index === 0 ? "drop-cap" : ""} ${index > 0 ? "mt-5" : ""}`,
+      children: part
+    },
+    `${index}-${part.slice(0, 24)}`
+  )) });
+}
+function ReportParagraphs({ text }) {
+  const parts = text.split(/\n{2,}/).map((part) => part.trim()).filter(Boolean);
+  return /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(import_jsx_runtime6.Fragment, { children: parts.map((part, index) => {
+    const heading = isReportHeading(part);
+    if (heading) {
+      return /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("h4", { className: `${index > 0 ? "mt-7" : ""} font-serif text-xl text-ink`, children: part }, `${index}-${part}`);
+    }
+    return /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("p", { className: "mt-2 max-w-prose font-serif text-[16.5px] leading-[1.8] text-ink/90", children: part }, `${index}-${part.slice(0, 24)}`);
+  }) });
+}
+function LeafNumber({ leafNumber, pageCount }) {
+  return /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("span", { className: "font-mono text-[10px] uppercase tracking-[0.14em] text-ink-soft", children: [
+    "Page ",
+    leafNumber,
+    " / ",
+    pageCount
+  ] });
+}
+
+// src/components/folio/PdfStudio.tsx
+var import_jsx_runtime7 = __toESM(require_jsx_runtime(), 1);
+function PdfStudio() {
+  const { pdfOpen, setPdfOpen, selectedLeaves, selected, clearSelection } = useFolio();
+  if (!pdfOpen) return null;
+  const total = selectedLeaves.length;
+  return /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("div", { className: "folio-modal no-print", role: "dialog", "aria-modal": "true", "aria-labelledby": "pdf-title", children: /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)("div", { className: "folio-modal-sheet paper-grain max-w-4xl", children: [
+    /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)("header", { className: "mb-5 flex flex-wrap items-start justify-between gap-3 border-b border-ink/10 pb-3", children: [
+      /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)("div", { children: [
+        /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("p", { className: "font-mono text-[10px] uppercase tracking-[0.2em] text-ink-soft", children: "Selected leaves" }),
+        /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)("h2", { id: "pdf-title", className: "font-serif text-2xl", children: [
+          "PDF preview \xB7 ",
+          total,
+          " ",
+          total === 1 ? "sheet" : "sheets"
+        ] })
+      ] }),
+      /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)("div", { className: "flex flex-wrap gap-2", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("button", { type: "button", className: "folio-ghost", onClick: clearSelection, children: "Clear" }),
+        /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("button", { type: "button", className: "folio-ghost", onClick: () => setPdfOpen(false), children: "Close" }),
+        /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("button", { type: "button", className: "folio-solid", onClick: () => window.print(), children: "Download / Print PDF" })
+      ] })
+    ] }),
+    /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("p", { className: "mb-4 font-serif text-sm text-ink-soft", children: "Each marked notebook, diary, or report leaf becomes one PDF sheet. Page 11 stays page 11, with the same forty lines and the same writing. In the print dialog choose \u201CSave as PDF\u201D." }),
+    /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("div", { className: "folio-scroll max-h-[60vh] space-y-8 pr-1", children: selected.size === 0 && selectedLeaves.length === 0 ? /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("p", { className: "font-serif text-ink-soft", children: "Mark a leaf with the PDF box in the sidebar." }) : /* @__PURE__ */ (0, import_jsx_runtime7.jsx)(PdfPages, {}) })
+  ] }) });
+}
+function PdfPrintRoot() {
+  const { selected, selectedLeaves } = useFolio();
+  if (selected.size === 0 && selectedLeaves.length === 0) return null;
+  return /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)("div", { className: "pdf-print-root", children: [
+    /* @__PURE__ */ (0, import_jsx_runtime7.jsx)(PdfPages, {}),
+    /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("p", { className: "hidden", children: selectedLeaves.length })
+  ] });
+}
+function PdfPages() {
+  const { selectedLeaves } = useFolio();
+  return /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("div", { className: "pdf-pages", children: selectedLeaves.map((leaf) => {
+    if (leaf.kind === "notebook") {
+      return /* @__PURE__ */ (0, import_jsx_runtime7.jsx)(
+        NotebookPrintLeaf,
+        {
+          note: leaf.note,
+          page: leaf.page,
+          leafNumber: leaf.index + 1,
+          pageCount: leaf.pageCount
+        },
+        leaf.page.id
+      );
+    }
+    if (leaf.kind === "diary") {
+      return /* @__PURE__ */ (0, import_jsx_runtime7.jsx)(
+        DiaryPrintLeaf,
+        {
+          entry: leaf.entry,
+          page: leaf.page,
+          leafNumber: leaf.index + 1,
+          pageCount: leaf.pageCount
+        },
+        leaf.page.id
+      );
+    }
+    return /* @__PURE__ */ (0, import_jsx_runtime7.jsx)(
+      ReportPrintLeaf,
+      {
+        file: leaf.file,
+        page: leaf.page,
+        leafNumber: leaf.index + 1,
+        pageCount: leaf.pageCount
+      },
+      leaf.page.id
+    );
+  }) });
+}
+
+// src/lib/ink-context.tsx
+var import_react3 = __toESM(require_react(), 1);
+var import_jsx_runtime8 = __toESM(require_jsx_runtime(), 1);
+var InkContext = (0, import_react3.createContext)(null);
+function InkProvider({ children }) {
+  const [tool, setToolState] = (0, import_react3.useState)("write");
+  const [color, setColorState] = (0, import_react3.useState)(defaultColor("pen"));
+  const setTool = (0, import_react3.useCallback)((next) => {
+    setToolState(next);
+    if (next === "pen" || next === "highlighter" || next === "underline" || next === "pencil") {
+      setColorState((current) => {
+        if (next === "highlighter") return defaultColor("highlighter");
+        if (next === "pencil") return defaultColor("pencil");
+        if (next === "underline") return current || defaultColor("underline");
+        return PEN_SAFE(current);
+      });
+    }
+  }, []);
+  const setColor = (0, import_react3.useCallback)((next) => setColorState(next), []);
+  const value = (0, import_react3.useMemo)(() => ({ tool, color, setTool, setColor }), [color, setColor, setTool, tool]);
+  return /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(InkContext.Provider, { value, children });
+}
+function PEN_SAFE(current) {
+  if (current === defaultColor("highlighter") || current === defaultColor("pencil")) {
+    return defaultColor("pen");
+  }
+  return current || defaultColor("pen");
+}
+function useInk() {
+  const context = (0, import_react3.useContext)(InkContext);
+  if (!context) throw new Error("useInk must be used within InkProvider");
+  return context;
+}
+
+// src/lib/router.tsx
+var import_react4 = __toESM(require_react(), 1);
+var import_jsx_runtime9 = __toESM(require_jsx_runtime(), 1);
+var RouterContext = (0, import_react4.createContext)(null);
+function RouterProvider({ children }) {
+  const [path, setPath] = (0, import_react4.useState)(() => window.location.pathname || "/");
+  const go = (0, import_react4.useCallback)((to) => {
+    const next = to.startsWith("/") ? to : `/${to}`;
+    if (next === window.location.pathname) {
+      window.scrollTo(0, 0);
+      return;
+    }
+    window.history.pushState({}, "", next);
+    setPath(next);
+    window.scrollTo(0, 0);
+  }, []);
+  (0, import_react4.useEffect)(() => {
+    function onPop() {
+      setPath(window.location.pathname || "/");
+    }
+    window.addEventListener("popstate", onPop);
+    return () => window.removeEventListener("popstate", onPop);
+  }, []);
+  const value = (0, import_react4.useMemo)(
+    () => ({ path, route: parsePath(path), go }),
+    [go, path]
+  );
+  return /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(RouterContext.Provider, { value, children });
+}
+function useRouter() {
+  const context = (0, import_react4.useContext)(RouterContext);
+  if (!context) throw new Error("useRouter must be used within RouterProvider");
+  return context;
+}
+
+// src/components/catalog/CoverCard.tsx
+var import_jsx_runtime10 = __toESM(require_jsx_runtime(), 1);
+function CoverCard({
+  kicker,
+  title,
+  subject,
+  date,
+  onOpen,
+  tone = "book",
+  mark
+}) {
+  const skin = tone === "journal" ? "bg-[#f3d9c4] border-[#c9a07a]" : tone === "file" ? "bg-manila border-[#c4a06a]" : "bg-[#efe2c6] border-[#d4c3a0]";
+  return /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)(
+    "button",
+    {
+      type: "button",
+      onClick: onOpen,
+      className: `cover-card ${skin} w-full rounded-sm border p-4 text-left shadow-[6px_8px_0_rgba(0,0,0,0.12)] transition hover:-translate-y-0.5`,
+      children: [
+        /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)("p", { className: "flex items-start justify-between gap-3 font-mono text-[10px] uppercase tracking-[0.16em] text-ink-soft", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("span", { children: kicker }),
+          mark ? /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("span", { className: "text-stamp", children: mark }) : null
+        ] }),
+        /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("h3", { className: "mt-2 font-serif text-xl leading-snug text-ink", children: title }),
+        /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("p", { className: "mt-3 font-mono text-[10px] uppercase tracking-[0.14em] text-margin-red", children: "Subject" }),
+        /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("p", { className: "mt-1 font-serif text-sm leading-6 text-ink-soft", children: subject }),
+        /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("p", { className: "mt-4 font-mono text-[10px] uppercase tracking-[0.14em] text-ink-soft", children: date })
+      ]
+    }
+  );
+}
+
+// src/components/layout/DeskFrame.tsx
+var import_jsx_runtime11 = __toESM(require_jsx_runtime(), 1);
+function DeskFrame({
+  children,
+  kicker,
+  title,
+  deck
+}) {
+  const { go, path } = useRouter();
+  return /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("div", { className: "desk-grain app-chrome min-h-full", children: /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)("div", { className: "mx-auto flex min-h-screen max-w-[1240px] flex-col px-3 py-4 sm:px-8 sm:py-8", children: [
+    /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)("header", { className: "mb-8 flex flex-wrap items-end justify-between gap-4 text-[#f3e6cf]", children: [
+      /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)("button", { type: "button", className: "text-left", onClick: () => go(href.home), children: [
+        /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("p", { className: "font-mono text-[10px] uppercase tracking-[0.28em] text-gold", children: kicker ?? "Personal register" }),
+        /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("h1", { className: "mt-1 font-serif text-3xl tracking-tight sm:text-4xl", children: title ?? "The Folio" })
+      ] }),
+      /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("p", { className: "font-mono text-[10px] uppercase tracking-[0.18em] text-gold/70", children: formatDeskNow() })
+    ] }),
+    /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)("nav", { className: "mb-6 flex flex-wrap gap-2", "aria-label": "Libraries", children: [
+      /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(NavChip, { label: "Dashboard", to: href.home, active: path === "/", go }),
+      /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(
+        NavChip,
+        {
+          label: "Notebook",
+          to: href.notebooks,
+          active: path.startsWith("/notebook"),
+          go
+        }
+      ),
+      /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(NavChip, { label: "Diary", to: href.diaries, active: path.startsWith("/diary"), go }),
+      /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(
+        NavChip,
+        {
+          label: "Reports",
+          to: href.reports,
+          active: path.startsWith("/reports"),
+          go
+        }
+      )
+    ] }),
+    deck ? /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("p", { className: "mb-6 max-w-2xl font-serif text-[#f3e6cf]/80 leading-7", children: deck }) : null,
+    children
+  ] }) });
+}
+function NavChip({
+  label,
+  to,
+  active,
+  go
+}) {
+  return /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(
+    "button",
+    {
+      type: "button",
+      onClick: () => go(to),
+      className: `nav-chip min-h-10 flex-1 rounded-sm border px-3 py-2 font-mono text-[10px] uppercase tracking-[0.16em] sm:flex-none sm:py-1.5 ${active ? "border-gold bg-gold/15 text-gold" : "border-gold/25 text-[#f3e6cf]/80 hover:border-gold/50"}`,
+      children: label
+    }
+  );
+}
+
+// src/lib/catalog.ts
+function catalogNotes(notes2) {
+  return [...notes2].sort(byDateDesc);
+}
+function catalogDiary(entries) {
+  return [...entries].sort(byDateAsc);
+}
+function catalogReports(files) {
+  return [...files].sort((a, b) => {
+    const folder = a.folder.localeCompare(b.folder);
+    if (folder !== 0) return folder;
+    return byDateDesc(a, b);
+  });
+}
+function monthLabel(isoDate) {
+  return new Intl.DateTimeFormat("en-GB", {
+    month: "long",
+    year: "numeric"
+  }).format(/* @__PURE__ */ new Date(`${isoDate}T12:00:00`));
+}
+
+// src/pages/DashboardPage.tsx
+var import_jsx_runtime12 = __toESM(require_jsx_runtime(), 1);
+function DashboardPage() {
+  const { notes: notes2, diaryEntries: diaryEntries2, reports: reports2, openComposer } = useFolio();
+  const { go } = useRouter();
+  const books = catalogNotes(notes2);
+  const volumes = catalogDiary(diaryEntries2);
+  const files = catalogReports(reports2);
+  return /* @__PURE__ */ (0, import_jsx_runtime12.jsx)(
+    DeskFrame,
+    {
+      kicker: "Library desk",
+      title: "The Folio",
+      deck: "Three cabinets on one desk. Each title carries its subject on the cover. Open a book, a diary, or a report to read it as paper.",
+      children: /* @__PURE__ */ (0, import_jsx_runtime12.jsxs)("div", { className: "grid gap-6 lg:grid-cols-3", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime12.jsx)(
+          Cabinet,
+          {
+            latin: "Adversaria",
+            title: "Notebook",
+            count: `${notes2.length} books`,
+            onAll: () => go(href.notebooks),
+            onAdd: () => openComposer("notebook", "create"),
+            children: books.length === 0 ? /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("p", { className: "font-serif text-sm text-[#f3e6cf]/70", children: "This cabinet is empty." }) : books.map((note) => /* @__PURE__ */ (0, import_jsx_runtime12.jsx)(
+              CoverCard,
+              {
+                tone: "book",
+                kicker: "Notebook",
+                title: note.title,
+                subject: note.category,
+                date: formatShortDate(note.date),
+                onOpen: () => go(href.notebook(note.id))
+              },
+              note.id
+            ))
+          }
+        ),
+        /* @__PURE__ */ (0, import_jsx_runtime12.jsx)(
+          Cabinet,
+          {
+            latin: "Diarium",
+            title: "Diary",
+            count: `${diaryEntries2.length} volumes`,
+            onAll: () => go(href.diaries),
+            onAdd: () => openComposer("diary", "create"),
+            children: volumes.length === 0 ? /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("p", { className: "font-serif text-sm text-[#f3e6cf]/70", children: "This cabinet is empty." }) : volumes.map((entry) => /* @__PURE__ */ (0, import_jsx_runtime12.jsx)(
+              CoverCard,
+              {
+                tone: "journal",
+                kicker: "Diary",
+                title: entry.title,
+                subject: entry.place,
+                date: formatShortDate(entry.date),
+                onOpen: () => go(href.diary(entry.id))
+              },
+              entry.id
+            ))
+          }
+        ),
+        /* @__PURE__ */ (0, import_jsx_runtime12.jsx)(
+          Cabinet,
+          {
+            latin: "Acta",
+            title: "Reports",
+            count: `${reports2.length} files`,
+            onAll: () => go(href.reports),
+            onAdd: () => openComposer("reports", "create"),
+            children: files.length === 0 ? /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("p", { className: "font-serif text-sm text-[#f3e6cf]/70", children: "This cabinet is empty." }) : files.map((file) => /* @__PURE__ */ (0, import_jsx_runtime12.jsx)(
+              CoverCard,
+              {
+                tone: "file",
+                kicker: file.code,
+                title: file.title,
+                subject: file.folder,
+                date: formatShortDate(file.date),
+                mark: REPORT_STATUS_LABEL[file.status],
+                onOpen: () => go(href.report(file.id))
+              },
+              file.id
+            ))
+          }
+        )
+      ] })
+    }
+  );
+}
+function Cabinet({
+  latin,
+  title,
+  count,
+  onAll,
+  onAdd,
+  children
+}) {
+  return /* @__PURE__ */ (0, import_jsx_runtime12.jsxs)("section", { className: "rounded-sm border border-gold/20 bg-[#2a1810]/55 p-4 sm:p-5", children: [
+    /* @__PURE__ */ (0, import_jsx_runtime12.jsxs)("div", { className: "mb-4 flex items-end justify-between gap-3", children: [
+      /* @__PURE__ */ (0, import_jsx_runtime12.jsxs)("div", { children: [
+        /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("p", { className: "font-mono text-[10px] uppercase tracking-[0.2em] text-gold/70", children: latin }),
+        /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("h2", { className: "font-serif text-2xl text-[#f6ead4]", children: title }),
+        /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("p", { className: "mt-1 font-mono text-[10px] uppercase tracking-[0.14em] text-gold/55", children: count })
+      ] }),
+      /* @__PURE__ */ (0, import_jsx_runtime12.jsxs)("div", { className: "flex flex-col gap-2", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("button", { type: "button", className: "folio-desk-btn", onClick: onAdd, children: "+ Add" }),
+        /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("button", { type: "button", className: "folio-desk-btn", onClick: onAll, children: "All titles" })
+      ] })
+    ] }),
+    /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("div", { className: "flex flex-col gap-3", children })
+  ] });
+}
+
+// src/components/catalog/LibraryCovers.tsx
+var import_jsx_runtime13 = __toESM(require_jsx_runtime(), 1);
+var BOOK_CLOTH = {
+  Research: "bg-[#3d4f3a]",
+  Design: "bg-[#6b2e2a]",
+  Field: "bg-[#8a5a2b]",
+  Reference: "bg-[#2c3d55]"
+};
+function BookCover({
+  title,
+  subject,
+  date,
+  category,
+  onOpen
+}) {
+  return /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("button", { type: "button", onClick: onOpen, className: "book-cover group text-left", children: [
+    /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("span", { className: `book-spine ${BOOK_CLOTH[category]}`, "aria-hidden": true }),
+    /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("span", { className: "flex min-w-0 flex-1 flex-col bg-[#efe2c6] px-4 py-4", children: [
+      /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("span", { className: "font-mono text-[10px] uppercase tracking-[0.16em] text-ink-soft", children: "Notebook" }),
+      /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("span", { className: "mt-2 font-serif text-xl leading-snug text-ink group-hover:underline group-hover:decoration-ink/25", children: title }),
+      /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("span", { className: "mt-3 font-mono text-[10px] uppercase tracking-[0.14em] text-margin-red", children: "Subject" }),
+      /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("span", { className: "mt-1 font-serif text-sm text-ink-soft", children: subject }),
+      /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("span", { className: "mt-4 font-mono text-[10px] uppercase tracking-[0.14em] text-ink-soft", children: date })
+    ] })
+  ] });
+}
+function JournalCover({
+  title,
+  subject,
+  date,
+  weekday,
+  onOpen
+}) {
+  return /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("button", { type: "button", onClick: onOpen, className: "journal-cover group text-left", children: [
+    /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("span", { className: "flex w-[4.5rem] shrink-0 flex-col items-center justify-center bg-[#5c2e24] px-2 py-4 text-[#f6ead4]", children: [
+      /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("span", { className: "font-mono text-[10px] uppercase tracking-[0.14em]", children: weekday.slice(0, 3) }),
+      /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("span", { className: "mt-1 font-serif text-lg leading-none", children: date.split(" ")[0] })
+    ] }),
+    /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("span", { className: "flex min-w-0 flex-1 flex-col bg-[#f3d9c4] px-4 py-4", children: [
+      /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("span", { className: "font-mono text-[10px] uppercase tracking-[0.16em] text-ink-soft", children: "Diary" }),
+      /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("span", { className: "mt-2 font-serif text-xl leading-snug text-ink group-hover:underline group-hover:decoration-ink/25", children: title }),
+      /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("span", { className: "mt-3 font-mono text-[10px] uppercase tracking-[0.14em] text-margin-red", children: "Subject" }),
+      /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("span", { className: "mt-1 font-serif text-sm text-ink-soft", children: subject }),
+      /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("span", { className: "mt-4 font-mono text-[10px] uppercase tracking-[0.14em] text-ink-soft", children: date })
+    ] })
+  ] });
+}
+function FileCover({
+  code,
+  title,
+  subject,
+  date,
+  author,
+  status,
+  onOpen
+}) {
+  return /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("button", { type: "button", onClick: onOpen, className: "file-cover group text-left", children: [
+    /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("span", { className: "file-tab", children: subject }),
+    /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("span", { className: "file-body bg-manila px-4 pb-4 pt-5", children: [
+      /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("span", { className: "flex items-start justify-between gap-3", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("span", { className: "font-mono text-[10px] uppercase tracking-[0.16em] text-ink-soft", children: code }),
+        status ? /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(StatusStamp, { status }) : null
+      ] }),
+      /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("span", { className: "mt-2 block font-serif text-xl leading-snug text-ink group-hover:underline group-hover:decoration-ink/25", children: title }),
+      author ? /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("span", { className: "mt-2 block font-serif text-sm text-ink-soft", children: [
+        "From ",
+        author
+      ] }) : /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)(import_jsx_runtime13.Fragment, { children: [
+        /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("span", { className: "mt-3 block font-mono text-[10px] uppercase tracking-[0.14em] text-margin-red", children: "Subject" }),
+        /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("span", { className: "mt-1 block font-serif text-sm text-ink-soft", children: subject })
+      ] }),
+      /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("span", { className: "mt-4 block font-mono text-[10px] uppercase tracking-[0.14em] text-ink-soft", children: date })
+    ] })
+  ] });
+}
+
+// src/components/folio/InkToolbar.tsx
+var import_jsx_runtime14 = __toESM(require_jsx_runtime(), 1);
+var DRAW_TOOLS = [
+  { id: "write", label: "Write" },
+  { id: "pen", label: "Pen" },
+  { id: "highlighter", label: "Highlighter" },
+  { id: "pencil", label: "Pencil" },
+  { id: "eraser", label: "Eraser" },
+  { id: "underline", label: "Line" }
+];
+function InkToolbar({
+  tone = "desk"
+}) {
+  const { tool, color, setTool, setColor } = useInk();
+  const swatches = tool === "highlighter" ? HIGHLIGHT_COLORS : PEN_COLORS;
+  const showColor = tool === "pen" || tool === "highlighter" || tool === "underline";
+  const btn = tone === "desk" ? "folio-desk-btn" : "folio-tiny";
+  return /* @__PURE__ */ (0, import_jsx_runtime14.jsxs)("div", { className: "ink-toolbar", role: "toolbar", "aria-label": "Page marks", children: [
+    DRAW_TOOLS.map((item) => {
+      const active = tool === item.id;
+      return /* @__PURE__ */ (0, import_jsx_runtime14.jsx)(
+        "button",
+        {
+          type: "button",
+          className: `${btn} ${active ? "is-ink-active" : ""}`,
+          "aria-pressed": active,
+          onClick: () => setTool(item.id),
+          children: item.label
+        },
+        item.id
+      );
+    }),
+    showColor ? /* @__PURE__ */ (0, import_jsx_runtime14.jsx)("span", { className: "ink-swatches", "aria-label": "Ink colour", children: swatches.map((swatch) => /* @__PURE__ */ (0, import_jsx_runtime14.jsx)(
+      "button",
+      {
+        type: "button",
+        className: `ink-swatch ${color === swatch ? "is-ink-active" : ""}`,
+        style: { background: swatch },
+        "aria-label": `Colour ${swatch}`,
+        onClick: () => setColor(swatch)
+      },
+      swatch
+    )) }) : null
+  ] });
+}
+
+// src/components/folio/TypeToolbar.tsx
+var import_react5 = __toESM(require_react(), 1);
+var import_jsx_runtime15 = __toESM(require_jsx_runtime(), 1);
+function TypeToolbar({
+  tone = "desk",
+  section,
+  onApplied
+}) {
+  const fileRef = (0, import_react5.useRef)(null);
+  const [face, setFace] = (0, import_react5.useState)("");
+  const btn = tone === "desk" ? "folio-desk-btn" : "folio-tiny";
+  const groups = fontGroups(section);
+  const current = fontById(face);
+  function finish() {
+    onApplied?.();
+  }
+  return /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)(
     "div",
     {
-      onTouchStart: (event) => {
-        startX.current = event.changedTouches[0]?.clientX ?? null;
-        startY.current = event.changedTouches[0]?.clientY ?? null;
+      className: `type-toolbar type-toolbar-${tone}`,
+      role: "toolbar",
+      "aria-label": "Text style",
+      onMouseDownCapture: (event) => {
+        rememberSelection();
+        const target = event.target;
+        if (target instanceof HTMLSelectElement || target instanceof HTMLInputElement) return;
+        event.preventDefault();
       },
-      onTouchEnd: (event) => {
-        if (startX.current == null || startY.current == null) return;
-        const endX = event.changedTouches[0]?.clientX ?? startX.current;
-        const endY = event.changedTouches[0]?.clientY ?? startY.current;
-        const deltaX = endX - startX.current;
-        const deltaY = endY - startY.current;
-        if (Math.abs(deltaX) > 56 && Math.abs(deltaX) > Math.abs(deltaY)) {
-          if (deltaX < 0) goNext();
-          else goPrev();
+      children: [
+        /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("button", { type: "button", className: btn, onClick: () => {
+          applyRich("bold");
+          finish();
+        }, title: "Bold selected text", children: /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("strong", { children: "B" }) }),
+        /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("button", { type: "button", className: btn, onClick: () => {
+          applyRich("italic");
+          finish();
+        }, title: "Italic selected text", children: /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("em", { children: "I" }) }),
+        /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("button", { type: "button", className: btn, onClick: () => {
+          applyRich("underline");
+          finish();
+        }, title: "Underline selected text", children: /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("span", { className: "type-u", children: "U" }) }),
+        /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("span", { className: "type-label", children: "Color" }),
+        /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("span", { className: "ink-swatches", "aria-label": "Font colour", children: TEXT_COLORS.map((swatch) => /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(
+          "button",
+          {
+            type: "button",
+            className: "ink-swatch",
+            style: { background: swatch.value },
+            title: `${swatch.label} text`,
+            "aria-label": `${swatch.label} text`,
+            onClick: () => {
+              applyColor(swatch.value);
+              finish();
+            }
+          },
+          swatch.id
+        )) }),
+        /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("span", { className: "type-label", children: "Highlight" }),
+        /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("span", { className: "ink-swatches", "aria-label": "Highlight", children: HIGHLIGHT_TINTS.map((swatch) => /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(
+          "button",
+          {
+            type: "button",
+            className: "ink-swatch",
+            style: { background: swatch.value },
+            title: `${swatch.label} highlight`,
+            "aria-label": `${swatch.label} highlight`,
+            onClick: () => {
+              applyHighlight(swatch.value);
+              finish();
+            }
+          },
+          swatch.id
+        )) }),
+        /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)("label", { className: "type-font", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("span", { className: "type-label", children: "Font" }),
+          /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)(
+            "select",
+            {
+              className: tone === "desk" ? "type-select-desk" : "type-select",
+              value: face,
+              "aria-label": "Typeface",
+              style: current ? { fontFamily: current.stack } : void 0,
+              onChange: (event) => {
+                const next = event.target.value;
+                const font = fontById(next);
+                if (!font) return;
+                setFace(next);
+                applyFont(font.label, font.stack);
+                finish();
+              },
+              children: [
+                /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("option", { value: "", disabled: true, children: "Select family" }),
+                groups.map((group) => /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("optgroup", { label: group.label, children: group.fonts.map((font) => /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("option", { value: font.id, style: { fontFamily: font.stack }, children: font.label }, font.id)) }, group.id))
+              ]
+            }
+          )
+        ] }),
+        /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(
+          "button",
+          {
+            type: "button",
+            className: btn,
+            title: "Paste or choose an image",
+            onClick: () => {
+              rememberSelection();
+              fileRef.current?.click();
+            },
+            children: "Image"
+          }
+        ),
+        /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(
+          "input",
+          {
+            ref: fileRef,
+            type: "file",
+            accept: "image/*",
+            className: "sr-only",
+            onChange: async (event) => {
+              const file = event.target.files?.[0];
+              event.target.value = "";
+              if (!file) return;
+              try {
+                const data = await imageToDataUrl(file);
+                if (!data) return;
+                insertHtml(`<img src="${data}" alt="Pasted image" />`);
+                finish();
+              } catch {
+              }
+            }
+          }
+        )
+      ]
+    }
+  );
+}
+
+// src/components/folio/RegisterBar.tsx
+var import_jsx_runtime16 = __toESM(require_jsx_runtime(), 1);
+var SECTION_ADD = {
+  notebook: "+ Notebook",
+  diary: "+ Diary",
+  reports: "+ Report"
+};
+function RegisterBar({
+  sectionHint,
+  currentId
+} = {}) {
+  const {
+    section,
+    openComposer,
+    selectOnly,
+    clearSelection,
+    selected,
+    setPdfOpen,
+    activeLeafId
+  } = useFolio();
+  const count = selected.size;
+  const leafId = activeLeafId ?? currentId;
+  const createSection = sectionHint ?? section;
+  const showTools = Boolean(leafId);
+  const showInk = createSection === "notebook" && Boolean(leafId);
+  return /* @__PURE__ */ (0, import_jsx_runtime16.jsxs)("div", { className: "no-print mb-4 flex flex-col gap-2", children: [
+    /* @__PURE__ */ (0, import_jsx_runtime16.jsxs)("div", { className: "flex flex-wrap items-center gap-2", children: [
+      sectionHint ? /* @__PURE__ */ (0, import_jsx_runtime16.jsx)(
+        "button",
+        {
+          type: "button",
+          className: "folio-desk-btn",
+          onClick: () => openComposer(createSection, "create"),
+          children: SECTION_ADD[createSection]
         }
-        startX.current = null;
-        startY.current = null;
+      ) : /* @__PURE__ */ (0, import_jsx_runtime16.jsxs)(import_jsx_runtime16.Fragment, { children: [
+        /* @__PURE__ */ (0, import_jsx_runtime16.jsx)("button", { type: "button", className: "folio-desk-btn", onClick: () => openComposer("notebook", "create"), children: "+ Notebook" }),
+        /* @__PURE__ */ (0, import_jsx_runtime16.jsx)("button", { type: "button", className: "folio-desk-btn", onClick: () => openComposer("diary", "create"), children: "+ Diary" }),
+        /* @__PURE__ */ (0, import_jsx_runtime16.jsx)("button", { type: "button", className: "folio-desk-btn", onClick: () => openComposer("reports", "create"), children: "+ Report" })
+      ] }),
+      /* @__PURE__ */ (0, import_jsx_runtime16.jsx)("span", { className: "hidden h-4 w-px bg-gold/25 sm:block" }),
+      leafId ? /* @__PURE__ */ (0, import_jsx_runtime16.jsxs)("button", { type: "button", className: "folio-desk-btn", onClick: () => selectOnly(leafId), children: [
+        "Select ",
+        /* @__PURE__ */ (0, import_jsx_runtime16.jsx)("span", { className: "hidden sm:inline", children: "this " }),
+        "leaf"
+      ] }) : null,
+      /* @__PURE__ */ (0, import_jsx_runtime16.jsx)("button", { type: "button", className: "folio-desk-btn", onClick: clearSelection, disabled: count === 0, children: "Clear" }),
+      /* @__PURE__ */ (0, import_jsx_runtime16.jsxs)(
+        "button",
+        {
+          type: "button",
+          className: "folio-desk-btn folio-desk-btn-gold",
+          onClick: () => setPdfOpen(true),
+          disabled: count === 0,
+          children: [
+            "Preview",
+            /* @__PURE__ */ (0, import_jsx_runtime16.jsx)("span", { className: "hidden sm:inline", children: " PDF" }),
+            " \xB7 ",
+            count
+          ]
+        }
+      )
+    ] }),
+    showTools || showInk ? /* @__PURE__ */ (0, import_jsx_runtime16.jsxs)("div", { className: "desk-writing-tools", children: [
+      showTools ? /* @__PURE__ */ (0, import_jsx_runtime16.jsx)(TypeToolbar, { section: createSection, tone: "desk" }) : null,
+      showInk ? /* @__PURE__ */ (0, import_jsx_runtime16.jsx)(InkToolbar, { tone: "desk" }) : null
+    ] }) : null
+  ] });
+}
+
+// src/components/layout/LibraryShelf.tsx
+var import_jsx_runtime17 = __toESM(require_jsx_runtime(), 1);
+function LibraryShelf({
+  children,
+  section,
+  latin,
+  title,
+  count,
+  onAdd
+}) {
+  return /* @__PURE__ */ (0, import_jsx_runtime17.jsxs)("div", { children: [
+    /* @__PURE__ */ (0, import_jsx_runtime17.jsxs)("div", { className: "mb-5 flex flex-wrap items-end justify-between gap-3", children: [
+      /* @__PURE__ */ (0, import_jsx_runtime17.jsxs)("div", { children: [
+        /* @__PURE__ */ (0, import_jsx_runtime17.jsx)("p", { className: "font-mono text-[10px] uppercase tracking-[0.22em] text-gold/70", children: latin }),
+        /* @__PURE__ */ (0, import_jsx_runtime17.jsx)("h2", { className: "font-serif text-3xl text-[#f6ead4]", children: title }),
+        /* @__PURE__ */ (0, import_jsx_runtime17.jsx)("p", { className: "mt-1 font-mono text-[10px] uppercase tracking-[0.14em] text-gold/55", children: count })
+      ] }),
+      /* @__PURE__ */ (0, import_jsx_runtime17.jsx)("button", { type: "button", className: "folio-desk-btn folio-desk-btn-gold", onClick: onAdd, children: "+ Add" })
+    ] }),
+    /* @__PURE__ */ (0, import_jsx_runtime17.jsx)(RegisterBar, { sectionHint: section }),
+    children
+  ] });
+}
+
+// src/components/catalog/EmptyCabinet.tsx
+var import_jsx_runtime18 = __toESM(require_jsx_runtime(), 1);
+function EmptyCabinet({ label }) {
+  return /* @__PURE__ */ (0, import_jsx_runtime18.jsx)("p", { className: "rounded-sm border border-dashed border-gold/30 px-4 py-10 font-serif text-[#f3e6cf]/75", children: label });
+}
+
+// src/pages/DiaryIndexPage.tsx
+var import_react6 = __toESM(require_react(), 1);
+var import_jsx_runtime19 = __toESM(require_jsx_runtime(), 1);
+function DiaryIndexPage() {
+  const { diaryEntries: diaryEntries2, openComposer } = useFolio();
+  const { go } = useRouter();
+  const volumes = (0, import_react6.useMemo)(() => catalogDiary(diaryEntries2), [diaryEntries2]);
+  const months = (0, import_react6.useMemo)(() => {
+    const groups = [];
+    for (const entry of volumes) {
+      const month = monthLabel(entry.date);
+      const last = groups[groups.length - 1];
+      if (last && last.month === month) last.entries.push(entry);
+      else groups.push({ month, entries: [entry] });
+    }
+    return groups;
+  }, [volumes]);
+  return /* @__PURE__ */ (0, import_jsx_runtime19.jsx)(
+    DeskFrame,
+    {
+      kicker: "Diarium",
+      title: "Diary",
+      deck: "Each day is its own lined volume. Open a title to write on the paper, turn leaves, and mark pages for PDF.",
+      children: /* @__PURE__ */ (0, import_jsx_runtime19.jsx)(
+        LibraryShelf,
+        {
+          section: "diary",
+          latin: "Diarium",
+          title: "The volumes",
+          count: `${volumes.length} dated ${volumes.length === 1 ? "entry" : "entries"}`,
+          onAdd: () => openComposer("diary", "create"),
+          children: volumes.length === 0 ? /* @__PURE__ */ (0, import_jsx_runtime19.jsx)(EmptyCabinet, { label: "The diary is still empty." }) : /* @__PURE__ */ (0, import_jsx_runtime19.jsx)("div", { className: "space-y-8", children: months.map((group) => /* @__PURE__ */ (0, import_jsx_runtime19.jsxs)("section", { children: [
+            /* @__PURE__ */ (0, import_jsx_runtime19.jsx)("h3", { className: "mb-3 font-mono text-[10px] uppercase tracking-[0.2em] text-gold/70", children: group.month }),
+            /* @__PURE__ */ (0, import_jsx_runtime19.jsx)("div", { className: "grid gap-4 sm:grid-cols-2", children: group.entries.map((entry) => /* @__PURE__ */ (0, import_jsx_runtime19.jsx)(
+              JournalCover,
+              {
+                title: entry.title,
+                subject: entry.place,
+                weekday: entry.weekday,
+                date: formatShortDate(entry.date),
+                onOpen: () => go(href.diary(entry.id))
+              },
+              entry.id
+            )) })
+          ] }, group.month)) })
+        }
+      )
+    }
+  );
+}
+
+// src/components/folio/FolioEditor.tsx
+var import_react7 = __toESM(require_react(), 1);
+var import_jsx_runtime20 = __toESM(require_jsx_runtime(), 1);
+function FolioEditor({
+  html,
+  className,
+  ariaLabel,
+  editorRef,
+  onChange,
+  onSubmitPage
+}) {
+  const localRef = (0, import_react7.useRef)(null);
+  function setRef(node) {
+    localRef.current = node;
+    if (typeof editorRef === "object") editorRef.current = node;
+  }
+  (0, import_react7.useEffect)(() => {
+    const node = localRef.current;
+    if (!node) return;
+    if (document.activeElement === node) return;
+    const next = sanitizeHtml(html || "");
+    if (node.innerHTML !== next) node.innerHTML = next;
+  }, [html]);
+  function emit() {
+    const node = localRef.current;
+    if (!node) return;
+    onChange(sanitizeHtml(node.innerHTML));
+  }
+  async function onPaste(event) {
+    const files = [...event.clipboardData.files];
+    const fromItems = [...event.clipboardData.items].map((item) => item.getAsFile()).filter((file) => Boolean(file));
+    const image = [...files, ...fromItems].find((file) => file.type.startsWith("image/"));
+    if (image) {
+      event.preventDefault();
+      try {
+        const data = await imageToDataUrl(image);
+        if (data) {
+          insertHtml(`<img src="${data}" alt="Pasted image" />`);
+          emit();
+        }
+      } catch {
+      }
+      return;
+    }
+    const htmlClip = event.clipboardData.getData("text/html");
+    if (htmlClip) {
+      event.preventDefault();
+      insertHtml(sanitizeHtml(htmlClip));
+      emit();
+    }
+  }
+  function onKeyDown(event) {
+    const key = event.key.toLowerCase();
+    if ((event.metaKey || event.ctrlKey) && key === "b") {
+      event.preventDefault();
+      applyRich("bold");
+      emit();
+      return;
+    }
+    if ((event.metaKey || event.ctrlKey) && key === "i") {
+      event.preventDefault();
+      applyRich("italic");
+      emit();
+      return;
+    }
+    if ((event.metaKey || event.ctrlKey) && key === "u") {
+      event.preventDefault();
+      applyRich("underline");
+      emit();
+      return;
+    }
+    if ((event.metaKey || event.ctrlKey) && event.key === "Enter") {
+      event.preventDefault();
+      onSubmitPage?.();
+    }
+  }
+  return /* @__PURE__ */ (0, import_jsx_runtime20.jsx)(
+    "div",
+    {
+      ref: setRef,
+      className,
+      contentEditable: true,
+      suppressContentEditableWarning: true,
+      role: "textbox",
+      "aria-multiline": "true",
+      "aria-label": ariaLabel,
+      spellCheck: true,
+      autoCapitalize: "sentences",
+      autoCorrect: "on",
+      onInput: emit,
+      onBlur: emit,
+      onPaste,
+      onKeyDown
+    }
+  );
+}
+
+// src/components/folio/InkCanvas.tsx
+var import_react8 = __toESM(require_react(), 1);
+var import_jsx_runtime21 = __toESM(require_jsx_runtime(), 1);
+function InkCanvas({
+  strokes,
+  onChange
+}) {
+  const { tool, color } = useInk();
+  const wrapRef = (0, import_react8.useRef)(null);
+  const liveId = (0, import_react8.useRef)(null);
+  const local = (0, import_react8.useRef)(strokes);
+  const onChangeRef = (0, import_react8.useRef)(onChange);
+  const toolRef = (0, import_react8.useRef)(tool);
+  const colorRef = (0, import_react8.useRef)(color);
+  const [draft, setDraft] = (0, import_react8.useState)(strokes);
+  onChangeRef.current = onChange;
+  toolRef.current = tool;
+  colorRef.current = color;
+  const drawing = tool === "pen" || tool === "highlighter" || tool === "pencil" || tool === "eraser" || tool === "underline";
+  (0, import_react8.useEffect)(() => {
+    if (liveId.current) return;
+    local.current = strokes;
+    setDraft(strokes);
+  }, [strokes]);
+  (0, import_react8.useEffect)(() => {
+    function pointFromEvent(event) {
+      const box = wrapRef.current?.getBoundingClientRect();
+      if (!box || box.width < 8 || box.height < 8) return null;
+      return {
+        x: Math.min(1, Math.max(0, (event.clientX - box.left) / box.width)),
+        y: Math.min(1, Math.max(0, (event.clientY - box.top) / box.height))
+      };
+    }
+    function paint(next) {
+      local.current = next;
+      setDraft(next);
+    }
+    function onDown(event) {
+      const currentTool = toolRef.current;
+      if (currentTool === "write" || currentTool === "italic") return;
+      const point = pointFromEvent(event);
+      if (!point) return;
+      event.preventDefault();
+      wrapRef.current?.setPointerCapture(event.pointerId);
+      if (currentTool === "eraser") {
+        liveId.current = "erase";
+        paint(eraseStrokes(local.current, point, 0.028));
+        return;
+      }
+      const stroke = {
+        id: newStrokeId(),
+        tool: currentTool === "highlighter" || currentTool === "pencil" || currentTool === "underline" ? currentTool : "pen",
+        color: colorRef.current,
+        size: strokeSize(currentTool),
+        points: [point]
+      };
+      liveId.current = stroke.id;
+      paint([...local.current, stroke]);
+    }
+    function onMove(event) {
+      if (!liveId.current) return;
+      const point = pointFromEvent(event);
+      if (!point) return;
+      event.preventDefault();
+      const currentTool = toolRef.current;
+      if (currentTool === "eraser") {
+        paint(eraseStrokes(local.current, point, 0.028));
+        return;
+      }
+      const id = liveId.current;
+      paint(
+        local.current.map((stroke) => {
+          if (stroke.id !== id) return stroke;
+          const points = currentTool === "underline" ? snapUnderline([...stroke.points, point]) : [...stroke.points, point];
+          return { ...stroke, points };
+        })
+      );
+    }
+    function onUp() {
+      if (liveId.current) onChangeRef.current(local.current);
+      liveId.current = null;
+    }
+    const node = wrapRef.current;
+    if (!node) return;
+    node.addEventListener("pointerdown", onDown);
+    node.addEventListener("pointermove", onMove);
+    node.addEventListener("pointerup", onUp);
+    node.addEventListener("pointercancel", onUp);
+    return () => {
+      node.removeEventListener("pointerdown", onDown);
+      node.removeEventListener("pointermove", onMove);
+      node.removeEventListener("pointerup", onUp);
+      node.removeEventListener("pointercancel", onUp);
+    };
+  }, []);
+  return /* @__PURE__ */ (0, import_jsx_runtime21.jsx)(
+    "div",
+    {
+      ref: wrapRef,
+      className: `ink-canvas ${drawing ? "is-draw" : "is-idle"} ink-canvas-${tool}`,
+      children: /* @__PURE__ */ (0, import_jsx_runtime21.jsx)(InkMarks, { strokes: draft })
+    }
+  );
+}
+
+// src/components/folio/LinedBook.tsx
+var import_react9 = __toESM(require_react(), 1);
+var import_jsx_runtime22 = __toESM(require_jsx_runtime(), 1);
+function LinedBook({
+  section,
+  bookId,
+  title,
+  pages,
+  onPersist,
+  header,
+  closing,
+  editLabel,
+  deleteLabel,
+  paper = "ruled",
+  indexKicker = "Contents",
+  unitSingular = "leaf",
+  unitPlural = "leaves",
+  addLabel = "+ New page",
+  pdfHint = "Mark a leaf. Only marked leaves are printed, as they appear on the paper.",
+  pagePrefix = "Page"
+}) {
+  const {
+    isPinned,
+    togglePin,
+    isStarred,
+    toggleStar,
+    openComposer,
+    askDelete,
+    isSelected,
+    toggleSelect,
+    selectMany,
+    selected,
+    selectedLeaves,
+    setPdfOpen,
+    setActiveLeafId
+  } = useFolio();
+  const pagesRef = (0, import_react9.useRef)(pages);
+  pagesRef.current = pages;
+  const [pageIndex, setPageIndex] = (0, import_react9.useState)(0);
+  const [text, setText] = (0, import_react9.useState)(() => pages[0]?.text ?? "");
+  const [direction, setDirection] = (0, import_react9.useState)("next");
+  const [confirmLeaf, setConfirmLeaf] = (0, import_react9.useState)(null);
+  const [contentsOpen, setContentsOpen] = (0, import_react9.useState)(false);
+  const areaRef = (0, import_react9.useRef)(null);
+  const pageIndexRef = (0, import_react9.useRef)(0);
+  const bookPinned = isPinned(bookId);
+  const bookStarred = isStarred(bookId);
+  (0, import_react9.useEffect)(() => {
+    setPageIndex(0);
+    setText(pagesRef.current[0]?.text ?? "");
+  }, [bookId]);
+  (0, import_react9.useEffect)(() => {
+    const leafId = pagesRef.current[Math.min(pageIndex, pagesRef.current.length - 1)]?.id ?? null;
+    setActiveLeafId(leafId);
+    return () => setActiveLeafId(null);
+  }, [bookId, pageIndex, setActiveLeafId]);
+  function fits() {
+    const area = areaRef.current;
+    if (!area || area.clientHeight < 24) return true;
+    return area.scrollHeight <= area.clientHeight + 2;
+  }
+  function persist(nextPages) {
+    const cleaned = nextPages.length ? nextPages : [blankPage()];
+    pagesRef.current = cleaned;
+    onPersist(cleaned);
+    return cleaned;
+  }
+  function write(value) {
+    const current = [...pagesRef.current];
+    while (current.length <= pageIndex) current.push(blankPage());
+    const area = areaRef.current;
+    if (!area || fits()) {
+      current[pageIndex] = { ...current[pageIndex], text: value };
+      setText(value);
+      persist(current);
+      return;
+    }
+    const { keep, rest } = splitOverflowHtml(area);
+    current[pageIndex] = { ...current[pageIndex], text: keep };
+    current.splice(pageIndex + 1, 0, { ...blankPage(), text: rest });
+    persist(current);
+    setDirection("next");
+    setPageIndex(pageIndex + 1);
+    setText(rest);
+  }
+  (0, import_react9.useLayoutEffect)(() => {
+    const area = areaRef.current;
+    if (!area) return;
+    if (fits()) return;
+    write(area.innerHTML);
+  }, [pageIndex, bookId]);
+  function editorHtml() {
+    return areaRef.current?.innerHTML ?? text;
+  }
+  function addPage() {
+    const current = [...pagesRef.current];
+    current[pageIndex] = { ...current[pageIndex], text: editorHtml() };
+    current.splice(pageIndex + 1, 0, blankPage());
+    persist(current);
+    setDirection("next");
+    setPageIndex(pageIndex + 1);
+    setText("");
+    requestAnimationFrame(() => areaRef.current?.focus());
+  }
+  function goPage(next) {
+    const current = [...pagesRef.current];
+    current[pageIndex] = { ...current[pageIndex], text: editorHtml() };
+    persist(current);
+    setDirection(next > pageIndex ? "next" : "prev");
+    setPageIndex(next);
+    setText(current[next]?.text ?? "");
+    setContentsOpen(false);
+    requestAnimationFrame(() => areaRef.current?.focus());
+  }
+  function patchPage(index, patch) {
+    const current = [...pagesRef.current];
+    current[index] = { ...current[index], ...patch };
+    persist(current);
+  }
+  function deletePage(index) {
+    const current = [...pagesRef.current];
+    current[pageIndex] = { ...current[pageIndex], text: editorHtml() };
+    if (current.length <= 1) {
+      current[0] = { ...current[0], text: "", pinned: false, starred: false, italic: false, underline: false, ink: [] };
+      persist(current);
+      setText("");
+      setPageIndex(0);
+      setConfirmLeaf(null);
+      return;
+    }
+    current.splice(index, 1);
+    persist(current);
+    const nextIndex = Math.min(index, current.length - 1);
+    setPageIndex(nextIndex);
+    setText(current[nextIndex]?.text ?? "");
+    setConfirmLeaf(null);
+  }
+  const pageCount = Math.max(pagesRef.current.length, 1);
+  const safeIndex = Math.min(pageIndex, pageCount - 1);
+  pageIndexRef.current = safeIndex;
+  const currentPage = pagesRef.current[safeIndex];
+  const ruled = paper === "ruled";
+  const letter = paper === "letter";
+  const sheetClass = ruled ? "notebook-sheet" : letter ? "letter-sheet" : "diary-sheet";
+  const innerClass = ruled ? "notebook-inner" : letter ? "letter-inner" : "diary-inner";
+  const handClass = ruled ? "notebook-hand" : letter ? "letter-hand" : "diary-hand";
+  return /* @__PURE__ */ (0, import_jsx_runtime22.jsxs)("div", { className: "notebook-spread", children: [
+    /* @__PURE__ */ (0, import_jsx_runtime22.jsx)("div", { className: "notebook-index-slot no-print", children: /* @__PURE__ */ (0, import_jsx_runtime22.jsxs)("aside", { className: `notebook-index${contentsOpen ? " is-open" : ""}`, children: [
+      /* @__PURE__ */ (0, import_jsx_runtime22.jsxs)("div", { className: "notebook-index-head", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime22.jsxs)("div", { className: "flex items-start justify-between gap-2", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime22.jsxs)("div", { className: "min-w-0", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime22.jsx)("p", { className: "font-mono text-[10px] uppercase tracking-[0.2em] text-gold/70", children: indexKicker }),
+            /* @__PURE__ */ (0, import_jsx_runtime22.jsx)("h2", { className: "mt-1 font-serif text-lg leading-snug text-[#f6ead4]", children: title }),
+            /* @__PURE__ */ (0, import_jsx_runtime22.jsxs)("p", { className: "mt-1 font-mono text-[10px] uppercase tracking-[0.14em] text-gold/55", children: [
+              pageCount,
+              " ",
+              pageCount === 1 ? unitSingular : unitPlural,
+              /* @__PURE__ */ (0, import_jsx_runtime22.jsxs)("span", { className: "notebook-current-chip", children: [
+                " ",
+                "\xB7 ",
+                pagePrefix,
+                " ",
+                safeIndex + 1
+              ] })
+            ] })
+          ] }),
+          /* @__PURE__ */ (0, import_jsx_runtime22.jsx)(
+            "button",
+            {
+              type: "button",
+              className: "notebook-contents-toggle folio-desk-btn shrink-0",
+              "aria-expanded": contentsOpen,
+              onClick: () => setContentsOpen((open) => !open),
+              children: contentsOpen ? "Hide" : "Contents"
+            }
+          )
+        ] }),
+        /* @__PURE__ */ (0, import_jsx_runtime22.jsxs)("div", { className: "mt-3 flex flex-wrap gap-1.5", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime22.jsxs)(
+            IconAction,
+            {
+              label: bookStarred ? "Unstar book" : "Star book",
+              active: bookStarred,
+              onClick: () => toggleStar(bookId),
+              children: [
+                bookStarred ? "\u2605" : "\u2606",
+                " Star"
+              ]
+            }
+          ),
+          /* @__PURE__ */ (0, import_jsx_runtime22.jsxs)(
+            IconAction,
+            {
+              label: bookPinned ? "Unpin book" : "Pin book",
+              active: bookPinned,
+              onClick: () => togglePin(bookId),
+              children: [
+                bookPinned ? "\u25C6" : "\u25C7",
+                " Pin"
+              ]
+            }
+          ),
+          /* @__PURE__ */ (0, import_jsx_runtime22.jsx)(IconAction, { label: editLabel, onClick: () => openComposer(section, "edit", bookId), children: "Edit" }),
+          /* @__PURE__ */ (0, import_jsx_runtime22.jsx)(IconAction, { label: deleteLabel, danger: true, onClick: () => askDelete(section, bookId, title), children: "Delete" })
+        ] })
+      ] }),
+      /* @__PURE__ */ (0, import_jsx_runtime22.jsxs)("div", { className: "notebook-index-extra", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime22.jsxs)("div", { className: "notebook-pdf-bar", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime22.jsx)("p", { className: "font-mono text-[10px] uppercase tracking-[0.18em] text-gold/80", children: "PDF" }),
+          /* @__PURE__ */ (0, import_jsx_runtime22.jsx)("p", { className: "notebook-pdf-hint mt-1 font-serif text-[13px] leading-5 text-[#f6ead4]/80", children: pdfHint }),
+          /* @__PURE__ */ (0, import_jsx_runtime22.jsxs)("p", { className: "mt-2 font-mono text-[10px] uppercase tracking-[0.14em] text-gold/55", children: [
+            pagesRef.current.filter((page) => isSelected(page.id)).length,
+            " marked in this book"
+          ] }),
+          /* @__PURE__ */ (0, import_jsx_runtime22.jsxs)("div", { className: "mt-2 flex flex-wrap gap-1.5", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime22.jsx)(
+              IconAction,
+              {
+                label: "Select all pages",
+                onClick: () => selectMany(pagesRef.current.map((page) => page.id)),
+                children: "Select all"
+              }
+            ),
+            /* @__PURE__ */ (0, import_jsx_runtime22.jsx)(
+              IconAction,
+              {
+                label: "Clear PDF marks",
+                onClick: () => {
+                  pagesRef.current.forEach((page) => {
+                    if (isSelected(page.id)) toggleSelect(page.id);
+                  });
+                },
+                children: "Clear"
+              }
+            ),
+            /* @__PURE__ */ (0, import_jsx_runtime22.jsx)(
+              IconAction,
+              {
+                label: "Preview PDF",
+                active: selectedLeaves.length > 0 || selected.size > 0,
+                onClick: () => {
+                  const current = [...pagesRef.current];
+                  current[pageIndex] = { ...current[pageIndex], text: editorHtml() };
+                  persist(current);
+                  setPdfOpen(true);
+                },
+                children: "Preview"
+              }
+            )
+          ] })
+        ] }),
+        /* @__PURE__ */ (0, import_jsx_runtime22.jsx)("button", { type: "button", className: "folio-desk-btn w-full shrink-0", onClick: addPage, children: addLabel }),
+        /* @__PURE__ */ (0, import_jsx_runtime22.jsx)("ul", { className: "notebook-index-list", children: pagesRef.current.map((page, index) => {
+          const active = index === safeIndex;
+          return /* @__PURE__ */ (0, import_jsx_runtime22.jsx)("li", { children: /* @__PURE__ */ (0, import_jsx_runtime22.jsxs)("div", { className: `notebook-leaf-card ${active ? "is-current" : ""} ${page.pinned ? "is-pinned" : ""}`, children: [
+            /* @__PURE__ */ (0, import_jsx_runtime22.jsxs)("button", { type: "button", className: "notebook-leaf-open", onClick: () => goPage(index), children: [
+              /* @__PURE__ */ (0, import_jsx_runtime22.jsxs)("span", { className: "font-mono text-[9px] uppercase tracking-[0.16em] text-gold/65", children: [
+                pagePrefix,
+                " ",
+                String(index + 1).padStart(2, "0"),
+                page.starred ? " \xB7 \u2605" : "",
+                page.pinned ? " \xB7 pin" : ""
+              ] }),
+              /* @__PURE__ */ (0, import_jsx_runtime22.jsx)("span", { className: "mt-1 block font-serif text-sm leading-5 text-[#f6ead4]", children: pagePreview(index === safeIndex ? text : page.text) })
+            ] }),
+            /* @__PURE__ */ (0, import_jsx_runtime22.jsxs)("div", { className: "mt-2 flex flex-wrap gap-1", children: [
+              /* @__PURE__ */ (0, import_jsx_runtime22.jsxs)("label", { className: "notebook-pdf-mark", children: [
+                /* @__PURE__ */ (0, import_jsx_runtime22.jsx)(
+                  "input",
+                  {
+                    type: "checkbox",
+                    checked: isSelected(page.id),
+                    onChange: () => toggleSelect(page.id)
+                  }
+                ),
+                "PDF"
+              ] }),
+              /* @__PURE__ */ (0, import_jsx_runtime22.jsx)(
+                IconAction,
+                {
+                  label: page.starred ? "Unstar page" : "Star page",
+                  active: page.starred,
+                  onClick: () => patchPage(index, { starred: !page.starred }),
+                  children: page.starred ? "\u2605" : "\u2606"
+                }
+              ),
+              /* @__PURE__ */ (0, import_jsx_runtime22.jsx)(
+                IconAction,
+                {
+                  label: page.pinned ? "Unpin page" : "Pin page",
+                  active: page.pinned,
+                  onClick: () => patchPage(index, { pinned: !page.pinned }),
+                  children: page.pinned ? "\u25C6" : "\u25C7"
+                }
+              ),
+              /* @__PURE__ */ (0, import_jsx_runtime22.jsx)(
+                IconAction,
+                {
+                  label: "Edit page",
+                  onClick: () => {
+                    goPage(index);
+                    requestAnimationFrame(() => areaRef.current?.focus());
+                  },
+                  children: "Edit"
+                }
+              ),
+              confirmLeaf === index ? /* @__PURE__ */ (0, import_jsx_runtime22.jsxs)(import_jsx_runtime22.Fragment, { children: [
+                /* @__PURE__ */ (0, import_jsx_runtime22.jsx)(IconAction, { label: "Keep page", onClick: () => setConfirmLeaf(null), children: "Keep" }),
+                /* @__PURE__ */ (0, import_jsx_runtime22.jsx)(IconAction, { label: "Confirm delete", danger: true, onClick: () => deletePage(index), children: "Confirm" })
+              ] }) : /* @__PURE__ */ (0, import_jsx_runtime22.jsx)(
+                IconAction,
+                {
+                  label: "Delete page",
+                  danger: true,
+                  onClick: () => {
+                    if (!htmlToPlain(page.text).trim() && !(index === safeIndex && htmlToPlain(text).trim()) && !/<img/i.test(page.text) && !/<img/i.test(text)) {
+                      deletePage(index);
+                      return;
+                    }
+                    setConfirmLeaf(index);
+                  },
+                  children: "Delete"
+                }
+              )
+            ] })
+          ] }) }, page.id);
+        }) })
+      ] })
+    ] }) }),
+    /* @__PURE__ */ (0, import_jsx_runtime22.jsx)("div", { className: "notebook-stage", children: /* @__PURE__ */ (0, import_jsx_runtime22.jsxs)(
+      "article",
+      {
+        className: `paper-grain paper-shadow ${sheetClass} relative overflow-hidden text-ink ${direction === "next" ? "turn-next" : "turn-prev"}`,
+        children: [
+          letter ? null : /* @__PURE__ */ (0, import_jsx_runtime22.jsx)("div", { className: "notebook-holes", "aria-hidden": true, children: [0, 1, 2].map((hole) => /* @__PURE__ */ (0, import_jsx_runtime22.jsx)("span", {}, hole)) }),
+          letter ? null : /* @__PURE__ */ (0, import_jsx_runtime22.jsx)("div", { className: "notebook-margin", "aria-hidden": true }),
+          /* @__PURE__ */ (0, import_jsx_runtime22.jsxs)("div", { className: innerClass, children: [
+            header(safeIndex + 1, pageCount),
+            /* @__PURE__ */ (0, import_jsx_runtime22.jsxs)("div", { className: "mb-3 flex flex-col gap-2 no-print paper-tools", children: [
+              /* @__PURE__ */ (0, import_jsx_runtime22.jsxs)("div", { className: "flex flex-wrap items-center gap-2", children: [
+                /* @__PURE__ */ (0, import_jsx_runtime22.jsx)("button", { type: "button", className: "folio-tiny", onClick: addPage, children: addLabel }),
+                ruled ? /* @__PURE__ */ (0, import_jsx_runtime22.jsxs)("span", { className: "font-mono text-[10px] uppercase tracking-[0.14em] text-ink-soft", children: [
+                  NOTEBOOK_LINES,
+                  " lines"
+                ] }) : null
+              ] }),
+              /* @__PURE__ */ (0, import_jsx_runtime22.jsx)(TypeToolbar, { section, tone: "paper", onApplied: () => write(editorHtml()) }),
+              section === "notebook" ? /* @__PURE__ */ (0, import_jsx_runtime22.jsx)(InkToolbar, { tone: "paper" }) : null
+            ] }),
+            /* @__PURE__ */ (0, import_jsx_runtime22.jsxs)("div", { className: ruled ? "notebook-pad" : "prose-pad", children: [
+              ruled ? /* @__PURE__ */ (0, import_jsx_runtime22.jsx)(NotebookRules, {}) : null,
+              /* @__PURE__ */ (0, import_jsx_runtime22.jsx)(
+                FolioEditor,
+                {
+                  html: text,
+                  editorRef: areaRef,
+                  className: `${handClass} folio-editor`,
+                  ariaLabel: `${title} page ${safeIndex + 1}`,
+                  onChange: write,
+                  onSubmitPage: addPage
+                },
+                currentPage?.id ?? bookId
+              ),
+              section === "notebook" ? /* @__PURE__ */ (0, import_jsx_runtime22.jsx)(
+                InkCanvas,
+                {
+                  strokes: currentPage?.ink ?? [],
+                  onChange: (next) => {
+                    const index = pageIndexRef.current;
+                    const current = [...pagesRef.current];
+                    current[index] = { ...current[index], ink: next };
+                    persist(current);
+                  }
+                }
+              ) : null
+            ] }),
+            closing,
+            /* @__PURE__ */ (0, import_jsx_runtime22.jsxs)("nav", { className: "mt-4 flex items-center justify-between gap-2 font-mono text-[10px] uppercase tracking-[0.16em] text-ink-soft sm:gap-3", children: [
+              /* @__PURE__ */ (0, import_jsx_runtime22.jsxs)(
+                "button",
+                {
+                  type: "button",
+                  className: "folio-tiny min-h-10",
+                  onClick: () => goPage(safeIndex - 1),
+                  disabled: safeIndex <= 0,
+                  children: [
+                    "\u25C0 ",
+                    /* @__PURE__ */ (0, import_jsx_runtime22.jsxs)("span", { className: "hidden sm:inline", children: [
+                      "Previous ",
+                      unitSingular
+                    ] })
+                  ]
+                }
+              ),
+              /* @__PURE__ */ (0, import_jsx_runtime22.jsxs)("span", { children: [
+                pagePrefix,
+                " ",
+                safeIndex + 1,
+                " / ",
+                pageCount
+              ] }),
+              /* @__PURE__ */ (0, import_jsx_runtime22.jsx)(
+                "button",
+                {
+                  type: "button",
+                  className: "folio-tiny min-h-10",
+                  onClick: () => {
+                    if (safeIndex >= pageCount - 1) addPage();
+                    else goPage(safeIndex + 1);
+                  },
+                  children: safeIndex >= pageCount - 1 ? /* @__PURE__ */ (0, import_jsx_runtime22.jsxs)(import_jsx_runtime22.Fragment, { children: [
+                    /* @__PURE__ */ (0, import_jsx_runtime22.jsxs)("span", { className: "hidden sm:inline", children: [
+                      "Next ",
+                      unitSingular,
+                      " \xB7 "
+                    ] }),
+                    "new"
+                  ] }) : /* @__PURE__ */ (0, import_jsx_runtime22.jsxs)(import_jsx_runtime22.Fragment, { children: [
+                    "Next",
+                    /* @__PURE__ */ (0, import_jsx_runtime22.jsxs)("span", { className: "hidden sm:inline", children: [
+                      " ",
+                      unitSingular
+                    ] }),
+                    " \u25B6"
+                  ] })
+                }
+              )
+            ] })
+          ] })
+        ]
+      }
+    ) })
+  ] });
+}
+function IconAction({
+  children,
+  onClick,
+  label,
+  active = false,
+  danger = false
+}) {
+  return /* @__PURE__ */ (0, import_jsx_runtime22.jsx)(
+    "button",
+    {
+      type: "button",
+      "aria-label": label,
+      title: label,
+      onClick: (event) => {
+        event.stopPropagation();
+        onClick();
       },
+      className: `icon-action rounded-sm border px-1.5 py-0.5 font-mono text-[9px] uppercase tracking-[0.12em] ${danger ? "border-stamp/40 text-[#e8b4a8] hover:border-stamp" : active ? "border-gold bg-gold/20 text-gold" : "border-gold/25 text-gold/75 hover:border-gold/55 hover:text-gold"}`,
       children
     }
   );
 }
 
+// src/components/diary/DiaryBook.tsx
+var import_jsx_runtime23 = __toESM(require_jsx_runtime(), 1);
+function DiaryBook({ entry }) {
+  const { updateDiaryPages } = useFolio();
+  const pages = hydrateDiaryPages(entry);
+  return /* @__PURE__ */ (0, import_jsx_runtime23.jsx)(
+    LinedBook,
+    {
+      section: "diary",
+      bookId: entry.id,
+      title: entry.title,
+      pages,
+      paper: "plain",
+      onPersist: (next) => updateDiaryPages(entry.id, next),
+      editLabel: "Edit diary",
+      deleteLabel: "Delete diary",
+      header: (leafNumber, pageCount) => /* @__PURE__ */ (0, import_jsx_runtime23.jsx)(DiaryLeafHeader, { entry, leafNumber, pageCount }),
+      closing: /* @__PURE__ */ (0, import_jsx_runtime23.jsxs)("p", { className: "mt-8 font-mono text-[10px] uppercase tracking-[0.16em] text-ink-soft", children: [
+        formatLongDate(entry.date),
+        " \xB7 ",
+        entry.place
+      ] })
+    }
+  );
+}
+
+// src/components/folio/PaperSheet.tsx
+var import_react10 = __toESM(require_react(), 1);
+var import_jsx_runtime24 = __toESM(require_jsx_runtime(), 1);
+function PaperSheet({
+  children,
+  eyebrow,
+  title,
+  folio,
+  paper: paperProp,
+  pageLabel,
+  sectionLabel,
+  leafKey,
+  stacked = true
+}) {
+  const { page, pageCount, direction, section } = useFolio();
+  const meta = useSectionMeta();
+  const paper = paperProp ?? meta.paper;
+  (0, import_react10.useEffect)(() => {
+    document.getElementById("folio-leaf")?.scrollTo({ top: 0, behavior: "smooth" });
+  }, [leafKey, page, section]);
+  return /* @__PURE__ */ (0, import_jsx_runtime24.jsxs)("div", { className: "relative mx-auto w-full max-w-[760px]", style: { perspective: "1400px" }, children: [
+    stacked ? /* @__PURE__ */ (0, import_jsx_runtime24.jsx)("div", { className: "stack-leaf pointer-events-none absolute inset-0 rounded-[2px]" }) : null,
+    /* @__PURE__ */ (0, import_jsx_runtime24.jsxs)(
+      "article",
+      {
+        className: `paper-grain paper-shadow relative min-h-[720px] overflow-hidden rounded-[2px] text-ink sm:min-h-[840px] ${direction === "next" ? "turn-next" : "turn-prev"}`,
+        children: [
+          /* @__PURE__ */ (0, import_jsx_runtime24.jsx)(BindingHoles, {}),
+          paper !== "letter" ? /* @__PURE__ */ (0, import_jsx_runtime24.jsx)(MarginRule, {}) : null,
+          /* @__PURE__ */ (0, import_jsx_runtime24.jsxs)(
+            "div",
+            {
+              className: `relative flex min-h-[720px] flex-col sm:min-h-[840px] ${paper === "letter" ? "px-7 py-7 sm:px-14 sm:py-10" : "pl-14 pr-6 py-7 sm:pl-[5.5rem] sm:pr-12 sm:py-10"}`,
+              children: [
+                /* @__PURE__ */ (0, import_jsx_runtime24.jsxs)(
+                  "header",
+                  {
+                    className: `mb-6 flex items-start justify-between gap-4 pb-4 ${paper === "letter" ? "letterhead" : "border-b border-ink/10"}`,
+                    children: [
+                      /* @__PURE__ */ (0, import_jsx_runtime24.jsxs)("div", { children: [
+                        /* @__PURE__ */ (0, import_jsx_runtime24.jsx)("p", { className: "font-mono text-[10px] uppercase tracking-[0.22em] text-ink-soft", children: eyebrow ?? `The Folio \xB7 ${meta.latin}` }),
+                        title ? /* @__PURE__ */ (0, import_jsx_runtime24.jsx)("h1", { className: "mt-1 font-serif text-2xl leading-tight tracking-tight text-ink sm:text-[1.85rem]", children: title }) : null
+                      ] }),
+                      /* @__PURE__ */ (0, import_jsx_runtime24.jsx)("p", { className: "shrink-0 pt-1 text-right font-mono text-[10px] uppercase tracking-[0.16em] text-ink-soft", children: folio ?? "Vol. I \xB7 2026" })
+                    ]
+                  }
+                ),
+                /* @__PURE__ */ (0, import_jsx_runtime24.jsx)(
+                  "div",
+                  {
+                    id: "folio-leaf",
+                    className: `folio-scroll flex-1 ${paper === "ruled" ? "paper-ruled -mx-1 rounded-sm px-1" : ""}`,
+                    children
+                  }
+                ),
+                /* @__PURE__ */ (0, import_jsx_runtime24.jsxs)("footer", { className: "mt-8 flex items-end justify-between border-t border-ink/10 pt-3 font-mono text-[10px] uppercase tracking-[0.16em] text-ink-soft", children: [
+                  /* @__PURE__ */ (0, import_jsx_runtime24.jsx)("span", { children: sectionLabel ?? meta.label }),
+                  /* @__PURE__ */ (0, import_jsx_runtime24.jsx)("span", { children: pageLabel ?? formatPageLabel(page, pageCount) })
+                ] })
+              ]
+            }
+          )
+        ]
+      },
+      leafKey ?? `${section}-${page}`
+    )
+  ] });
+}
+function BindingHoles() {
+  return /* @__PURE__ */ (0, import_jsx_runtime24.jsx)(
+    "div",
+    {
+      "aria-hidden": true,
+      className: "absolute top-0 bottom-0 left-0 hidden w-10 flex-col justify-evenly py-16 sm:flex",
+      children: [0, 1, 2].map((hole) => /* @__PURE__ */ (0, import_jsx_runtime24.jsx)(
+        "span",
+        {
+          className: "mx-auto block h-3.5 w-3.5 rounded-full bg-[radial-gradient(circle_at_35%_30%,#6a5340,#1a120e_70%)] shadow-[inset_0_1px_1px_rgba(255,255,255,0.15),0_0_0_3px_rgba(42,33,24,0.08)]"
+        },
+        hole
+      ))
+    }
+  );
+}
+function MarginRule() {
+  return /* @__PURE__ */ (0, import_jsx_runtime24.jsx)(
+    "div",
+    {
+      "aria-hidden": true,
+      className: "pointer-events-none absolute top-0 bottom-0 left-10 hidden w-px bg-margin-red/70 sm:block sm:left-[4.4rem]"
+    }
+  );
+}
+
+// src/components/folio/MissingLeaf.tsx
+var import_jsx_runtime25 = __toESM(require_jsx_runtime(), 1);
+function MissingLeaf({
+  backHref,
+  backLabel,
+  kind
+}) {
+  const { go } = useRouter();
+  return /* @__PURE__ */ (0, import_jsx_runtime25.jsxs)(PaperSheet, { eyebrow: "Missing leaf", title: "This page is not in the register", paper: "plain", children: [
+    /* @__PURE__ */ (0, import_jsx_runtime25.jsxs)("p", { className: "max-w-prose font-serif text-lg leading-7 text-ink-soft", children: [
+      "That ",
+      kind,
+      " is no longer on the desk. It may have been deleted, or the address is incomplete."
+    ] }),
+    /* @__PURE__ */ (0, import_jsx_runtime25.jsx)(
+      "button",
+      {
+        type: "button",
+        className: "folio-solid mt-8",
+        onClick: () => go(backHref),
+        children: backLabel
+      }
+    )
+  ] });
+}
+
+// src/components/layout/ReadingDesk.tsx
+var import_jsx_runtime26 = __toESM(require_jsx_runtime(), 1);
+function ReadingDesk({
+  children,
+  section,
+  currentId,
+  indexHref,
+  indexLabel,
+  hideSpine = false
+}) {
+  const { go } = useRouter();
+  return /* @__PURE__ */ (0, import_jsx_runtime26.jsxs)("div", { className: "flex flex-1 flex-col gap-6 lg:flex-row", children: [
+    hideSpine ? null : /* @__PURE__ */ (0, import_jsx_runtime26.jsx)(Spine, {}),
+    /* @__PURE__ */ (0, import_jsx_runtime26.jsxs)("div", { className: "min-w-0 flex-1", children: [
+      /* @__PURE__ */ (0, import_jsx_runtime26.jsxs)("div", { className: "mb-3 flex flex-wrap items-center justify-between gap-3", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime26.jsxs)(
+          "button",
+          {
+            type: "button",
+            onClick: () => go(indexHref),
+            className: "font-mono text-[10px] uppercase tracking-[0.16em] text-gold/80 underline decoration-gold/30 underline-offset-4 hover:text-gold",
+            children: [
+              "\u2190 ",
+              indexLabel
+            ]
+          }
+        ),
+        /* @__PURE__ */ (0, import_jsx_runtime26.jsx)(
+          "button",
+          {
+            type: "button",
+            onClick: () => go(href.home),
+            className: "font-mono text-[10px] uppercase tracking-[0.16em] text-gold/55 hover:text-gold",
+            children: "Desk"
+          }
+        )
+      ] }),
+      /* @__PURE__ */ (0, import_jsx_runtime26.jsx)(RegisterBar, { sectionHint: section, currentId }),
+      /* @__PURE__ */ (0, import_jsx_runtime26.jsx)("div", { className: "relative rounded-b-[6px] rounded-tr-[6px] border border-[#c4a06a]/15 bg-[#2a1810]/50 p-2 shadow-[0_28px_70px_rgba(0,0,0,0.4)] sm:p-6", children })
+    ] })
+  ] });
+}
+function Spine() {
+  return /* @__PURE__ */ (0, import_jsx_runtime26.jsxs)("div", { className: "spine-leather relative hidden w-16 shrink-0 overflow-hidden rounded-sm border border-black/40 shadow-[8px_0_22px_rgba(0,0,0,0.4)] xl:block", children: [
+    /* @__PURE__ */ (0, import_jsx_runtime26.jsx)("div", { className: "absolute inset-y-0 left-0 w-1 bg-gradient-to-r from-black/50 to-transparent" }),
+    /* @__PURE__ */ (0, import_jsx_runtime26.jsxs)("div", { className: "flex h-full flex-col items-center justify-between py-8", children: [
+      /* @__PURE__ */ (0, import_jsx_runtime26.jsx)("span", { className: "font-mono text-[10px] uppercase tracking-[0.28em] text-gold/70 [writing-mode:vertical-rl] rotate-180", children: "Folio 2026" }),
+      /* @__PURE__ */ (0, import_jsx_runtime26.jsx)("div", { className: "flex flex-col gap-10", children: [0, 1, 2].map((ring) => /* @__PURE__ */ (0, import_jsx_runtime26.jsx)(
+        "span",
+        {
+          className: "block h-5 w-5 rounded-full border border-[#c4a06a]/45 bg-[radial-gradient(circle_at_30%_30%,#d9b57a,#5a3d20_62%,#1a100a)] shadow-[0_2px_4px_rgba(0,0,0,0.45)]"
+        },
+        ring
+      )) }),
+      /* @__PURE__ */ (0, import_jsx_runtime26.jsx)("span", { className: "font-mono text-[10px] uppercase tracking-[0.28em] text-gold/50 [writing-mode:vertical-rl] rotate-180", children: "Vol. I" })
+    ] })
+  ] });
+}
+
+// src/pages/DiaryReaderPage.tsx
+var import_react11 = __toESM(require_react(), 1);
+var import_jsx_runtime27 = __toESM(require_jsx_runtime(), 1);
+function DiaryReaderPage({ id }) {
+  const { diaryEntries: diaryEntries2 } = useFolio();
+  const item = (0, import_react11.useMemo)(
+    () => diaryEntries2.find((entry) => entry.id === id),
+    [diaryEntries2, id]
+  );
+  return /* @__PURE__ */ (0, import_jsx_runtime27.jsx)(DeskFrame, { kicker: "Diarium", title: "Diary", children: /* @__PURE__ */ (0, import_jsx_runtime27.jsx)(
+    ReadingDesk,
+    {
+      section: "diary",
+      currentId: item?.id,
+      indexHref: href.diaries,
+      indexLabel: "All diaries",
+      hideSpine: true,
+      children: item ? /* @__PURE__ */ (0, import_jsx_runtime27.jsx)(DiaryBook, { entry: item }) : /* @__PURE__ */ (0, import_jsx_runtime27.jsx)(MissingLeaf, { backHref: href.diaries, backLabel: "Return to diaries", kind: "diary" })
+    }
+  ) });
+}
+
+// src/components/ui/CategoryChip.tsx
+var import_jsx_runtime28 = __toESM(require_jsx_runtime(), 1);
+function CategoryChip({
+  label,
+  active = false,
+  onClick,
+  as = "button"
+}) {
+  const className = `inline-flex items-center rounded-sm border px-2 py-0.5 font-mono text-[10px] uppercase tracking-[0.16em] ${active ? "border-margin-red/50 bg-margin-red/10 text-margin-red" : "border-ink/15 bg-paper/70 text-ink-soft"}`;
+  if (as === "span") {
+    return /* @__PURE__ */ (0, import_jsx_runtime28.jsx)("span", { className, children: label });
+  }
+  return /* @__PURE__ */ (0, import_jsx_runtime28.jsx)("button", { type: "button", onClick, className: `${className} transition hover:border-ink/35`, children: label });
+}
+
+// src/pages/NotebookIndexPage.tsx
+var import_react12 = __toESM(require_react(), 1);
+var import_jsx_runtime29 = __toESM(require_jsx_runtime(), 1);
+function NotebookIndexPage() {
+  const { notes: notes2, openComposer } = useFolio();
+  const { go } = useRouter();
+  const [filter, setFilter] = (0, import_react12.useState)("All");
+  const books = (0, import_react12.useMemo)(() => {
+    const list = catalogNotes(notes2);
+    return filter === "All" ? list : list.filter((note) => note.category === filter);
+  }, [filter, notes2]);
+  return /* @__PURE__ */ (0, import_jsx_runtime29.jsx)(
+    DeskFrame,
+    {
+      kicker: "Adversaria",
+      title: "Notebook",
+      deck: "Every titled book in the notebook cabinet. The subject on the cover is the working stamp: research, design, field, or reference. Open a title to read the leaf.",
+      children: /* @__PURE__ */ (0, import_jsx_runtime29.jsxs)(
+        LibraryShelf,
+        {
+          section: "notebook",
+          latin: "Adversaria",
+          title: "The books",
+          count: `${books.length} titled ${books.length === 1 ? "book" : "books"}`,
+          onAdd: () => openComposer("notebook", "create"),
+          children: [
+            /* @__PURE__ */ (0, import_jsx_runtime29.jsxs)("div", { className: "mb-5 flex flex-wrap gap-2", children: [
+              /* @__PURE__ */ (0, import_jsx_runtime29.jsx)(CategoryChip, { label: "All", active: filter === "All", onClick: () => setFilter("All") }),
+              NOTE_CATEGORIES.map((item) => /* @__PURE__ */ (0, import_jsx_runtime29.jsx)(
+                CategoryChip,
+                {
+                  label: item,
+                  active: filter === item,
+                  onClick: () => setFilter(item)
+                },
+                item
+              ))
+            ] }),
+            books.length === 0 ? /* @__PURE__ */ (0, import_jsx_runtime29.jsx)(EmptyCabinet, { label: "No notebooks in this drawer yet." }) : /* @__PURE__ */ (0, import_jsx_runtime29.jsx)("div", { className: "grid gap-4 sm:grid-cols-2", children: books.map((note) => /* @__PURE__ */ (0, import_jsx_runtime29.jsx)(
+              BookCover,
+              {
+                title: note.title,
+                subject: note.category,
+                category: note.category,
+                date: formatShortDate(note.date),
+                onOpen: () => go(href.notebook(note.id))
+              },
+              note.id
+            )) })
+          ]
+        }
+      )
+    }
+  );
+}
+
+// src/components/notebook/NotebookBook.tsx
+var import_jsx_runtime30 = __toESM(require_jsx_runtime(), 1);
+function NotebookBook({ note }) {
+  const { updateNotePages } = useFolio();
+  const pages = hydratePages(note);
+  return /* @__PURE__ */ (0, import_jsx_runtime30.jsx)(
+    LinedBook,
+    {
+      section: "notebook",
+      bookId: note.id,
+      title: note.title,
+      pages,
+      onPersist: (next) => updateNotePages(note.id, next),
+      editLabel: "Edit notebook",
+      deleteLabel: "Delete notebook",
+      header: (leafNumber, pageCount) => /* @__PURE__ */ (0, import_jsx_runtime30.jsx)(NotebookLeafHeader, { note, leafNumber, pageCount })
+    }
+  );
+}
+
+// src/pages/NotebookReaderPage.tsx
+var import_react13 = __toESM(require_react(), 1);
+var import_jsx_runtime31 = __toESM(require_jsx_runtime(), 1);
+function NotebookReaderPage({ id }) {
+  const { notes: notes2 } = useFolio();
+  const item = (0, import_react13.useMemo)(() => notes2.find((note) => note.id === id), [id, notes2]);
+  return /* @__PURE__ */ (0, import_jsx_runtime31.jsx)(DeskFrame, { kicker: "Adversaria", title: "Notebook", children: /* @__PURE__ */ (0, import_jsx_runtime31.jsx)(
+    ReadingDesk,
+    {
+      section: "notebook",
+      currentId: item?.id,
+      indexHref: href.notebooks,
+      indexLabel: "All notebooks",
+      hideSpine: true,
+      children: item ? /* @__PURE__ */ (0, import_jsx_runtime31.jsx)(NotebookBook, { note: item }) : /* @__PURE__ */ (0, import_jsx_runtime31.jsx)(MissingLeaf, { backHref: href.notebooks, backLabel: "Return to notebooks", kind: "notebook" })
+    }
+  ) });
+}
+
+// src/components/reports/ReportBook.tsx
+var import_jsx_runtime32 = __toESM(require_jsx_runtime(), 1);
+function ReportBook({ file }) {
+  const { updateReportPages } = useFolio();
+  const pages = hydrateReportPages(file);
+  const headings = collectReportHeadings(pages);
+  return /* @__PURE__ */ (0, import_jsx_runtime32.jsx)(
+    LinedBook,
+    {
+      section: "reports",
+      bookId: file.id,
+      title: file.title,
+      pages,
+      paper: "letter",
+      indexKicker: "File register",
+      unitSingular: "sheet",
+      unitPlural: "sheets",
+      addLabel: "+ Add sheet",
+      pagePrefix: "Sheet",
+      pdfHint: "Mark a sheet. Only marked sheets are printed, as they appear on the letter.",
+      onPersist: (next) => updateReportPages(file.id, next),
+      editLabel: "Revise filing",
+      deleteLabel: "Remove from cabinet",
+      header: (leafNumber, pageCount) => /* @__PURE__ */ (0, import_jsx_runtime32.jsx)(
+        ReportLeafHeader,
+        {
+          file,
+          leafNumber,
+          pageCount,
+          headings
+        }
+      ),
+      closing: /* @__PURE__ */ (0, import_jsx_runtime32.jsxs)("p", { className: "mt-8 font-mono text-[10px] uppercase tracking-[0.14em] text-ink-soft", children: [
+        "Filed for the record \xB7 ",
+        file.folder,
+        " \xB7 ",
+        file.code
+      ] })
+    }
+  );
+}
+
+// src/pages/ReportReaderPage.tsx
+var import_react14 = __toESM(require_react(), 1);
+var import_jsx_runtime33 = __toESM(require_jsx_runtime(), 1);
+function ReportReaderPage({ id }) {
+  const { reports: reports2 } = useFolio();
+  const item = (0, import_react14.useMemo)(() => reports2.find((file) => file.id === id), [id, reports2]);
+  return /* @__PURE__ */ (0, import_jsx_runtime33.jsx)(DeskFrame, { kicker: "Acta", title: "Reports", children: /* @__PURE__ */ (0, import_jsx_runtime33.jsx)(
+    ReadingDesk,
+    {
+      section: "reports",
+      currentId: item?.id,
+      indexHref: href.reports,
+      indexLabel: "All reports",
+      hideSpine: true,
+      children: item ? /* @__PURE__ */ (0, import_jsx_runtime33.jsx)(ReportBook, { file: item }) : /* @__PURE__ */ (0, import_jsx_runtime33.jsx)(MissingLeaf, { backHref: href.reports, backLabel: "Return to reports", kind: "report" })
+    }
+  ) });
+}
+
+// src/pages/ReportsIndexPage.tsx
+var import_react15 = __toESM(require_react(), 1);
+var import_jsx_runtime34 = __toESM(require_jsx_runtime(), 1);
+function ReportsIndexPage() {
+  const { reports: reports2, openComposer } = useFolio();
+  const { go } = useRouter();
+  const [status, setStatus] = (0, import_react15.useState)("All");
+  const files = (0, import_react15.useMemo)(() => catalogReports(reports2), [reports2]);
+  const visible = (0, import_react15.useMemo)(
+    () => status === "All" ? files : files.filter((file) => file.status === status),
+    [files, status]
+  );
+  const folders = (0, import_react15.useMemo)(() => [...new Set(visible.map((file) => file.folder))], [visible]);
+  const tallies = (0, import_react15.useMemo)(
+    () => ({
+      draft: files.filter((file) => file.status === "draft").length,
+      review: files.filter((file) => file.status === "review").length,
+      filed: files.filter((file) => file.status === "filed").length
+    }),
+    [files]
+  );
+  return /* @__PURE__ */ (0, import_jsx_runtime34.jsx)(
+    DeskFrame,
+    {
+      kicker: "Acta",
+      title: "Reports",
+      deck: "The records cabinet. Filter by status, open a file, and the letterhead fills from the register \u2014 reference, distribution, and stamp.",
+      children: /* @__PURE__ */ (0, import_jsx_runtime34.jsx)(
+        LibraryShelf,
+        {
+          section: "reports",
+          latin: "Acta",
+          title: "The cabinet",
+          count: `${files.length} ${files.length === 1 ? "file" : "files"} \xB7 ${tallies.filed} filed \xB7 ${tallies.review} in review \xB7 ${tallies.draft} draft`,
+          onAdd: () => openComposer("reports", "create"),
+          children: files.length === 0 ? /* @__PURE__ */ (0, import_jsx_runtime34.jsx)(EmptyCabinet, { label: "The filing cabinet is empty." }) : /* @__PURE__ */ (0, import_jsx_runtime34.jsxs)("div", { className: "space-y-8", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime34.jsxs)("div", { className: "flex flex-wrap gap-2", children: [
+              /* @__PURE__ */ (0, import_jsx_runtime34.jsx)(
+                StatusFilter,
+                {
+                  label: "All files",
+                  active: status === "All",
+                  onClick: () => setStatus("All")
+                }
+              ),
+              REPORT_STATUSES.map((item) => /* @__PURE__ */ (0, import_jsx_runtime34.jsx)(
+                StatusFilter,
+                {
+                  label: `${REPORT_STATUS_LABEL[item]} \xB7 ${tallies[item]}`,
+                  active: status === item,
+                  onClick: () => setStatus(item)
+                },
+                item
+              ))
+            ] }),
+            visible.length === 0 ? /* @__PURE__ */ (0, import_jsx_runtime34.jsx)("p", { className: "font-serif text-sm text-[#f3e6cf]/70", children: "No files in this status." }) : folders.map((folder) => {
+              const contents = visible.filter((file) => file.folder === folder);
+              return /* @__PURE__ */ (0, import_jsx_runtime34.jsxs)("section", { children: [
+                /* @__PURE__ */ (0, import_jsx_runtime34.jsxs)("div", { className: "mb-3 flex items-end gap-3", children: [
+                  /* @__PURE__ */ (0, import_jsx_runtime34.jsx)("span", { className: "inline-block rounded-t-md border border-b-0 border-gold/25 bg-manila px-3 py-1 font-mono text-[10px] uppercase tracking-[0.18em] text-ink", children: folder }),
+                  /* @__PURE__ */ (0, import_jsx_runtime34.jsxs)("span", { className: "mb-1 font-mono text-[10px] uppercase tracking-[0.14em] text-gold/55", children: [
+                    contents.length,
+                    " ",
+                    contents.length === 1 ? "file" : "files"
+                  ] })
+                ] }),
+                /* @__PURE__ */ (0, import_jsx_runtime34.jsx)("div", { className: "grid gap-4 sm:grid-cols-2", children: contents.map((file) => /* @__PURE__ */ (0, import_jsx_runtime34.jsx)(
+                  FileCover,
+                  {
+                    code: file.code,
+                    title: file.title,
+                    subject: file.folder,
+                    date: formatShortDate(file.date),
+                    author: file.author,
+                    status: file.status,
+                    onOpen: () => go(href.report(file.id))
+                  },
+                  file.id
+                )) })
+              ] }, folder);
+            })
+          ] })
+        }
+      )
+    }
+  );
+}
+function StatusFilter({
+  label,
+  active,
+  onClick
+}) {
+  return /* @__PURE__ */ (0, import_jsx_runtime34.jsx)(
+    "button",
+    {
+      type: "button",
+      onClick,
+      className: `rounded-sm border px-2.5 py-1 font-mono text-[10px] uppercase tracking-[0.14em] ${active ? "border-gold bg-gold/15 text-gold" : "border-gold/25 text-gold/70 hover:border-gold/55 hover:text-gold"}`,
+      children: label
+    }
+  );
+}
+
+// src/components/folio/FolioApp.tsx
+var import_react16 = __toESM(require_react(), 1);
+var import_jsx_runtime35 = __toESM(require_jsx_runtime(), 1);
+function FolioApp() {
+  return /* @__PURE__ */ (0, import_jsx_runtime35.jsx)(RouterProvider, { children: /* @__PURE__ */ (0, import_jsx_runtime35.jsx)(RoutedFolio, {}) });
+}
+function RoutedFolio() {
+  const { go, route } = useRouter();
+  (0, import_react16.useEffect)(() => {
+    const params = new URLSearchParams(window.location.search);
+    const fromQuery = params.get("section");
+    if (!fromQuery) return;
+    go(hrefFor(parseSection(fromQuery)));
+  }, [go]);
+  return /* @__PURE__ */ (0, import_jsx_runtime35.jsx)(FolioProvider, { initialSection: "notebook", initialPage: 1, navigate: go, children: /* @__PURE__ */ (0, import_jsx_runtime35.jsxs)(InkProvider, { children: [
+    /* @__PURE__ */ (0, import_jsx_runtime35.jsx)(AppRoutes, { route }),
+    /* @__PURE__ */ (0, import_jsx_runtime35.jsx)(Composer, {}),
+    /* @__PURE__ */ (0, import_jsx_runtime35.jsx)(ConfirmDialog, {}),
+    /* @__PURE__ */ (0, import_jsx_runtime35.jsx)(PdfStudio, {}),
+    /* @__PURE__ */ (0, import_jsx_runtime35.jsx)(PdfPrintRoot, {})
+  ] }) });
+}
+function AppRoutes({ route }) {
+  if (route.name === "notebook-index") return /* @__PURE__ */ (0, import_jsx_runtime35.jsx)(NotebookIndexPage, {});
+  if (route.name === "notebook-read") return /* @__PURE__ */ (0, import_jsx_runtime35.jsx)(NotebookReaderPage, { id: route.id });
+  if (route.name === "diary-index") return /* @__PURE__ */ (0, import_jsx_runtime35.jsx)(DiaryIndexPage, {});
+  if (route.name === "diary-read") return /* @__PURE__ */ (0, import_jsx_runtime35.jsx)(DiaryReaderPage, { id: route.id });
+  if (route.name === "reports-index") return /* @__PURE__ */ (0, import_jsx_runtime35.jsx)(ReportsIndexPage, {});
+  if (route.name === "report-read") return /* @__PURE__ */ (0, import_jsx_runtime35.jsx)(ReportReaderPage, { id: route.id });
+  return /* @__PURE__ */ (0, import_jsx_runtime35.jsx)(DashboardPage, {});
+}
+
 // src/main.tsx
-var import_jsx_runtime17 = __toESM(require_jsx_runtime(), 1);
+var import_jsx_runtime36 = __toESM(require_jsx_runtime(), 1);
 (0, import_client.createRoot)(document.getElementById("root")).render(
-  /* @__PURE__ */ (0, import_jsx_runtime17.jsx)(import_react5.StrictMode, { children: /* @__PURE__ */ (0, import_jsx_runtime17.jsx)(FolioApp, {}) })
+  /* @__PURE__ */ (0, import_jsx_runtime36.jsx)(import_react17.StrictMode, { children: /* @__PURE__ */ (0, import_jsx_runtime36.jsx)(FolioApp, {}) })
 );
 /*! Bundled license information:
 

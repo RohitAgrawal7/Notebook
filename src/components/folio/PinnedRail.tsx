@@ -61,13 +61,13 @@ export function PinnedStrip() {
   if (pinRefs.length === 0) return null;
 
   return (
-    <div className="flex gap-2 overflow-x-auto px-1 pb-2 lg:hidden">
+    <div className="flex gap-2 overflow-x-auto px-0 pb-2 [-webkit-overflow-scrolling:touch] lg:hidden">
       {pinRefs.map((pin) => (
         <button
           key={pin.id}
           type="button"
           onClick={() => go(hrefFor(pin.section, pin.id))}
-          className="shrink-0 rounded-sm border border-gold/30 bg-[#3a2418] px-3 py-2 text-left"
+          className="min-h-11 shrink-0 rounded-sm border border-gold/30 bg-[#3a2418] px-3 py-2 text-left"
         >
           <span className="block font-mono text-[9px] uppercase tracking-[0.16em] text-gold/65">
             {SECTION_META[pin.section].label}

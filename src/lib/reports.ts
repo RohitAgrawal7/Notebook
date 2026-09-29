@@ -1,4 +1,5 @@
 import type { NotePage, ReportStatus } from "./types";
+import { htmlToPlain } from "./rich-text";
 
 export const REPORT_STATUS_LABEL: Record<ReportStatus, string> = {
   draft: "Draft",
@@ -14,7 +15,7 @@ export function isReportHeading(part: string) {
 export function collectReportHeadings(pages: Array<Pick<NotePage, "text">>) {
   const headings: string[] = [];
   for (const page of pages) {
-    for (const part of page.text.split(/\n{2,}/)) {
+    for (const part of htmlToPlain(page.text).split(/\n{2,}/)) {
       if (isReportHeading(part)) headings.push(part.trim());
     }
   }

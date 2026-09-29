@@ -1,8 +1,8 @@
 "use client";
 
 import { InkToolbar } from "@/components/folio/InkToolbar";
+import { TypeToolbar } from "@/components/folio/TypeToolbar";
 import { useFolio } from "@/lib/folio-context";
-import { hydratePages } from "@/lib/notebook-pages";
 import type { SectionId } from "@/lib/types";
 
 const SECTION_ADD: Record<SectionId, string> = {
@@ -26,16 +26,12 @@ export function RegisterBar({
     selected,
     setPdfOpen,
     activeLeafId,
-    notes,
-    updateNotePages,
   } = useFolio();
   const count = selected.size;
   const leafId = activeLeafId ?? currentId;
   const createSection = sectionHint ?? section;
+  const showTools = Boolean(leafId);
   const showInk = createSection === "notebook" && Boolean(leafId);
-  const activePage = notes
-    .flatMap((note) => hydratePages(note))
-    .find((page) => page.id === leafId);
 
   return (
     <div className="no-print mb-4 flex flex-col gap-2">
@@ -64,7 +60,7 @@ export function RegisterBar({
         <span className="hidden h-4 w-px bg-gold/25 sm:block" />
         {leafId ? (
           <button type="button" className="folio-desk-btn" onClick={() => selectOnly(leafId)}>
-            Select this leaf
+            Select <span className="hidden sm:inline">this </span>leaf
           </button>
         ) : null}
         <button type="button" className="folio-desk-btn" onClick={clearSelection} disabled={count === 0}>
@@ -76,29 +72,14 @@ export function RegisterBar({
           onClick={() => setPdfOpen(true)}
           disabled={count === 0}
         >
-          Preview PDF · {count}
+          Preview<span className="hidden sm:inline"> PDF</span> · {count}
         </button>
       </div>
-      {showInk ? (
-        <InkToolbar
-          tone="desk"
-          italic={Boolean(activePage?.italic)}
-          onItalic={() => {
-            if (!leafId) return;
-            for (const note of notes) {
-              const pages = hydratePages(note);
-              const index = pages.findIndex((page) => page.id === leafId);
-              if (index < 0) continue;
-              updateNotePages(
-                note.id,
-                pages.map((page, pageIndex) =>
-                  pageIndex === index ? { ...page, italic: !page.italic } : page,
-                ),
-              );
-              return;
-            }
-          }}
-        />
+      {showTools || showInk ? (
+        <div className="desk-writing-tools">
+          {showTools ? <TypeToolbar section={createSection} tone="desk" /> : null}
+          {showInk ? <InkToolbar tone="desk" /> : null}
+        </div>
       ) : null}
     </div>
   );

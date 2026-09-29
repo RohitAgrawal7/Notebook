@@ -9,15 +9,15 @@ export function PageControls() {
   return (
     <nav
       aria-label="Page turn"
-      className="mt-6 flex items-center justify-between gap-3 text-[#f3e6cf]"
+      className="mt-6 flex items-center justify-between gap-2 text-[#f3e6cf] sm:gap-3"
     >
       <button
         type="button"
         onClick={goPrev}
         disabled={page <= 1}
-        className="rounded-sm border border-gold/25 bg-leather/80 px-3 py-2 font-mono text-[11px] uppercase tracking-[0.16em] transition enabled:hover:border-gold/55 enabled:hover:bg-leather disabled:opacity-35"
+        className="min-h-10 rounded-sm border border-gold/25 bg-leather/80 px-2.5 py-2 font-mono text-[11px] uppercase tracking-[0.16em] transition enabled:hover:border-gold/55 enabled:hover:bg-leather disabled:opacity-35 sm:px-3"
       >
-        ◀ Previous
+        ◀ <span className="hidden sm:inline">Previous</span>
       </button>
 
       <div className="flex min-w-0 flex-col items-center gap-2">
@@ -48,9 +48,9 @@ export function PageControls() {
         type="button"
         onClick={goNext}
         disabled={page >= pageCount}
-        className="rounded-sm border border-gold/25 bg-leather/80 px-3 py-2 font-mono text-[11px] uppercase tracking-[0.16em] transition enabled:hover:border-gold/55 enabled:hover:bg-leather disabled:opacity-35"
+        className="min-h-10 rounded-sm border border-gold/25 bg-leather/80 px-2.5 py-2 font-mono text-[11px] uppercase tracking-[0.16em] transition enabled:hover:border-gold/55 enabled:hover:bg-leather disabled:opacity-35 sm:px-3"
       >
-        Next ▶
+        <span className="hidden sm:inline">Next</span> ▶
       </button>
     </nav>
   );

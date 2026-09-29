@@ -14,7 +14,7 @@ export function SectionTabs() {
   const { section, setSection, page, pageCount } = useFolio();
 
   return (
-    <div className="flex items-end gap-1 px-2 sm:px-5" role="tablist" aria-label="Folio sections">
+    <div className="flex items-end gap-1 overflow-x-auto px-0 sm:px-5" role="tablist" aria-label="Folio sections">
       {SECTIONS.map((id) => {
         const active = section === id;
         const meta = SECTION_META[id];
@@ -25,7 +25,7 @@ export function SectionTabs() {
             role="tab"
             aria-selected={active}
             onClick={() => setSection(id)}
-            className={`relative min-w-0 rounded-t-[14px] border border-b-0 px-3 py-2 text-left shadow-[0_-6px_16px_rgba(0,0,0,0.14)] transition sm:px-5 ${
+            className={`relative min-w-[30%] flex-1 rounded-t-[14px] border border-b-0 px-2.5 py-2 text-left shadow-[0_-6px_16px_rgba(0,0,0,0.14)] transition sm:min-w-0 sm:flex-none sm:px-5 ${
               TAB_TINT[id]
             } ${
               active

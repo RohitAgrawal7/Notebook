@@ -20,7 +20,7 @@ export function DeskFrame({
 
   return (
     <div className="desk-grain app-chrome min-h-full">
-      <div className="mx-auto flex min-h-screen max-w-[1240px] flex-col px-4 py-5 sm:px-8 sm:py-8">
+      <div className="mx-auto flex min-h-screen max-w-[1240px] flex-col px-3 py-4 sm:px-8 sm:py-8">
         <header className="mb-8 flex flex-wrap items-end justify-between gap-4 text-[#f3e6cf]">
           <button type="button" className="text-left" onClick={() => go(href.home)}>
             <p className="font-mono text-[10px] uppercase tracking-[0.28em] text-gold">
@@ -77,7 +77,7 @@ function NavChip({
     <button
       type="button"
       onClick={() => go(to)}
-      className={`rounded-sm border px-3 py-1.5 font-mono text-[10px] uppercase tracking-[0.16em] ${
+      className={`nav-chip min-h-10 flex-1 rounded-sm border px-3 py-2 font-mono text-[10px] uppercase tracking-[0.16em] sm:flex-none sm:py-1.5 ${
         active
           ? "border-gold bg-gold/15 text-gold"
           : "border-gold/25 text-[#f3e6cf]/80 hover:border-gold/50"

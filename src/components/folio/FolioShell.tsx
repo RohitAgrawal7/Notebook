@@ -38,7 +38,7 @@ export function FolioShell({ children }: { children: ReactNode }) {
             <RegisterBar />
             <PinnedStrip />
             <SectionTabs />
-            <div className="relative rounded-b-[6px] rounded-tr-[6px] border border-[#c4a06a]/15 bg-[#2a1810]/50 p-3 shadow-[0_28px_70px_rgba(0,0,0,0.4)] sm:p-6">
+            <div className="relative rounded-b-[6px] rounded-tr-[6px] border border-[#c4a06a]/15 bg-[#2a1810]/50 p-2 shadow-[0_28px_70px_rgba(0,0,0,0.4)] sm:p-6">
               {children}
               <PageControls />
             </div>

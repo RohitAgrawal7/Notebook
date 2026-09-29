@@ -9,18 +9,13 @@ const DRAW_TOOLS: { id: MarkTool; label: string }[] = [
   { id: "highlighter", label: "Highlighter" },
   { id: "pencil", label: "Pencil" },
   { id: "eraser", label: "Eraser" },
-  { id: "underline", label: "Underline" },
-  { id: "italic", label: "Italic" },
+  { id: "underline", label: "Line" },
 ];
 
 export function InkToolbar({
   tone = "desk",
-  italic = false,
-  onItalic,
 }: {
   tone?: "desk" | "paper";
-  italic?: boolean;
-  onItalic?: () => void;
 }) {
   const { tool, color, setTool, setColor } = useInk();
   const swatches = tool === "highlighter" ? HIGHLIGHT_COLORS : PEN_COLORS;
@@ -30,21 +25,14 @@ export function InkToolbar({
   return (
     <div className="ink-toolbar" role="toolbar" aria-label="Page marks">
       {DRAW_TOOLS.map((item) => {
-        const active = item.id === "italic" ? italic : tool === item.id;
+        const active = tool === item.id;
         return (
           <button
             key={item.id}
             type="button"
             className={`${btn} ${active ? "is-ink-active" : ""}`}
             aria-pressed={active}
-            onClick={() => {
-              if (item.id === "italic") {
-                onItalic?.();
-                setTool("write");
-                return;
-              }
-              setTool(item.id);
-            }}
+            onClick={() => setTool(item.id)}
           >
             {item.label}
           </button>
